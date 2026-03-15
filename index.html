@@ -1,209 +1,331 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
 <meta charset="UTF-8">
-<title>Home-Clean Hub</title>
+<title>HomeClean Hub</title>
 
 <style>
 
 body{
-font-family: Arial;
-background:#f4f6f8;
+font-family:Arial;
 margin:0;
+background:#f5f7fa;
 }
 
 header{
-background:#4CAF50;
+background:#2e7d32;
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+position:relative;
+height:520px;
+background:url("https://images.unsplash.com/photo-1581578731548-c64695cc6952") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
 color:white;
 text-align:center;
-padding:40px;
 }
 
-.container{
-width:80%;
-margin:auto;
+.hero-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
 }
 
-.card{
-background:white;
-padding:25px;
-margin:25px 0;
-border-radius:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+.hero-content{
+position:relative;
+z-index:2;
+max-width:800px;
 }
 
-h2{
-color:#333;
+.hero h1{
+font-size:50px;
+margin-bottom:10px;
 }
 
-button{
+.hero p{
+font-size:22px;
+margin-bottom:20px;
+}
+
+.hero button{
+padding:15px 35px;
+font-size:18px;
 background:#4CAF50;
-color:white;
 border:none;
-padding:12px 20px;
-border-radius:5px;
+border-radius:8px;
+color:white;
 cursor:pointer;
 }
 
-input,select{
-width:100%;
-padding:10px;
-margin:8px 0;
+.container{
+width:85%;
+margin:auto;
 }
 
-table{
-width:100%;
-border-collapse:collapse;
+.section{
+background:white;
+padding:40px;
+margin:40px 0;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-td,th{
-border:1px solid #ddd;
-padding:10px;
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
 text-align:center;
 }
 
+.card img{
+width:100%;
+border-radius:10px;
+height:180px;
+object-fit:cover;
+}
+
+.timeline{
+line-height:2;
+font-size:18px;
+}
+
 .stat{
-font-size:22px;
+font-size:24px;
 font-weight:bold;
-color:#4CAF50;
+color:#2e7d32;
+margin:10px 0;
+}
+
+iframe{
+border:none;
+border-radius:10px;
+}
+
+footer{
+background:#2e7d32;
+color:white;
+text-align:center;
+padding:20px;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 <header>
-<h1>Home-Clean Hub</h1>
-<p>Thu gom đồ cũ – Giải phóng không gian – Tái sinh giá trị</p>
+
+<h2>HomeClean Hub</h2>
+
+<nav>
+
+<a href="#">Trang chủ</a>
+<a href="#services">Dịch vụ</a>
+<a href="#booking">Đặt lịch</a>
+<a href="#tracking">Theo dõi</a>
+<a href="#map">Khu vực</a>
+
+</nav>
+
 </header>
+
+
+<section class="hero">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+<h1>Thu gom đồ cũ – Trao giá trị mới</h1>
+
+<p>
+Giúp gia đình giải phóng không gian sống và giảm rác thải cho môi trường
+</p>
+
+<button onclick="document.getElementById('booking').scrollIntoView()">
+Đặt lịch thu gom
+</button>
+
+</div>
+
+</section>
+
 
 <div class="container">
 
-<div class="card">
 
-<h2>Đặt lịch thu gom nhanh</h2>
+<div class="section">
 
-<input placeholder="Số điện thoại">
-<input placeholder="Địa chỉ">
-<select>
-<option>Quần áo</option>
-<option>Sách</option>
-<option>Đồ điện tử</option>
-<option>Nội thất</option>
-</select>
+<h2>🌱 Về dự án</h2>
 
-<button>Đặt lịch ngay</button>
+<p>
 
-</div>
+HomeClean Hub là nền tảng giúp thu gom đồ cũ và xử lý chúng theo hướng bền vững.
+Đồ sau khi thu gom sẽ được phân loại và xử lý minh bạch.
 
-<div class="card">
-
-<h2>Vấn đề khách hàng</h2>
-
-<ul>
-<li>Nhà chật, đồ cũ tích tụ</li>
-<li>Ngại đăng bán</li>
-<li>Không biết xử lý đồ cũ</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>Dịch vụ của chúng tôi</h2>
-
-<ul>
-<li>Thu gom tận nơi</li>
-<li>Phân loại đồ</li>
-<li>Định giá minh bạch</li>
-<li>Bán lại – Tặng – Tái chế</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>Bảng giá tham khảo</h2>
-
-<table>
-
-<tr>
-<th>Loại đồ</th>
-<th>Giá dự kiến</th>
-</tr>
-
-<tr>
-<td>Quần áo</td>
-<td>5.000 – 20.000 / kg</td>
-</tr>
-
-<tr>
-<td>Sách</td>
-<td>3.000 – 10.000 / kg</td>
-</tr>
-
-<tr>
-<td>Đồ điện tử</td>
-<td>Định giá theo tình trạng</td>
-</tr>
-
-<tr>
-<td>Nội thất</td>
-<td>Khảo sát trực tiếp</td>
-</tr>
-
-</table>
-
-</div>
-
-<div class="card">
-
-<h2>Quy trình hoạt động</h2>
-
-<ol>
-
-<li>Khách đặt lịch trên website</li>
-<li>Nhân viên đến thu gom</li>
-<li>Phân loại đồ</li>
-<li>Tái chế hoặc bán lại</li>
-
-</ol>
-
-</div>
-
-<div class="card">
-
-<h2>Báo cáo tác động</h2>
-
-<p class="stat">♻️ 2.300 kg đồ cũ đã được tái chế</p>
-
-<p class="stat">🌱 500 hộ gia đình đã giải phóng không gian</p>
-
-<p class="stat">🚚 120 chuyến thu gom đã thực hiện</p>
-
-</div>
-
-<div class="card">
-
-<h2>Blog Sống Xanh</h2>
+</p>
 
 <ul>
 
-<li>5 cách dọn nhà tối giản</li>
-
-<li>Cách phân loại rác tại nhà</li>
-
-<li>Nên làm gì với quần áo cũ</li>
-
-<li>Mẹo tái chế đồ điện tử</li>
+<li>♻️ Tái chế</li>
+<li>🛍️ Bán lại cho thị trường đồ cũ</li>
+<li>❤️ Quyên góp cho trại trẻ và tổ chức từ thiện</li>
 
 </ul>
 
 </div>
 
+
+
+<div class="section" id="services">
+
+<h2>♻️ Dịch vụ</h2>
+
+<div class="service-grid">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1604186838309-c6715f0d3c6d">
+
+<h3>Thu gom tận nơi</h3>
+
+<p>Nhân viên đến tận nhà thu gom đồ cũ.</p>
+
 </div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09">
+
+<h3>Phân loại đồ</h3>
+
+<p>Đồ được phân loại để tái sử dụng hoặc tái chế.</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1521791055366-0d553872125f">
+
+<h3>Quyên góp</h3>
+
+<p>Đồ phù hợp sẽ được gửi đến các tổ chức từ thiện.</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="section" id="booking">
+
+<h2>📋 Đặt lịch thu gom</h2>
+
+<p>Vui lòng điền form bên dưới:</p>
+
+<iframe
+src="https://docs.google.com/forms/d/e/1FAIpQLSdJ6yLyg3FRXHLUH_e3q5HJ0xFW-UZTVhH-qQB1SymguB50vA/viewform?embedded=true"
+width="100%"
+height="900">
+</iframe>
+
+</div>
+
+
+
+<div class="section">
+
+<h2>📷 Tải ảnh đồ cần thanh lý</h2>
+
+<p>Khách hàng có thể tải ảnh để chúng tôi đánh giá nhanh hơn.</p>
+
+<input type="file" accept="image/*">
+
+</div>
+
+
+
+<div class="section" id="tracking">
+
+<h2>📦 Theo dõi trạng thái đồ</h2>
+
+<div class="timeline">
+
+<p>📦 Đã đăng ký thu gom</p>
+<p>🚚 Nhân viên đang đến thu gom</p>
+<p>🏭 Đang phân loại tại trung tâm</p>
+<p>♻️ Đang tái chế / quyên góp</p>
+<p>✅ Hoàn tất xử lý</p>
+
+</div>
+
+</div>
+
+
+
+<div class="section" id="map">
+
+<h2>🗺️ Khu vực thu gom</h2>
+
+<p>Hiện tại dịch vụ hỗ trợ thu gom tại khu vực TP.HCM và lân cận.</p>
+
+<iframe
+src="https://www.google.com/maps?q=Ho+Chi+Minh+City&output=embed"
+width="100%"
+height="400">
+</iframe>
+
+</div>
+
+
+
+<div class="section">
+
+<h2>🌍 Tác động môi trường</h2>
+
+<p class="stat">♻️ 2300kg đồ đã được tái chế</p>
+<p class="stat">👕 800kg quần áo được quyên góp</p>
+<p class="stat">📚 500 cuốn sách gửi thư viện cộng đồng</p>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+<p>© 2026 HomeClean Hub</p>
+
+</footer>
+
 
 </body>
 </html>
