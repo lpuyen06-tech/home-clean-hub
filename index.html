@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
+<meta charset="UTF-8">
 <title>Home-Clean Hub</title>
 
 <style>
 
 body{
 font-family: Arial;
-background:#f4f7fb;
+background:#f4f6f8;
 margin:0;
 }
 
@@ -15,41 +16,56 @@ header{
 background:#4CAF50;
 color:white;
 text-align:center;
-padding:30px;
+padding:40px;
 }
 
 .container{
 width:80%;
 margin:auto;
-padding:20px;
 }
 
-.section{
+.card{
 background:white;
-padding:20px;
-margin-top:20px;
+padding:25px;
+margin:25px 0;
 border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+h2{
+color:#333;
 }
 
 button{
 background:#4CAF50;
 color:white;
 border:none;
-padding:10px 20px;
+padding:12px 20px;
 border-radius:5px;
 cursor:pointer;
 }
 
-button:hover{
-background:#388E3C;
-}
-
 input,select{
 width:100%;
-padding:8px;
-margin-top:5px;
-margin-bottom:15px;
+padding:10px;
+margin:8px 0;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+td,th{
+border:1px solid #ddd;
+padding:10px;
+text-align:center;
+}
+
+.stat{
+font-size:22px;
+font-weight:bold;
+color:#4CAF50;
 }
 
 </style>
@@ -65,58 +81,125 @@ margin-bottom:15px;
 
 <div class="container">
 
-<div class="section">
-<h2>Vấn đề khách hàng</h2>
-<ul>
-<li>Nhà chật, đồ cũ tích tụ</li>
-<li>Ngại đăng bán, mặc cả</li>
-<li>Không biết xử lý đồ cũ</li>
-</ul>
-</div>
+<div class="card">
 
-<div class="section">
-<h2>Dịch vụ của chúng tôi</h2>
-<ul>
-<li>Thu gom đồ cũ tận nơi</li>
-<li>Phân loại đồ</li>
-<li>Định giá minh bạch</li>
-<li>Bán lại – Tặng – Tái chế</li>
-</ul>
-</div>
+<h2>Đặt lịch thu gom nhanh</h2>
 
-<div class="section">
-<h2>Đặt lịch thu gom</h2>
-
-<form>
-
-<label>Họ và tên</label>
-<input type="text">
-
-<label>Số điện thoại</label>
-<input type="text">
-
-<label>Địa chỉ</label>
-<input type="text">
-
-<label>Loại đồ cần thanh lý</label>
+<input placeholder="Số điện thoại">
+<input placeholder="Địa chỉ">
 <select>
 <option>Quần áo</option>
 <option>Sách</option>
 <option>Đồ điện tử</option>
 <option>Nội thất</option>
-<option>Khác</option>
 </select>
 
-<label>Số lượng</label>
-<select>
-<option>Ít</option>
-<option>Trung bình</option>
-<option>Nhiều</option>
-</select>
+<button>Đặt lịch ngay</button>
 
-<button type="submit">Gửi yêu cầu</button>
+</div>
 
-</form>
+<div class="card">
+
+<h2>Vấn đề khách hàng</h2>
+
+<ul>
+<li>Nhà chật, đồ cũ tích tụ</li>
+<li>Ngại đăng bán</li>
+<li>Không biết xử lý đồ cũ</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Dịch vụ của chúng tôi</h2>
+
+<ul>
+<li>Thu gom tận nơi</li>
+<li>Phân loại đồ</li>
+<li>Định giá minh bạch</li>
+<li>Bán lại – Tặng – Tái chế</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Bảng giá tham khảo</h2>
+
+<table>
+
+<tr>
+<th>Loại đồ</th>
+<th>Giá dự kiến</th>
+</tr>
+
+<tr>
+<td>Quần áo</td>
+<td>5.000 – 20.000 / kg</td>
+</tr>
+
+<tr>
+<td>Sách</td>
+<td>3.000 – 10.000 / kg</td>
+</tr>
+
+<tr>
+<td>Đồ điện tử</td>
+<td>Định giá theo tình trạng</td>
+</tr>
+
+<tr>
+<td>Nội thất</td>
+<td>Khảo sát trực tiếp</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<h2>Quy trình hoạt động</h2>
+
+<ol>
+
+<li>Khách đặt lịch trên website</li>
+<li>Nhân viên đến thu gom</li>
+<li>Phân loại đồ</li>
+<li>Tái chế hoặc bán lại</li>
+
+</ol>
+
+</div>
+
+<div class="card">
+
+<h2>Báo cáo tác động</h2>
+
+<p class="stat">♻️ 2.300 kg đồ cũ đã được tái chế</p>
+
+<p class="stat">🌱 500 hộ gia đình đã giải phóng không gian</p>
+
+<p class="stat">🚚 120 chuyến thu gom đã thực hiện</p>
+
+</div>
+
+<div class="card">
+
+<h2>Blog Sống Xanh</h2>
+
+<ul>
+
+<li>5 cách dọn nhà tối giản</li>
+
+<li>Cách phân loại rác tại nhà</li>
+
+<li>Nên làm gì với quần áo cũ</li>
+
+<li>Mẹo tái chế đồ điện tử</li>
+
+</ul>
 
 </div>
 
