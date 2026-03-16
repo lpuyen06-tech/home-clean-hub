@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home-Clean Hub | Dịch Vụ Thu Gom Chuyên Nghiệp</title>
+    <title>Home-Clean Hub | Dịch Vụ Thu Gom Đồ Cũ Chuyên Nghiệp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -30,76 +30,44 @@
                 <span class="text-xl font-black text-emerald-800 italic uppercase">Home-Clean Hub</span>
             </div>
             <div class="hidden md:flex items-center space-x-6 text-[10px] font-black uppercase tracking-widest italic">
+                <a href="#about" class="hover:text-emerald-600">Dịch vụ</a>
                 <a href="#pricing" class="hover:text-emerald-600">Bảng giá</a>
-                <a href="#tracking" class="hover:text-emerald-600">Theo dõi</a>
-                <a href="#feedback" class="hover:text-emerald-600">Đánh giá</a>
-                <div class="text-emerald-600 border-l pl-6 border-gray-200">
-                    <i class="fas fa-clock mr-1"></i> T2-T7: 8h30 - 21h00
+                <a href="#contact" class="hover:text-emerald-600">Đặt lịch</a>
+                <div class="flex items-center text-emerald-600 border-l pl-4 border-gray-200">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>T2 - T7: 08:30 - 21:00 (CN Nghỉ)</span>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="bg-white py-16 border-b">
+    <header id="about" class="bg-white py-16 border-b">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <span class="bg-emerald-100 text-emerald-700 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest italic">Giờ làm việc: 08:30 - 21:00 (Thứ 2 - Thứ 7)</span>
-                <h1 class="text-6xl font-black leading-tight uppercase italic text-gray-900 mt-4">Dọn nhà sạch<br><span class="text-emerald-600 font-black italic">Gửi trao yêu thương</span></h1>
-                <p class="mt-6 text-gray-500 italic leading-relaxed">Dịch vụ thu gom nội thất, điện tử và quần áo cũ tận nơi. Home-Clean Hub giúp bạn chuyển giao quà tặng đến các vùng cao và trại trẻ mồ côi (Chủ nhật nghỉ).</p>
+                <h1 class="text-6xl font-black leading-tight uppercase italic text-gray-900">Dọn nhà sạch<br><span class="text-emerald-600 font-black italic">Gửi trao yêu thương</span></h1>
+                <p class="mt-6 text-gray-500 italic leading-relaxed text-lg">
+                    <b>Home-Clean Hub</b> cung cấp giải pháp thu gom nội thất, điện tử và quần áo cũ tận nơi. Chúng tôi thay bạn chuyển giao những món đồ cũ đến các mái ấm và vùng cao xa xôi (Thời gian làm việc từ 8h30 đến 21h00).
+                </p>
                 <div class="mt-8">
-                    <a href="#contact" class="px-10 py-5 bg-emerald-600 text-white rounded-2xl font-black shadow-xl uppercase inline-block">Đặt lịch thu gom ngay</a>
+                    <a href="#contact" class="px-8 py-4 bg-emerald-600 text-white rounded-2xl font-black shadow-xl hover:bg-emerald-700 transition uppercase tracking-tighter inline-block">Đặt lịch thu gom ngay</a>
                 </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80" class="rounded-[3rem] shadow-2xl h-[400px] w-full object-cover">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80" class="rounded-[3rem] shadow-2xl border-8 border-white h-[450px] w-full object-cover">
+            </div>
         </div>
     </header>
 
-    <section id="pricing" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6 italic">
-            <h2 class="text-3xl font-black text-center mb-12 uppercase italic">Danh mục thu gom & Phí dịch vụ</h2>
-            <div class="grid md:grid-cols-4 gap-6 mb-12">
-                <div class="price-card p-8 bg-white rounded-3xl shadow-sm text-center">
+    <section id="pricing" class="py-20 bg-gray-50 italic">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-black text-center mb-16 uppercase italic">Biểu phí dịch vụ niêm yết</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="price-card p-8 bg-white rounded-[2.5rem] shadow-sm text-center border border-gray-100">
                     <i class="fas fa-couch text-3xl text-blue-500 mb-4"></i>
-                    <h3 class="font-black uppercase text-[10px]">Đồ Cồng Kềnh</h3>
-                    <div class="text-2xl font-black my-4">15k<small class="text-sm">/kg</small></div>
+                    <h3 class="font-black uppercase text-[10px] mb-2">Đồ Cồng Kềnh</h3>
+                    <div class="text-3xl font-black text-gray-900 mb-2">15.000đ<span class="text-xs">/kg</span></div>
                     <p class="text-[9px] text-gray-400 font-bold uppercase">Nệm, Sofa, Tủ gỗ lớn</p>
                 </div>
-                <div class="price-card p-8 bg-white rounded-3xl shadow-sm text-center">
+                <div class="price-card p-8 bg-white rounded-[2.5rem] shadow-sm text-center border border-gray-100">
                     <i class="fas fa-plug text-3xl text-emerald-500 mb-4"></i>
-                    <h3 class="font-black uppercase text-[10px]">Điện tử - Kim loại</h3>
-                    <div class="text-2xl font-black my-4">8k<small class="text-sm">/kg</small></div>
-                    <p class="text-[9px] text-gray-400 font-bold uppercase">Tủ lạnh, Máy giặt, Tivi</p>
-                </div>
-                <div class="price-card p-8 bg-white rounded-3xl shadow-sm text-center">
-                    <i class="fas fa-recycle text-3xl text-orange-400 mb-4"></i>
-                    <h3 class="font-black uppercase text-[10px]">Giấy - Nhựa</h3>
-                    <div class="text-2xl font-black my-4">3k<small class="text-sm">/kg</small></div>
-                    <p class="text-[9px] text-gray-400 font-bold uppercase">Carton, Sách cũ, Chai lọ</p>
-                </div>
-                <div class="price-card p-8 bg-emerald-600 rounded-3xl shadow-xl text-center text-white scale-105 border-4 border-emerald-300">
-                    <i class="fas fa-tshirt text-3xl mb-4"></i>
-                    <h3 class="font-black uppercase text-[10px]">Quần áo quyên góp</h3>
-                    <div class="text-2xl font-black my-4">5k<small class="text-sm">/kg</small></div>
-                    <p class="text-[9px] text-emerald-100 font-black uppercase">Vận chuyển & Tặng vùng cao</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="tracking" class="py-16 bg-emerald-600 text-white italic">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-black mb-8 uppercase italic">Kiểm tra lộ trình đơn</h2>
-            <div class="max-w-xl mx-auto flex gap-2">
-                <input type="text" placeholder="Nhập mã đơn HUB..." class="flex-1 px-6 py-4 rounded-xl text-gray-800 font-bold outline-none border-4 border-emerald-900">
-                <button onclick="document.getElementById('trackRes').classList.toggle('hidden')" class="px-8 py-4 bg-gray-900 rounded-xl font-black uppercase">Check</button>
-            </div>
-            <div id="trackRes" class="hidden mt-8 max-w-lg mx-auto bg-white/20 p-6 rounded-2xl border border-white/30">
-                <p class="text-sm font-bold italic">Đang vận chuyển về trung tâm phân loại Home-Clean Hub</p>
-                <div class="w-full h-2 bg-white/20 rounded-full mt-4 overflow-hidden">
-                    <div class="w-1/2 h-full bg-emerald-400 shadow-[0_0_10px_#fff]"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section
+                    <h3 class="font-black uppercase text
