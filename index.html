@@ -48,19 +48,15 @@
                     <i class="fas fa-truck-loading text-xl"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-2xl font-black text-emerald-800 uppercase italic tracking-tighter leading-none">Home-Clean Hub</span>
-                    <span class="text-[9px] font-bold text-gray-400 uppercase italic tracking-widest mt-1">Kho Tổng Q7 - Phục vụ toàn TP.HCM</span>
+                    <span class="text-2xl font-black text-emerald-800 uppercase italic tracking-tighter">Home-Clean Hub</span>
+                    <span class="text-[9px] font-bold text-gray-400 uppercase italic tracking-widest">Dọn nhà - Trao hy vọng</span>
                 </div>
             </div>
 
             <div class="hidden md:flex items-center space-x-8 italic">
                 <div class="text-right border-r pr-6 border-gray-200">
-                    <p class="text-[10px] font-black text-emerald-600 uppercase">Phạm vi dịch vụ</p>
-                    <p class="text-sm font-bold">Tất cả các Quận / Huyện</p>
-                </div>
-                <div class="text-right border-r pr-6 border-gray-200">
-                    <p class="text-[10px] font-black text-emerald-600 uppercase">Giờ làm việc</p>
-                    <p class="text-sm font-bold">T2 - T7: <span class="text-emerald-700">08:30 – 21:00</span></p>
+                    <p class="text-[10px] font-black text-emerald-600 uppercase">Khung giờ phục vụ</p>
+                    <p class="text-sm font-bold">Thứ 2 - Thứ 7: <span class="text-emerald-700">08:30 – 21:00</span></p>
                 </div>
                 <a href="#booking" class="bg-emerald-600 text-white px-8 py-3 rounded-full font-black uppercase text-xs shadow-xl hover:bg-emerald-700 transition">Đặt lịch ngay</a>
             </div>
@@ -75,7 +71,7 @@
                     Giải pháp <br><span class="text-emerald-600">thu gom đồ cũ</span> <br>tận nhà
                 </h1>
                 <p class="mt-8 text-lg text-gray-500 italic max-w-lg leading-relaxed">
-                    Dựa trên hệ thống kho bãi tập trung tại Quận 7, Home-Clean Hub tự hào cung cấp dịch vụ thu gom chuyên nghiệp đến mọi khách hàng tại TP.HCM.
+                    Đừng bỏ phí đồ cũ! Home-Clean Hub giúp bạn dọn dẹp không gian sống và mang những món đồ ấy đến tay người cần.
                 </p>
                 <div class="mt-10 flex flex-wrap gap-5">
                     <a href="#pricing" class="px-10 py-5 bg-gray-900 text-white rounded-2xl font-black shadow-2xl hover:bg-black transition uppercase italic">Xem bảng giá</a>
@@ -91,7 +87,7 @@
                 </div>
             </div>
             <div class="relative">
-                <img src="https://images.unsplash.com/photo-1528740561666-dc2479da08ad?auto=format&fit=crop&w=800&q=80" 
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6958?q=80&w=2070&auto=format&fit=crop" 
                      class="rounded-[3.5rem] shadow-2xl border-[15px] border-white object-cover h-[500px] w-full" alt="Cleaning Service">
             </div>
         </div>
@@ -123,79 +119,3 @@
                     <p class="text-[10px] font-bold text-gray-400 border-t pt-6 uppercase italic">Tủ lạnh, Máy giặt, Tivi</p>
                 </div>
                 <div class="price-card p-10 bg-white rounded-[3rem] text-center border border-gray-100 shadow-sm">
-                    <div class="w-20 h-20 bg-orange-50 text-orange-500 rounded-3xl flex items-center justify-center mx-auto mb-8 text-3xl">
-                        <i class="fas fa-recycle"></i>
-                    </div>
-                    <h3 class="font-black uppercase text-[10px] text-gray-400 mb-2">Giấy & Nhựa</h3>
-                    <div class="text-4xl font-black text-gray-900 mb-6">3.000đ</div>
-                    <p class="text-[10px] font-bold text-gray-400 border-t pt-6 uppercase italic">Thùng carton, Chai lọ nhựa</p>
-                </div>
-                <div class="price-card p-10 bg-emerald-600 rounded-[3rem] text-white text-center scale-105 shadow-2xl border-4 border-emerald-300">
-                    <div class="w-20 h-20 bg-white text-emerald-600 rounded-3xl flex items-center justify-center mx-auto mb-8 text-3xl">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3 class="font-black uppercase text-[10px] text-emerald-100 mb-2">Quần áo cũ</h3>
-                    <div class="text-4xl font-black mb-6 text-white">5.000đ</div>
-                    <p class="text-[10px] font-black text-emerald-50 border-t border-emerald-500 pt-6 uppercase italic">Chuyến xe quyên góp từ thiện</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="tracking" class="py-24 bg-emerald-700 text-white italic">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black uppercase italic mb-10">Theo dõi hành trình quyên góp</h2>
-            <div class="max-w-xl mx-auto flex p-2 bg-white rounded-2xl shadow-2xl">
-                <input type="text" id="trackInput" placeholder="Nhập mã vận đơn (VD: HUB-2026)..." 
-                       class="flex-1 px-6 py-4 text-gray-800 font-bold outline-none border-none italic">
-                <button onclick="checkStatus()" class="bg-gray-900 px-10 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-black transition">Check</button>
-            </div>
-            
-            <div id="trackView" class="hidden mt-12 max-w-lg mx-auto bg-white/10 backdrop-blur-md p-10 rounded-[3rem] border border-white/20 text-left">
-                <div class="flex justify-between items-center mb-6">
-                    <span id="trackID" class="text-xl font-black uppercase italic">MÃ: HUB-XXX</span>
-                    <span class="bg-emerald-400 text-emerald-900 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Đang xử lý</span>
-                </div>
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-6 h-6 bg-emerald-400 rounded-full flex-shrink-0 mt-1 shadow-[0_0_10px_#34d399]"></div>
-                        <p class="font-bold text-sm">Đã tiếp nhận yêu cầu (Hotline 0933.815.136)</p>
-                    </div>
-                    <div class="flex items-start space-x-4 border-l-2 border-emerald-400 ml-3 pl-5 py-4 loading-bar">
-                        <div class="w-6 h-6 bg-white rounded-full flex-shrink-0 mt-1 animate-pulse"></div>
-                        <p class="font-bold text-sm italic text-emerald-200 uppercase text-xs">Xe thu gom đang di chuyển từ Kho tổng Quận 7</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="booking" class="py-28 bg-white italic">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-4xl font-black uppercase italic text-gray-900 mb-4 border-l-8 border-emerald-600 pl-6">Đặt lịch ngay</h2>
-                    <p class="text-gray-400 font-bold text-xs uppercase italic mb-8 tracking-widest italic ml-6">Hỗ trợ nhanh toàn TP.HCM</p>
-                    <div class="shadow-2xl rounded-[3rem] overflow-hidden border border-gray-100">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJ6yLyg3FRXHLUH_e3q5HJ0xFW-UZTVhH-qQB1SymguB50vA/viewform?embedded=true">Đang tải biểu mẫu...</iframe>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="text-4xl font-black uppercase italic text-gray-900 mb-4 border-l-8 border-gray-900 pl-6">Trung tâm điều phối</h2>
-                    <p class="text-gray-400 font-bold text-xs uppercase italic mb-8 tracking-widest italic ml-6">Địa chỉ Kho: Nguyễn Văn Linh, Quận 7, TP.HCM</p>
-                    <div class="shadow-2xl rounded-[3rem] overflow-hidden border border-gray-100">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.954415525444!2d106.7022!3d10.7327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f997633633d%3A0xe9620b7201c875!2zUXXhuq1uIDcsIFRowG5oIHBow7EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1710000000000" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="feedback" class="py-24 bg-gray-50 italic">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-4xl font-black text-center mb-16 uppercase italic">Tiếng nói cộng đồng</h2>
-            
-            <div id="fbList" class="space-y-6 mb-16">
-                <div class="p-10 bg-white rounded-[2.5rem] shadow-sm border-l-[12px] border-emerald-500 italic">
-                    <div class="text-yellow-400 mb-4 text-xs italic"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-lg font-bold text-gray-700 italic">"D
