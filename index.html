@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home-Clean Hub | Hệ Thống Thu Gom & Phân Loại Thông Minh</title>
+    <title>Home-Clean Hub | Nhóm 9 - Thu Gom Tận Nơi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .step-active { color: #10b981; border-color: #10b981; }
-        .float-btn { animation: bounceCustom 2s infinite; }
-        @keyframes bounceCustom { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .bg-hub { background-color: #10b981; }
-        .text-hub { color: #10b981; }
+        .price-card:hover { transform: translateY(-10px); transition: 0.4s; border-color: #10b981; }
+        #orderModal { display: none; }
+        .modal-active { display: flex !important; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -21,194 +19,89 @@
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="35" height="35" viewBox="0 0 100 100">
                     <rect width="100" height="100" rx="20" fill="#10b981"/>
-                    <path d="M30 40 L50 20 L70 40 M50 20 L50 75" stroke="white" stroke-width="8" stroke-linecap="round"/>
-                    <path d="M30 75 L70 75" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M30 40 L50 20 L70 40 M50 20 L50 75" stroke="white" stroke-width="8" fill="none"/>
                 </svg>
-                <span class="text-2xl font-black text-emerald-700 italic tracking-tighter">Home-Clean <span class="text-emerald-500">Hub</span></span>
+                <span class="text-xl font-black text-emerald-700 italic">Home-Clean <span class="text-emerald-500">Hub</span></span>
             </div>
-            <div class="hidden md:flex space-x-8 font-bold text-sm uppercase italic">
-                <a href="#tracking" class="text-emerald-600 hover:text-emerald-700 underline">Theo dõi đồ</a>
-                <a href="#services" class="hover:text-emerald-600 transition">Dịch vụ</a>
-                <a href="#contact" class="bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700 shadow-md transition">Đặt lịch ngay</a>
+            <div class="hidden md:flex space-x-6 font-bold text-xs uppercase">
+                <a href="#pricing" class="hover:text-emerald-600">Bảng giá theo KG</a>
+                <a href="#tracking" class="hover:text-emerald-600">Theo dõi đơn</a>
+                <a href="#feedback" class="hover:text-emerald-600">Đánh giá</a>
+                <a href="#contact" class="bg-emerald-600 text-white px-5 py-2 rounded-full shadow-lg">Đặt lịch ngay</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-white py-12 lg:py-20 overflow-hidden">
+    <header class="bg-white py-16 border-b">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <span class="bg-emerald-100 text-emerald-700 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em]">Dự án Startup Đại học - Nhóm 4</span>
-                <h1 class="text-5xl lg:text-6xl font-extrabold mt-6 leading-tight italic text-gray-900">
-                    Gom đồ cũ <br><span class="text-emerald-600">Kiến tạo tương lai</span>
-                </h1>
-                <p class="mt-6 text-gray-500 text-lg leading-relaxed italic">
-                    Hệ thống Hub trung gian chuyên thu gom, phân loại và điều phối đồ cũ, rác thải cồng kềnh đến đúng nơi xử lý: Tái chế hoặc Từ thiện.
-                </p>
-                <div class="mt-10 flex flex-wrap gap-4">
-                    <a href="#contact" class="px-8 py-4 bg-emerald-600 text-white rounded-2xl font-black shadow-xl hover:-translate-y-1 transition duration-300 uppercase">Bắt đầu gom ngay</a>
-                    <a href="#tracking" class="px-8 py-4 border-2 border-emerald-600 text-emerald-600 rounded-2xl font-black hover:bg-emerald-50 transition uppercase">Kiểm tra đơn hàng</a>
+                <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Dự án Startup - Nhóm 9</span>
+                <h1 class="text-5xl font-black leading-tight italic uppercase mt-4 italic">Gom đồ cũ <br><span class="text-emerald-600">Trả mặt bằng sạch</span></h1>
+                <p class="mt-4 text-gray-500 italic font-medium">Hệ thống thu gom nội thất, đồ điện tử nặng tính phí theo kg. Minh bạch - Tận tâm - Chuyên nghiệp.</p>
+                <div class="mt-8 flex gap-4">
+                    <a href="#contact" class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-black shadow-xl hover:bg-emerald-700 transition uppercase">Gửi yêu cầu dọn đồ</a>
                 </div>
             </div>
             <div class="relative">
-                <img src="banner.png.png" alt="Home-Clean Hub Banner" class="rounded-[3rem] shadow-2xl relative z-10 border-8 border-white w-full h-[450px] object-cover">
-                <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-100 rounded-full z-0 opacity-50"></div>
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80" class="rounded-[2.5rem] shadow-2xl h-[350px] w-full object-cover border-4 border-white">
             </div>
         </div>
     </header>
 
-    <section id="tracking" class="py-20 bg-emerald-600">
+    <section id="pricing" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto bg-white rounded-[2.5rem] shadow-2xl p-8 md:p-12">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-black uppercase italic text-emerald-700">Theo dõi lộ trình thu gom</h2>
-                    <p class="text-gray-400 text-sm mt-2 font-medium italic italic">Minh bạch hóa quy trình tái chế và từ thiện</p>
+            <h2 class="text-4xl font-black uppercase italic text-center mb-12 underline decoration-emerald-500 decoration-8">Bảng giá thu gom</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="price-card p-10 bg-white rounded-3xl border-2 border-transparent shadow-sm text-center">
+                    <i class="fas fa-couch text-4xl text-emerald-600 mb-4"></i>
+                    <h3 class="font-bold uppercase italic text-gray-700">Đồ Cồng Kềnh</h3>
+                    <div class="text-3xl font-black my-4 text-gray-900">15.000đ <span class="text-sm font-normal">/kg</span></div>
+                    <p class="text-[10px] text-gray-400 font-bold italic italic">(Tủ gỗ, Sofa, Nệm cũ, Bàn ghế lớn)</p>
                 </div>
-
-                <div class="flex flex-col md:flex-row gap-4 mb-12">
-                    <input type="text" id="trackInput" placeholder="Nhập mã đơn (Ví dụ: HUB123)..." class="flex-1 px-6 py-4 rounded-2xl border-2 border-gray-100 outline-none focus:border-emerald-500 text-lg font-bold shadow-inner">
-                    <button onclick="showTracking()" class="px-10 py-4 bg-emerald-600 text-white font-black rounded-2xl hover:bg-emerald-700 transition uppercase shadow-lg shadow-emerald-200">Tìm kiếm</button>
+                <div class="price-card p-10 bg-white rounded-3xl border-4 border-emerald-500 shadow-xl scale-105 text-center">
+                    <i class="fas fa-tv text-4xl text-emerald-600 mb-4"></i>
+                    <h3 class="font-bold uppercase italic text-gray-700">Điện tử - Kim loại</h3>
+                    <div class="text-3xl font-black my-4 text-gray-900">8.000đ <span class="text-sm font-normal">/kg</span></div>
+                    <p class="text-[10px] text-gray-400 font-bold italic italic">(Máy giặt, Tủ lạnh, Tivi, Sắt thép)</p>
                 </div>
-
-                <div id="trackingResult" class="hidden">
-                    <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0">
-                        <div class="absolute top-6 left-0 w-full h-1 bg-gray-100 z-0 hidden md:block"></div>
-                        <div class="absolute top-6 left-0 w-1/3 h-1 bg-emerald-500 z-0 hidden md:block"></div>
-                        
-                        <div class="flex flex-col items-center z-10 bg-white px-2">
-                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center border-4 border-emerald-500 font-black mb-3">1</div>
-                            <p class="font-black text-[10px] uppercase italic text-emerald-600">Đã xác nhận</p>
-                        </div>
-                        <div class="flex flex-col items-center z-10 bg-white px-2">
-                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center border-4 border-emerald-500 font-black mb-3">2</div>
-                            <p class="font-black text-[10px] uppercase italic text-emerald-600">Đang lấy hàng</p>
-                        </div>
-                        <div class="flex flex-col items-center z-10 bg-white px-2">
-                            <div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center border-4 border-gray-200 font-black mb-3">3</div>
-                            <p class="font-black text-[10px] uppercase italic text-gray-400">Về kho phân loại</p>
-                        </div>
-                        <div class="flex flex-col items-center z-10 bg-white px-2">
-                            <div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center border-4 border-gray-200 font-black mb-3">4</div>
-                            <p class="font-black text-[10px] uppercase italic text-gray-400">Hoàn tất xử lý</p>
-                        </div>
-                    </div>
+                <div class="price-card p-10 bg-white rounded-3xl border-2 border-transparent shadow-sm text-center">
+                    <i class="fas fa-recycle text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="font-bold uppercase italic text-gray-700">Giấy - Nhựa</h3>
+                    <div class="text-3xl font-black my-4 text-gray-900">3.000đ <span class="text-sm font-normal">/kg</span></div>
+                    <p class="text-[10px] text-gray-400 font-bold italic italic">(Thùng carton, Sách cũ, Chai nhựa)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-24 bg-gray-50">
+    <section id="tracking" class="py-16 bg-emerald-600 text-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black mb-16 uppercase italic underline decoration-emerald-500 decoration-8">Danh mục thu gom</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="bg-white p-10 rounded-[2.5rem] shadow-lg border-b-8 border-blue-400 hover:-translate-y-3 transition duration-500">
-                    <div class="w-20 h-20 bg-blue-50 text-blue-500 rounded-3xl flex items-center justify-center text-4xl mx-auto mb-8 shadow-sm">
-                        <i class="fas fa-recycle"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase text-blue-800 italic">Thu gom Tái chế</h3>
-                    <p class="text-gray-400 text-sm italic mb-6">Giấy, nhựa, kim loại, rác thải điện tử hỏng.</p>
-                    <div class="text-2xl font-black text-blue-600 uppercase italic">Miễn phí gom</div>
+            <h2 class="text-3xl font-black mb-4 uppercase italic">Kiểm tra lộ trình đồ</h2>
+            <p class="mb-8 text-emerald-100 italic text-sm">Nhập mã đơn để xem đồ của bạn đang ở đâu</p>
+            <div class="max-w-xl mx-auto flex gap-2">
+                <input type="text" id="trackInput" placeholder="Dán mã đơn (VD: HUB5672)..." class="flex-1 px-6 py-4 rounded-xl text-gray-800 font-bold outline-none border-4 border-emerald-900 shadow-inner">
+                <button onclick="checkTrack()" class="px-8 py-4 bg-gray-900 rounded-xl font-black uppercase shadow-lg hover:bg-black transition">Check</button>
+            </div>
+            <div id="trackRes" class="hidden mt-10 max-w-2xl mx-auto bg-white/20 p-8 rounded-3xl backdrop-blur-md border border-white/30">
+                <div class="flex justify-between items-center text-[10px] font-black uppercase italic mb-4">
+                    <span class="text-emerald-300">● Đã xác nhận</span>
+                    <span class="text-emerald-300">● Đang vận chuyển</span>
+                    <span class="text-white/40">● Đang phân loại</span>
+                    <span class="text-white/40">● Xử lý xong</span>
                 </div>
-                <div class="bg-white p-10 rounded-[2.5rem] shadow-2xl border-2 border-emerald-500 relative transform lg:scale-110 z-10 border-b-8 border-emerald-600">
-                    <div class="w-20 h-20 bg-emerald-50 text-emerald-500 rounded-3xl flex items-center justify-center text-4xl mx-auto mb-8 shadow-sm">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase text-emerald-800 italic">Gom Quyên Góp</h3>
-                    <p class="text-gray-500 text-sm italic mb-6">Quần áo, sách vở, đồ gia dụng còn dùng được.</p>
-                    <div class="text-2xl font-black text-emerald-600 uppercase italic underline">Hỗ trợ vận chuyển</div>
+                <div class="w-full h-2 bg-white/20 rounded-full overflow-hidden">
+                    <div class="w-1/2 h-full bg-emerald-400 shadow-[0_0_10px_#34d399]"></div>
                 </div>
-                <div class="bg-white p-10 rounded-[2.5rem] shadow-lg border-b-8 border-orange-400 hover:-translate-y-3 transition duration-500">
-                    <div class="w-20 h-20 bg-orange-50 text-orange-500 rounded-3xl flex items-center justify-center text-4xl mx-auto mb-8 shadow-sm">
-                        <i class="fas fa-truck-pickup"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 uppercase text-orange-800 italic">Gom Đồ Cồng Kềnh</h3>
-                    <p class="text-gray-400 text-sm italic mb-6">Bàn ghế cũ, nệm hỏng, tủ gỗ lớn, xà bần.</p>
-                    <div class="text-2xl font-black text-orange-600 uppercase italic">Tính phí khối lượng</div>
-                </div>
+                <p class="mt-6 text-xs italic text-emerald-100">"Nhân viên đang cân đồ và vận chuyển về kho trung tâm Nhóm 9."</p>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="py-20 bg-white">
+    <section id="feedback" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-black text-center mb-16 uppercase italic">Đồng hành cùng cộng đồng</h2>
-            <div class="grid md:grid-cols-3 gap-8 italic text-sm">
-                <div class="bg-gray-50 p-8 rounded-2xl border-l-8 border-emerald-500 shadow-sm">
-                    "Web theo dõi rất hay, mình thấy được đồ cũ của mình đã đến được với các em nhỏ vùng cao."
-                    <div class="mt-4 font-black uppercase italic">— Chị Lan (Quận 7)</div>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-2xl border-l-8 border-emerald-500 shadow-sm">
-                    "Dịch vụ thu gom đồ cồng kềnh rất chuyên nghiệp, giúp giải quyết chiếc nệm cũ chỉ trong 30 phút."
-                    <div class="mt-4 font-black uppercase italic">— Anh Tuấn (Quận 1)</div>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-2xl border-l-8 border-emerald-500 shadow-sm">
-                    "Giá cả thu gom rác thải minh bạch, không chặt chém như các đội bên ngoài. 5 sao cho Hub!"
-                    <div class="mt-4 font-black uppercase italic">— Anh Minh (Quận 3)</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto bg-white rounded-[3rem] shadow-2xl overflow-hidden grid md:grid-cols-2">
-                <div class="p-10 lg:p-14">
-                    <h2 class="text-3xl font-black mb-8 uppercase italic">Đăng ký Thu Gom</h2>
-                    <form onsubmit="alert('Đã gửi yêu cầu! Mã đơn theo dõi của bạn là: HUB' + Math.floor(Math.random()*900 + 100)); return false;" class="space-y-5 font-bold">
-                        <input type="text" placeholder="Tên khách hàng" class="w-full px-5 py-4 rounded-xl border border-gray-100 outline-none focus:border-emerald-500 shadow-inner" required>
-                        <input type="tel" placeholder="Số điện thoại" class="w-full px-5 py-4 rounded-xl border border-gray-100 outline-none focus:border-emerald-500 shadow-inner" required>
-                        <select class="w-full px-5 py-4 rounded-xl border border-gray-100 outline-none focus:border-emerald-500 bg-gray-50 italic">
-                            <option>Gom đồ tái chế (Giấy, nhựa, điện tử...)</option>
-                            <option>Gom đồ quyên góp (Quần áo, sách vở...)</option>
-                            <option>Gom đồ cồng kềnh (Nội thất hỏng, nệm...)</option>
-                        </select>
-                        <textarea placeholder="Địa chỉ chi tiết và số lượng đồ ước tính..." rows="3" class="w-full px-5 py-4 rounded-xl border border-gray-100 outline-none focus:border-emerald-500 shadow-inner"></textarea>
-                        <button type="submit" class="w-full bg-emerald-600 text-white font-black py-5 rounded-xl hover:bg-emerald-700 transition shadow-lg uppercase tracking-widest italic">Gửi lịch thu gom</button>
-                    </form>
-                </div>
-                <div class="relative min-h-[400px]">
-                    <iframe src="http://googleusercontent.com/maps.google.com/9" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
-                    <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur p-4 rounded-xl shadow-lg border border-emerald-100">
-                        <p class="font-black text-emerald-700 italic text-[10px] uppercase tracking-wider italic"><i class="fas fa-map-marker-alt mr-2"></i>Khu vực điều phối: TP. Hồ Chí Minh</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-900 py-16 text-center italic">
-        <div class="container mx-auto px-6">
-            <svg width="50" height="50" viewBox="0 0 100 100" class="mx-auto mb-6">
-                <rect width="100" height="100" rx="20" fill="#10b981"/>
-                <path d="M30 40 L50 20 L70 40 M50 20 L50 75" stroke="white" stroke-width="8" fill="none"/>
-            </svg>
-            <h3 class="text-white text-2xl font-black uppercase italic">Home-Clean <span class="text-emerald-500">Hub</span></h3>
-            <p class="mt-4 text-gray-500 text-xs italic italic">Giải pháp thu gom thông minh - Kết nối vì môi trường</p>
-            <div class="mt-12 pt-8 border-t border-gray-800 text-[10px] text-gray-600 uppercase tracking-[0.4em]">© 2026 Home-Clean Hub Startup Team</div>
-        </div>
-    </footer>
-
-    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col space-y-4">
-        <a href="#" class="w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300">
-            <i class="fab fa-facebook-messenger text-2xl"></i>
-        </a>
-        <a href="tel:0900123456" class="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-2xl float-btn hover:scale-110 transition duration-300 border-2 border-white">
-            <i class="fas fa-phone-alt text-2xl"></i>
-        </a>
-    </div>
-
-    <script>
-        function showTracking() {
-            const input = document.getElementById('trackInput').value;
-            if(input.trim() !== "") {
-                document.getElementById('trackingResult').classList.remove('hidden');
-                document.getElementById('trackingResult').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                alert('Vui lòng nhập mã đơn hàng (Ví dụ: HUB123)');
-            }
-        }
-    </script>
-
-</body>
-</html>
+            <h2 class="text-3xl font-black text-center mb-12 uppercase italic italic">Phản hồi từ khách hàng</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-4">
+                    <div class="p-6 bg-gray-50 rounded-2xl border-l-4 border-emerald-500
