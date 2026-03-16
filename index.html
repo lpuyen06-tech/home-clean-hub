@@ -14,10 +14,8 @@
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-
 body{
-font-family:'Inter',sans-serif;
+font-family:Arial, sans-serif;
 scroll-behavior:smooth;
 }
 
@@ -26,30 +24,21 @@ transition:all .3s;
 }
 
 .price-card:hover{
-transform:translateY(-10px);
-box-shadow:0 25px 50px rgba(16,185,129,0.3);
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
 }
 
 .btn-call{
 position:fixed;
 bottom:30px;
 right:30px;
-animation:ring 1.5s infinite;
-}
-
-@keyframes ring{
-
-0%{transform:scale(1)}
-70%{transform:scale(1.1)}
-100%{transform:scale(1)}
-
 }
 
 </style>
 
 </head>
 
-<body class="bg-white text-gray-800 italic">
+<body class="bg-white text-gray-800">
 
 <!-- NAVBAR -->
 
@@ -59,13 +48,15 @@ animation:ring 1.5s infinite;
 
 <div class="flex items-center space-x-3">
 
-<i class="fas fa-recycle text-emerald-600 text-2xl"></i>
+<i class="fas fa-recycle text-green-600 text-2xl"></i>
 
-<span class="font-black text-xl text-emerald-800">Home-Clean Hub</span>
+<span class="font-bold text-xl text-green-800">Home-Clean Hub</span>
 
 </div>
 
-<div class="hidden md:flex space-x-6 font-bold text-sm">
+<div class="hidden md:flex space-x-6 font-semibold text-sm">
+
+<a href="#about">Giới thiệu</a>
 
 <a href="#pricing">Bảng giá</a>
 
@@ -77,7 +68,7 @@ animation:ring 1.5s infinite;
 
 <a href="#map">Bản đồ</a>
 
-<a href="tel:0933815136" class="text-emerald-600">Hotline</a>
+<a href="tel:0933815136" class="text-green-600">Hotline</a>
 
 </div>
 
@@ -89,7 +80,7 @@ animation:ring 1.5s infinite;
 
 <header class="relative h-[650px] flex items-center justify-center text-white text-center">
 
-<img src="https://source.unsplash.com/1600x900/?recycle,environment,charity"
+<img src="https://source.unsplash.com/1600x900/?cleaning,environment,recycle"
 
 class="absolute w-full h-full object-cover">
 
@@ -97,7 +88,7 @@ class="absolute w-full h-full object-cover">
 
 <div class="relative z-10 px-6">
 
-<h1 class="text-6xl font-black uppercase">
+<h1 class="text-6xl font-bold">
 
 Home-Clean Hub
 
@@ -111,7 +102,7 @@ Thu gom – Tái sử dụng – Giảm rác thải môi trường
 
 <a href="#booking"
 
-class="mt-8 inline-block bg-emerald-600 px-10 py-4 rounded-xl font-bold hover:bg-emerald-700">
+class="mt-8 inline-block bg-green-600 px-10 py-4 rounded-xl font-bold hover:bg-green-700">
 
 Đặt lịch thu gom
 
@@ -121,53 +112,81 @@ class="mt-8 inline-block bg-emerald-600 px-10 py-4 rounded-xl font-bold hover:bg
 
 </header>
 
+<!-- ABOUT -->
+
+<section id="about" class="py-20 bg-gray-50">
+
+<div class="container mx-auto px-6 text-center max-w-4xl">
+
+<h2 class="text-4xl font-bold mb-6">Dịch vụ Home-Clean Hub</h2>
+
+<p class="text-lg text-gray-700">
+
+Home-Clean Hub là dịch vụ hỗ trợ thu gom đồ cũ tận nhà nhằm giúp người dân dọn dẹp không gian sống, đồng thời góp phần giảm lượng rác thải ra môi trường.
+
+Những vật dụng còn sử dụng được sẽ được phân loại và gửi tặng đến các tổ chức thiện nguyện như trại trẻ mồ côi, vùng cao hoặc các chương trình tái sử dụng cộng đồng.
+
+Mục tiêu của dự án là xây dựng một hệ sinh thái "sống xanh" nơi mọi người có thể dễ dàng thanh lý đồ cũ một cách minh bạch và thân thiện với môi trường.
+
+</p>
+
+</div>
+
+</section>
+
 <!-- PRICING -->
 
 <section id="pricing" class="py-24">
 
 <div class="container mx-auto px-6 text-center">
 
-<h2 class="text-4xl font-black mb-12">Bảng giá</h2>
+<h2 class="text-4xl font-bold mb-12">Bảng giá thu gom</h2>
 
 <div class="grid md:grid-cols-4 gap-8">
 
-<div class="price-card p-8 border rounded-3xl">
+<div class="price-card p-8 border rounded-2xl">
 
 <i class="fas fa-couch text-3xl text-blue-500"></i>
 
 <h3 class="mt-4 font-bold">Đồ cồng kềnh</h3>
 
-<p class="text-3xl font-black mt-3">15.000đ</p>
+<p class="text-2xl font-bold mt-3">15.000đ / kg</p>
 
 </div>
 
-<div class="price-card p-8 border rounded-3xl">
+<div class="price-card p-8 border rounded-2xl">
 
-<i class="fas fa-tv text-3xl text-emerald-500"></i>
+<i class="fas fa-tv text-3xl text-green-500"></i>
 
 <h3 class="mt-4 font-bold">Đồ điện tử</h3>
 
-<p class="text-3xl font-black mt-3">8.000đ</p>
+<p class="text-2xl font-bold mt-3">8.000đ / kg</p>
 
 </div>
 
-<div class="price-card p-8 border rounded-3xl">
+<div class="price-card p-8 border rounded-2xl">
 
 <i class="fas fa-recycle text-3xl text-orange-500"></i>
 
 <h3 class="mt-4 font-bold">Giấy & Nhựa</h3>
 
-<p class="text-3xl font-black mt-3">3.000đ</p>
+<p class="text-2xl font-bold mt-3">3.000đ / kg</p>
 
 </div>
 
-<div class="price-card p-8 border rounded-3xl bg-emerald-600 text-white">
+<div class="price-card p-8 border rounded-2xl bg-green-600 text-white">
 
 <i class="fas fa-tshirt text-3xl"></i>
 
 <h3 class="mt-4 font-bold">Quần áo cũ</h3>
 
-<p class="text-3xl font-black mt-3">5.000đ</p>
+<p class="text-2xl font-bold mt-3">5.000đ / kg</p>
+
+<p class="mt-4 text-sm">
+
+Quần áo còn sử dụng tốt sẽ được gửi đến vùng cao và các trại trẻ mồ côi.
+
+</p>
 
 </div>
 
@@ -179,9 +198,9 @@ class="mt-8 inline-block bg-emerald-600 px-10 py-4 rounded-xl font-bold hover:bg
 
 <!-- TRACKING -->
 
-<section id="tracking" class="py-24 bg-emerald-700 text-white text-center">
+<section id="tracking" class="py-24 bg-green-700 text-white text-center">
 
-<h2 class="text-4xl font-black mb-10">Theo dõi hành trình đồ</h2>
+<h2 class="text-4xl font-bold mb-10">Theo dõi hành trình đồ</h2>
 
 <input id="trackInput"
 
@@ -193,7 +212,7 @@ class="px-6 py-4 text-black rounded-xl">
 
 class="bg-black px-8 py-4 ml-4 rounded-xl">
 
-Check
+Kiểm tra
 
 </button>
 
@@ -209,13 +228,13 @@ Check
 
 <div>
 
-<h2 class="text-4xl font-black mb-6">Đặt lịch thu gom</h2>
+<h2 class="text-4xl font-bold mb-6">Đặt lịch thu gom</h2>
 
 <iframe
 
 src="https://docs.google.com/forms/d/e/1FAIpQLSdJ6yLyg3FRXHLUH_e3q5HJ0xFW-UZTVhH-qQB1SymguB50vA/viewform?embedded=true"
 
-class="w-full h-[600px] rounded-3xl border">
+class="w-full h-[600px] rounded-2xl border">
 
 </iframe>
 
@@ -223,13 +242,13 @@ class="w-full h-[600px] rounded-3xl border">
 
 <div id="map">
 
-<h2 class="text-4xl font-black mb-6">Bản đồ khu vực</h2>
+<h2 class="text-4xl font-bold mb-6">Bản đồ khu vực</h2>
 
 <iframe
 
-src="https://maps.google.com/maps?q=quan10&t=&z=13&ie=UTF8&iwloc=&output=embed"
+src="https://maps.google.com/maps?q=hochiminh&t=&z=13&ie=UTF8&iwloc=&output=embed"
 
-class="w-full h-[600px] rounded-3xl border">
+class="w-full h-[600px] rounded-2xl border">
 
 </iframe>
 
@@ -245,9 +264,41 @@ class="w-full h-[600px] rounded-3xl border">
 
 <div class="container mx-auto px-6 max-w-3xl">
 
-<h2 class="text-4xl font-black text-center mb-10">Đánh giá khách hàng</h2>
+<h2 class="text-4xl font-bold text-center mb-10">Đánh giá khách hàng</h2>
 
-<div id="fbList"></div>
+<div id="fbList">
+
+<div class="bg-white p-6 rounded-xl shadow mb-6">
+
+⭐⭐⭐⭐⭐
+
+<p>"Dịch vụ rất tiện lợi, chỉ cần đặt lịch là có người đến thu gom."</p>
+
+<b>Lan Anh</b>
+
+</div>
+
+<div class="bg-white p-6 rounded-xl shadow mb-6">
+
+⭐⭐⭐⭐⭐
+
+<p>"Mình rất thích vì đồ cũ được gửi cho các tổ chức từ thiện."</p>
+
+<b>Minh Trí</b>
+
+</div>
+
+<div class="bg-white p-6 rounded-xl shadow mb-6">
+
+⭐⭐⭐⭐⭐
+
+<p>"Thu gom nhanh, nhân viên thân thiện."</p>
+
+<b>Hải Nam</b>
+
+</div>
+
+</div>
 
 <input id="uName"
 
@@ -263,7 +314,7 @@ class="w-full p-4 mt-4 border rounded-xl"></textarea>
 
 <button onclick="submitFB()"
 
-class="bg-emerald-600 text-white px-8 py-4 rounded-xl mt-4">
+class="bg-green-600 text-white px-8 py-4 rounded-xl mt-4">
 
 Gửi đánh giá
 
@@ -273,11 +324,11 @@ Gửi đánh giá
 
 </section>
 
-<!-- CALL BUTTON -->
+<!-- CALL -->
 
 <a href="tel:0933815136"
 
-class="btn-call bg-emerald-600 text-white w-16 h-16 rounded-full flex items-center justify-center">
+class="btn-call bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center">
 
 <i class="fas fa-phone"></i>
 
@@ -287,7 +338,7 @@ class="btn-call bg-emerald-600 text-white w-16 h-16 rounded-full flex items-cent
 
 <footer class="bg-gray-900 text-white py-16 text-center">
 
-<h2 class="text-3xl font-black">Home-Clean Hub</h2>
+<h2 class="text-3xl font-bold">Home-Clean Hub</h2>
 
 <p class="mt-4">Hotline: 0933 815 136</p>
 
@@ -303,13 +354,13 @@ let code=document.getElementById("trackInput").value
 
 if(code===""){
 
-document.getElementById("trackResult").innerText="Vui lòng nhập mã"
+document.getElementById("trackResult").innerText="Vui lòng nhập mã đơn"
 
 }
 
 else{
 
-document.getElementById("trackResult").innerText="Đơn "+code+" đang được xử lý và phân loại"
+document.getElementById("trackResult").innerText="Đơn "+code+" đang được phân loại và xử lý"
 
 }
 
