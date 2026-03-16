@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home-Clean Hub | Nhóm 9 - Thu Gom Tận Nơi</title>
+    <title>Home-Clean Hub | Nhóm 9 - Startup Thu Gom</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .price-card:hover { transform: translateY(-10px); transition: 0.4s; border-color: #10b981; }
-        #orderModal { display: none; }
-        .modal-active { display: flex !important; }
+        
+        /* Hiệu ứng nút gọi rung rinh */
+        .btn-phone-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            animation: shake 0.5s infinite;
+        }
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-10deg); }
+            100% { transform: rotate(0deg); }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <svg width="35" height="35" viewBox="0 0 100 100">
@@ -25,11 +39,11 @@
                 </svg>
                 <span class="text-xl font-black text-emerald-700 italic">Home-Clean <span class="text-emerald-500">Hub</span></span>
             </div>
-            <div class="hidden md:flex space-x-6 font-bold text-xs uppercase">
-                <a href="#pricing" class="hover:text-emerald-600">Bảng giá theo KG</a>
-                <a href="#tracking" class="hover:text-emerald-600">Theo dõi đơn</a>
+            <div class="hidden md:flex space-x-6 font-bold text-xs uppercase italic">
+                <a href="#pricing" class="hover:text-emerald-600">Bảng giá</a>
+                <a href="#tracking" class="hover:text-emerald-600">Theo dõi</a>
                 <a href="#feedback" class="hover:text-emerald-600">Đánh giá</a>
-                <a href="#contact" class="bg-emerald-600 text-white px-5 py-2 rounded-full shadow-lg">Đặt lịch ngay</a>
+                <a href="#contact" class="bg-emerald-600 text-white px-5 py-2 rounded-full shadow-lg hover:bg-emerald-700 transition">Đặt lịch ngay</a>
             </div>
         </div>
     </nav>
@@ -38,10 +52,10 @@
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div>
                 <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Dự án Startup - Nhóm 9</span>
-                <h1 class="text-5xl font-black leading-tight italic uppercase mt-4 italic">Gom đồ cũ <br><span class="text-emerald-600">Trả mặt bằng sạch</span></h1>
-                <p class="mt-4 text-gray-500 italic font-medium">Hệ thống thu gom nội thất, đồ điện tử nặng tính phí theo kg. Minh bạch - Tận tâm - Chuyên nghiệp.</p>
-                <div class="mt-8 flex gap-4">
-                    <a href="#contact" class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-black shadow-xl hover:bg-emerald-700 transition uppercase">Gửi yêu cầu dọn đồ</a>
+                <h1 class="text-5xl font-black leading-tight italic uppercase mt-4">Gom đồ cũ <br><span class="text-emerald-600">Nhận giá tốt</span></h1>
+                <p class="mt-4 text-gray-500 italic">Dịch vụ thu gom nội thất, điện tử tính phí theo kg. Giải pháp dọn nhà thông minh của Nhóm 9.</p>
+                <div class="mt-8">
+                    <a href="#contact" class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-black shadow-xl uppercase inline-block">Bắt đầu đặt lịch</a>
                 </div>
             </div>
             <div class="relative">
@@ -54,23 +68,23 @@
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-black uppercase italic text-center mb-12 underline decoration-emerald-500 decoration-8">Bảng giá thu gom</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="price-card p-10 bg-white rounded-3xl border-2 border-transparent shadow-sm text-center">
+                <div class="price-card p-10 bg-white rounded-3xl border-2 shadow-sm text-center">
                     <i class="fas fa-couch text-4xl text-emerald-600 mb-4"></i>
                     <h3 class="font-bold uppercase italic text-gray-700">Đồ Cồng Kềnh</h3>
                     <div class="text-3xl font-black my-4 text-gray-900">15.000đ <span class="text-sm font-normal">/kg</span></div>
-                    <p class="text-[10px] text-gray-400 font-bold italic italic">(Tủ gỗ, Sofa, Nệm cũ, Bàn ghế lớn)</p>
+                    <p class="text-[10px] text-gray-400 font-bold italic">(Tủ gỗ, Sofa, Nệm cũ)</p>
                 </div>
                 <div class="price-card p-10 bg-white rounded-3xl border-4 border-emerald-500 shadow-xl scale-105 text-center">
-                    <i class="fas fa-tv text-4xl text-emerald-600 mb-4"></i>
+                    <i class="fas fa-plug text-4xl text-emerald-600 mb-4"></i>
                     <h3 class="font-bold uppercase italic text-gray-700">Điện tử - Kim loại</h3>
                     <div class="text-3xl font-black my-4 text-gray-900">8.000đ <span class="text-sm font-normal">/kg</span></div>
-                    <p class="text-[10px] text-gray-400 font-bold italic italic">(Máy giặt, Tủ lạnh, Tivi, Sắt thép)</p>
+                    <p class="text-[10px] text-gray-400 font-bold italic">(Tủ lạnh, Tivi, Sắt thép)</p>
                 </div>
-                <div class="price-card p-10 bg-white rounded-3xl border-2 border-transparent shadow-sm text-center">
+                <div class="price-card p-10 bg-white rounded-3xl border-2 shadow-sm text-center">
                     <i class="fas fa-recycle text-4xl text-blue-500 mb-4"></i>
                     <h3 class="font-bold uppercase italic text-gray-700">Giấy - Nhựa</h3>
                     <div class="text-3xl font-black my-4 text-gray-900">3.000đ <span class="text-sm font-normal">/kg</span></div>
-                    <p class="text-[10px] text-gray-400 font-bold italic italic">(Thùng carton, Sách cũ, Chai nhựa)</p>
+                    <p class="text-[10px] text-gray-400 font-bold italic">(Thùng carton, Sách cũ)</p>
                 </div>
             </div>
         </div>
@@ -78,30 +92,31 @@
 
     <section id="tracking" class="py-16 bg-emerald-600 text-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-black mb-4 uppercase italic">Kiểm tra lộ trình đồ</h2>
-            <p class="mb-8 text-emerald-100 italic text-sm">Nhập mã đơn để xem đồ của bạn đang ở đâu</p>
+            <h2 class="text-3xl font-black mb-8 uppercase italic">Kiểm tra lộ trình đồ</h2>
             <div class="max-w-xl mx-auto flex gap-2">
-                <input type="text" id="trackInput" placeholder="Dán mã đơn (VD: HUB5672)..." class="flex-1 px-6 py-4 rounded-xl text-gray-800 font-bold outline-none border-4 border-emerald-900 shadow-inner">
-                <button onclick="checkTrack()" class="px-8 py-4 bg-gray-900 rounded-xl font-black uppercase shadow-lg hover:bg-black transition">Check</button>
+                <input type="text" id="trackInput" placeholder="Nhập mã đơn HUB..." class="flex-1 px-6 py-4 rounded-xl text-gray-800 font-bold outline-none border-4 border-emerald-900">
+                <button onclick="document.getElementById('trackRes').classList.toggle('hidden')" class="px-8 py-4 bg-gray-900 rounded-xl font-black uppercase">Check</button>
             </div>
-            <div id="trackRes" class="hidden mt-10 max-w-2xl mx-auto bg-white/20 p-8 rounded-3xl backdrop-blur-md border border-white/30">
-                <div class="flex justify-between items-center text-[10px] font-black uppercase italic mb-4">
-                    <span class="text-emerald-300">● Đã xác nhận</span>
-                    <span class="text-emerald-300">● Đang vận chuyển</span>
-                    <span class="text-white/40">● Đang phân loại</span>
-                    <span class="text-white/40">● Xử lý xong</span>
+            <div id="trackRes" class="hidden mt-8 max-w-lg mx-auto bg-white/20 p-6 rounded-2xl backdrop-blur-md border border-white/30">
+                <p class="text-sm font-bold italic">Đang vận chuyển về kho Nhóm 9</p>
+                <div class="w-full h-2 bg-white/20 rounded-full mt-4">
+                    <div class="w-1/2 h-full bg-emerald-400"></div>
                 </div>
-                <div class="w-full h-2 bg-white/20 rounded-full overflow-hidden">
-                    <div class="w-1/2 h-full bg-emerald-400 shadow-[0_0_10px_#34d399]"></div>
-                </div>
-                <p class="mt-6 text-xs italic text-emerald-100">"Nhân viên đang cân đồ và vận chuyển về kho trung tâm Nhóm 9."</p>
             </div>
         </div>
     </section>
 
     <section id="feedback" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-black text-center mb-12 uppercase italic italic">Phản hồi từ khách hàng</h2>
+            <h2 class="text-3xl font-black text-center mb-12 uppercase italic">Khách hàng phản hồi</h2>
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="space-y-4">
-                    <div class="p-6 bg-gray-50 rounded-2xl border-l-4 border-emerald-500
+                <div class="space-y-6" id="reviewList">
+                    <div class="p-6 bg-gray-50 rounded-2xl border-l-4 border-emerald-500 shadow-sm">
+                        <div class="text-yellow-400 text-xs mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="text-sm italic italic">"Cảm ơn Nhóm 9, dọn nhà rất khỏe mà chi phí lại rẻ."</p>
+                        <p class="mt-4 text-[10px] font-black uppercase italic">— Anh Minh (Quận 1)</p>
+                    </div>
+                </div>
+                <div class="bg-emerald-50 p-8 rounded-[2rem] border-2 border-emerald-100 shadow-lg">
+                    <h3 class="text-xl font-black mb-6 uppercase italic">Gửi nhận xét</h3>
+                    <input type="text" id="revName" placeholder="Tên của bạn" class="w-full p-4 rounded-xl mb-4 border-none outline-none shadow-sm text-sm">
