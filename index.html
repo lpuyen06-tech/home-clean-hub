@@ -1,384 +1,444 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Home-Clean Hub</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-*{box-sizing:border-box}
+
 body{
-font-family:Arial, Helvetica, sans-serif;
 margin:0;
-background:#f4f6f7;
-color:#333;
+font-family:Arial;
+background:#f3f6f3;
 }
 
-header{
-background:#e8f5e9;
-padding:40px 20px;
-text-align:center;
-}
-
-header img{
-width:180px;
-}
-
-header h1{
-margin:10px 0;
-color:#2e7d32;
-}
+/* NAVBAR */
 
 nav{
-background:#2e7d32;
+
+background:#1f4d2b;
+color:white;
+padding:15px 80px;
 display:flex;
-justify-content:center;
-flex-wrap:wrap;
+justify-content:space-between;
+align-items:center;
+
 }
 
 nav a{
+
 color:white;
-padding:14px 20px;
 text-decoration:none;
-font-weight:bold;
+margin-left:30px;
+
 }
 
-nav a:hover{
-background:#1b5e20;
-}
-
-.hero{
-padding:60px 20px;
-text-align:center;
-background:linear-gradient(135deg,#c8e6c9,#f1f8e9);
-}
-
-.hero h2{
-font-size:32px;
-margin-bottom:10px;
-}
+/* HERO */
 
 .hero{
-height:620px;
+
+height:600px;
+
 background:url("banner.png") center/cover;
-background-position:center;
-background-size:cover;
-background-repeat:no-repeat;
+
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+
 position:relative;
+
 }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
+.hero::before{
+
+content:"";
+background:rgba(0,0,0,0.35);
+position:absolute;
+width:100%;
+height:100%;
+
 }
 
-.section-title{
+.hero-box{
+
+position:relative;
+z-index:2;
+
+}
+
+.btn{
+
+background:#2e7d32;
+color:white;
+padding:14px 26px;
+border:none;
+border-radius:8px;
+font-size:16px;
+
+}
+
+/* SECTION */
+
+section{
+
+padding:80px 12%;
+background:white;
 text-align:center;
-margin-bottom:30px;
-color:#2e7d32;
+
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+h2{
+
+color:#1f4d2b;
+font-size:34px;
+
+}
+
+/* SERVICE */
+
+.service{
+
+display:flex;
+gap:50px;
+justify-content:center;
+flex-wrap:wrap;
+align-items:center;
+
+}
+
+.service img{
+
+width:350px;
+border-radius:10px;
+
+}
+
+/* PROCESS */
+
+.process{
+
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+justify-content:center;
+
 }
 
 .card{
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
+
+width:260px;
+
 }
 
-.card h3{
-margin-top:0;
-color:#2e7d32;
-}
+.card img{
 
-input, textarea, select{
 width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:6px;
-border:1px solid #ccc;
+border-radius:10px;
+
 }
 
-button{
-background:#4CAF50;
-border:none;
-padding:10px 20px;
+/* RATING */
+
+.rating i{
+
+color:gold;
+font-size:24px;
+
+}
+
+/* CHAT */
+
+.chat{
+
+position:fixed;
+bottom:25px;
+right:25px;
+background:#2e7d32;
 color:white;
-border-radius:6px;
+padding:14px;
+border-radius:50%;
+font-size:20px;
 cursor:pointer;
+
 }
 
-button:hover{
-background:#388e3c;
-}
+/* TRACK */
 
-.market-item{
-border:1px solid #eee;
+.track input{
+
 padding:10px;
-border-radius:8px;
+width:220px;
+
 }
 
-.testimonial{
-background:#f1f8e9;
-padding:15px;
-border-radius:8px;
-margin-bottom:10px;
+.track button{
+
+padding:10px 18px;
+
 }
 
-.dashboard{
-background:#ffffff;
-padding:20px;
-border-radius:10px;
-box-shadow:0 3px 8px rgba(0,0,0,0.08);
+/* CONTACT */
+
+.contact{
+
+background:#f3f6f3;
+
 }
 
-.stats{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
+iframe{
 
-.stat{
-flex:1;
-min-width:150px;
-background:#e8f5e9;
-padding:20px;
-border-radius:10px;
-text-align:center;
+width:100%;
+height:350px;
+border:0;
+
 }
 
 footer{
-background:#1b5e20;
+
+background:#1f4d2b;
 color:white;
 text-align:center;
-padding:30px;
-margin-top:40px;
+padding:25px;
+
 }
+
 </style>
+
 </head>
 
 <body>
 
-<header>
-<img src="logo-home-clean-hub.png" alt="Home Clean Hub Logo">
-<h1>Home-Clean Hub</h1>
-<p>Nền tảng thu gom – tái sử dụng – làm sạch đồ dùng gia đình</p>
-</header>
+<!-- NAVBAR -->
 
 <nav>
-<a href="#about">Giới thiệu</a>
-<a href="#services">Dịch vụ</a>
-<a href="#booking">Đặt lịch</a>
-<a href="#market">Đồ cũ</a>
-<a href="#feedback">Khách hàng</a>
-<a href="#dashboard">Dashboard</a>
+
+<h3>🌱 Home-Clean Hub</h3>
+
+<div>
+
+<a href="#about">Về chúng tôi</a>
+
+<a href="#service">Dịch vụ</a>
+
+<a href="#tracking">Theo dõi</a>
+
+<a href="#contact">Liên hệ</a>
+
+</div>
+
 </nav>
 
-<section class="hero">
-<h2>Làm sạch ngôi nhà – Bảo vệ môi trường</h2>
-<p>Thu gom đồ cũ, tái sử dụng và kết nối cộng đồng</p>
-<button onclick="scrollToBooking()">Đặt lịch thu gom</button>
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="hero-box">
+
+<a href="#form">
+
+<button class="btn">Đăng ký thu gom</button>
+
+</a>
+
+</div>
+
+</header>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>♻ Về chúng tôi</h2>
+
+<p>
+
+Home-Clean Hub là dự án thu gom đồ cũ nhằm giảm thiểu rác thải môi trường
+và lan tỏa tinh thần chia sẻ trong cộng đồng.
+
+Chúng tôi kết nối người có đồ không dùng với các tổ chức từ thiện
+và trại trẻ cần hỗ trợ.
+
+</p>
+
 </section>
 
-<div class="container" id="about">
-<h2 class="section-title">Giới thiệu dự án</h2>
-<div class="card">
-<p>
-Home-Clean Hub là dự án khởi nghiệp sinh viên giúp người dân xử lý đồ cũ trong gia đình một cách tiện lợi.
-Chúng tôi kết nối người cần thanh lý đồ với người có nhu cầu sử dụng lại nhằm giảm rác thải và bảo vệ môi trường.
-</p>
-</div>
-</div>
+<!-- SERVICE -->
 
-<div class="container" id="services">
-<h2 class="section-title">Dịch vụ</h2>
-<div class="grid">
+<section id="service">
 
-<div class="card">
-<h3>Thu gom đồ cũ</h3>
-<p>Đội ngũ đến tận nhà thu gom đồ điện tử, quần áo, nội thất cũ.</p>
-</div>
+<h2>🚚 Thu gom tận nơi</h2>
 
-<div class="card">
-<h3>Tái sử dụng</h3>
-<p>Đồ còn tốt sẽ được bán lại hoặc tặng cho người cần.</p>
-</div>
+<div class="service">
 
-<div class="card">
-<h3>Dọn dẹp nhà cửa</h3>
-<p>Dịch vụ vệ sinh giúp nhà cửa gọn gàng và sạch sẽ.</p>
-</div>
+<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64">
 
-<div class="card">
-<h3>Marketplace đồ cũ</h3>
-<p>Nơi mọi người mua bán đồ đã qua sử dụng với giá tốt.</p>
+<div>
+
+<p>Chúng tôi thu gom các vật dụng:</p>
+
+<p>✔ Quần áo</p>
+
+<p>✔ Sách vở</p>
+
+<p>✔ Đồ gia dụng</p>
+
+<p>✔ Đồ chơi trẻ em</p>
+
 </div>
 
 </div>
-</div>
 
-<div class="container" id="booking">
-<h2 class="section-title">Đặt lịch thu gom</h2>
-<div class="card">
-<form id="bookingForm">
-<input type="text" placeholder="Tên của bạn" required>
-<input type="tel" placeholder="Số điện thoại" required>
-<input type="text" placeholder="Địa chỉ">
-<select>
-<option>Loại đồ cần thu gom</option>
-<option>Quần áo</option>
-<option>Thiết bị điện tử</option>
-<option>Nội thất</option>
-<option>Khác</option>
-</select>
-<textarea placeholder="Mô tả"></textarea>
-<button type="submit">Gửi yêu cầu</button>
-</form>
-<p id="bookingMessage"></p>
-</div>
-</div>
+</section>
 
-<div class="container" id="market">
-<h2 class="section-title">Marketplace đồ cũ</h2>
+<!-- UPLOAD -->
 
-<div class="grid" id="marketList"></div>
+<section>
+
+<h2>📤 Upload ảnh đồ cần thanh lý</h2>
+
+<input type="file" accept="image/*">
+
+</section>
+
+<!-- FORM -->
+
+<section id="form">
+
+<h2>📝 Đăng ký thu gom</h2>
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJ6yLyg3FRXHLUH_e3q5HJ0xFW-UZTVhH-qQB1SymguB50vA/viewform?embedded=true"></iframe>
+
+</section>
+
+<!-- PROCESS -->
+
+<section>
+
+<h2>📦 Đồ của bạn đang ở đâu?</h2>
+
+<div class="process">
 
 <div class="card">
-<h3>Đăng đồ của bạn</h3>
-<input id="itemName" placeholder="Tên món đồ">
-<input id="itemPrice" placeholder="Giá">
-<textarea id="itemDesc" placeholder="Mô tả"></textarea>
-<button onclick="addItem()">Đăng sản phẩm</button>
-</div>
 
-</div>
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac">
 
-<div class="container" id="feedback">
-<h2 class="section-title">Ý kiến khách hàng</h2>
+<p>1️⃣ Đã thu gom</p>
 
-<div id="testimonialList">
-<div class="testimonial">
-<p>"Dịch vụ rất tiện lợi, mình dọn được rất nhiều đồ cũ."</p>
-<b>- Minh Anh</b>
-</div>
-
-<div class="testimonial">
-<p>"Tìm được nhiều đồ tốt với giá rẻ."</p>
-<b>- Tuấn</b>
-</div>
 </div>
 
 <div class="card">
-<h3>Gửi đánh giá</h3>
-<input id="userName" placeholder="Tên của bạn">
-<textarea id="userReview" placeholder="Nhận xét"></textarea>
-<button onclick="addReview()">Gửi</button>
-</div>
+
+<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+
+<p>2️⃣ Đang phân loại</p>
 
 </div>
 
-<div class="container" id="dashboard">
-<h2 class="section-title">Dashboard quản lý</h2>
-<div class="dashboard">
+<div class="card">
 
-<div class="stats">
-<div class="stat">
-<h3 id="totalOrders">0</h3>
-<p>Đơn thu gom</p>
-</div>
+<img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c">
 
-<div class="stat">
-<h3 id="totalItems">0</h3>
-<p>Sản phẩm đăng</p>
-</div>
+<p>3️⃣ Gửi tổ chức từ thiện</p>
 
-<div class="stat">
-<h3 id="totalReviews">0</h3>
-<p>Đánh giá</p>
-</div>
 </div>
 
 </div>
+
+</section>
+
+<!-- TRACK -->
+
+<section id="tracking" class="track">
+
+<h2>🔍 Theo dõi đồ của bạn</h2>
+
+<input id="code" placeholder="Nhập mã đơn">
+
+<button onclick="track()">Kiểm tra</button>
+
+<p id="result"></p>
+
+</section>
+
+<!-- RATING -->
+
+<section>
+
+<h2>⭐ Đánh giá dịch vụ</h2>
+
+<div class="rating">
+
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+
 </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2>📍 Khu vực hỗ trợ</h2>
+
+<p>☎ Hotline: <b>0933815136</b></p>
+
+<iframe src="https://maps.google.com/maps?q=ho%20chi%20minh&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+</section>
 
 <footer>
-<p>© 2026 Home-Clean Hub | Dự án khởi nghiệp sinh viên</p>
+
+© 2026 Home-Clean Hub
+
 </footer>
+
+<!-- CHAT -->
+
+<div class="chat">
+
+<i class="fa fa-comments"></i>
+
+</div>
 
 <script>
 
-let orders=0
-let items=0
-let reviews=2
+function track(){
 
-function scrollToBooking(){
-document.getElementById('booking').scrollIntoView({behavior:'smooth'})
-}
+var code=document.getElementById("code").value;
 
+if(code=="111"){
 
-document.getElementById("bookingForm").addEventListener("submit",function(e){
-e.preventDefault()
-orders++
-document.getElementById("bookingMessage").innerText="Đặt lịch thành công!"
-updateDashboard()
-})
-
-function addItem(){
-
-let name=document.getElementById("itemName").value
-let price=document.getElementById("itemPrice").value
-let desc=document.getElementById("itemDesc").value
-
-if(name=="") return
-
-let div=document.createElement("div")
-div.className="market-item"
-
-div.innerHTML="<b>"+name+"</b><p>Giá: "+price+"</p><p>"+desc+"</p>"
-
-document.getElementById("marketList").appendChild(div)
-
-items++
-updateDashboard()
-}
-
-function addReview(){
-
-let name=document.getElementById("userName").value
-let review=document.getElementById("userReview").value
-
-if(review=="") return
-
-let div=document.createElement("div")
-div.className="testimonial"
-
-div.innerHTML="<p>\""+review+"\"</p><b>- "+name+"</b>"
-
-
-document.getElementById("testimonialList").appendChild(div)
-
-reviews++
-updateDashboard()
+document.getElementById("result").innerHTML="✔ Đồ đã được thu gom";
 
 }
 
-function updateDashboard(){
+else if(code=="222"){
 
-document.getElementById("totalOrders").innerText=orders
+document.getElementById("result").innerHTML="🚚 Đang vận chuyển";
 
-document.getElementById("totalItems").innerText=items
+}
 
-document.getElementById("totalReviews").innerText=reviews
+else if(code=="333"){
+
+document.getElementById("result").innerHTML="🎁 Đã gửi tới tổ chức từ thiện";
+
+}
+
+else{
+
+document.getElementById("result").innerHTML="Không tìm thấy đơn";
+
+}
 
 }
 
