@@ -1,448 +1,162 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Home-Clean Hub</title>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-
-body{
-margin:0;
-font-family:Arial;
-background:#f3f6f3;
-}
-
-/* NAVBAR */
-
-nav{
-
-background:#1f4d2b;
-color:white;
-padding:15px 80px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-}
-
-nav a{
-
-color:white;
-text-decoration:none;
-margin-left:30px;
-
-}
-
-/* HERO */
-
-.hero{
-
-height:600px;
-
-background:url("banner.png") center/cover;
-
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-
-position:relative;
-
-}
-
-.hero::before{
-
-content:"";
-background:rgba(0,0,0,0.35);
-position:absolute;
-width:100%;
-height:100%;
-
-}
-
-.hero-box{
-
-position:relative;
-z-index:2;
-
-}
-
-.btn{
-
-background:#2e7d32;
-color:white;
-padding:14px 26px;
-border:none;
-border-radius:8px;
-font-size:16px;
-
-}
-
-/* SECTION */
-
-section{
-
-padding:80px 12%;
-background:white;
-text-align:center;
-
-}
-
-h2{
-
-color:#1f4d2b;
-font-size:34px;
-
-}
-
-/* SERVICE */
-
-.service{
-
-display:flex;
-gap:50px;
-justify-content:center;
-flex-wrap:wrap;
-align-items:center;
-
-}
-
-.service img{
-
-width:350px;
-border-radius:10px;
-
-}
-
-/* PROCESS */
-
-.process{
-
-display:flex;
-gap:30px;
-flex-wrap:wrap;
-justify-content:center;
-
-}
-
-.card{
-
-width:260px;
-
-}
-
-.card img{
-
-width:100%;
-border-radius:10px;
-
-}
-
-/* RATING */
-
-.rating i{
-
-color:gold;
-font-size:24px;
-
-}
-
-/* CHAT */
-
-.chat{
-
-position:fixed;
-bottom:25px;
-right:25px;
-background:#2e7d32;
-color:white;
-padding:14px;
-border-radius:50%;
-font-size:20px;
-cursor:pointer;
-
-}
-
-/* TRACK */
-
-.track input{
-
-padding:10px;
-width:220px;
-
-}
-
-.track button{
-
-padding:10px 18px;
-
-}
-
-/* CONTACT */
-
-.contact{
-
-background:#f3f6f3;
-
-}
-
-iframe{
-
-width:100%;
-height:350px;
-border:0;
-
-}
-
-footer{
-
-background:#1f4d2b;
-color:white;
-text-align:center;
-padding:25px;
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Clean Hub | Sạch Nhà - Xanh Đời</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --dark-green: #1B4332;
+            --eco-green: #2D6A4F;
+            --accent-orange: #FF9F1C;
+            --bg-light: #F8FAF9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg-light); color: #333; line-height: 1.6; }
+
+        /* --- Thanh Menu Doanh Nghiệp --- */
+        nav { 
+            background: rgba(255, 255, 255, 0.98); padding: 10px 5%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 45px; border-radius: 5px; }
+        
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark-green); font-weight: 600; transition: 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--accent-orange); }
+
+        /* --- Banner --- */
+        .hero { 
+            background: linear-gradient(rgba(27, 67, 50, 0.8), rgba(27, 67, 50, 0.8)), 
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6954?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            color: white; padding: 120px 5% 100px; text-align: center;
+        }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; }
+
+        .btn-main { 
+            background: var(--accent-orange); color: white; padding: 15px 35px; 
+            border-radius: 50px; text-decoration: none; font-weight: bold; 
+            display: inline-block; transition: 0.3s; border: none; font-size: 1.1rem;
+            box-shadow: 0 8px 15px rgba(255, 159, 28, 0.3);
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 12px 20px rgba(255, 159, 28, 0.5); }
+
+        /* --- Giới thiệu Dịch vụ --- */
+        .about-section { padding: 80px 5%; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; background: white; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text h2 { color: var(--dark-green); font-size: 2.2rem; margin-bottom: 20px; }
+        .about-text p { margin-bottom: 20px; color: #555; }
+        .about-img { flex: 1; min-width: 300px; border-radius: 20px; overflow: hidden; box-shadow: 20px 20px 0px var(--eco-green); }
+        .about-img img { width: 100%; display: block; }
+
+        /* --- Bảng giá --- */
+        .pricing { padding: 80px 5%; text-align: center; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .price-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; }
+        .price-card:hover { transform: translateY(-10px); border-color: var(--eco-green); }
+        .price-val { font-size: 2.2rem; font-weight: 800; color: var(--eco-green); margin: 15px 0; }
+
+        /* --- Hotline --- */
+        .float-contact { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
+        .float-btn { width: 60px; height: 60px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 26px; text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        .btn-phone { background: #e63946; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+        footer { background: var(--dark-green); color: white; padding: 50px 5%; text-align: center; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Ẩn menu trên mobile để gọn */
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-
-<nav>
-
-<h3>🌱 Home-Clean Hub</h3>
-
-<div>
-
-<a href="#about">Về chúng tôi</a>
-
-<a href="#service">Dịch vụ</a>
-
-<a href="#tracking">Theo dõi</a>
-
-<a href="#contact">Liên hệ</a>
-
-</div>
-
-</nav>
-
-<!-- HERO -->
-
-<header class="hero">
-
-<div class="hero-box">
-
-<a href="#form">
-
-<button class="btn">Đăng ký thu gom</button>
-
-</a>
-
-</div>
-
-</header>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<h2>♻ Về chúng tôi</h2>
-
-<p>
-
-Home-Clean Hub là dự án thu gom đồ cũ nhằm giảm thiểu rác thải môi trường
-và lan tỏa tinh thần chia sẻ trong cộng đồng.
-
-Chúng tôi kết nối người có đồ không dùng với các tổ chức từ thiện
-và trại trẻ cần hỗ trợ.
-
-</p>
-
-</section>
-
-<!-- SERVICE -->
-
-<section id="service">
-
-<h2>🚚 Thu gom tận nơi</h2>
-
-<div class="service">
-
-<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64">
-
-<div>
-
-<p>Chúng tôi thu gom các vật dụng:</p>
-
-<p>✔ Quần áo</p>
-
-<p>✔ Sách vở</p>
-
-<p>✔ Đồ gia dụng</p>
-
-<p>✔ Đồ chơi trẻ em</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- UPLOAD -->
-
-<section>
-
-<h2>📤 Upload ảnh đồ cần thanh lý</h2>
-
-<input type="file" accept="image/*">
-
-</section>
-
-<!-- FORM -->
-
-<section id="form">
-
-<h2>📝 Đăng ký thu gom</h2>
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdJ6yLyg3FRXHLUH_e3q5HJ0xFW-UZTVhH-qQB1SymguB50vA/viewform?embedded=true"></iframe>
-
-</section>
-
-<!-- PROCESS -->
-
-<section>
-
-<h2>📦 Đồ của bạn đang ở đâu?</h2>
-
-<div class="process">
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac">
-
-<p>1️⃣ Đã thu gom</p>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
-
-<p>2️⃣ Đang phân loại</p>
-
-</div>
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c">
-
-<p>3️⃣ Gửi tổ chức từ thiện</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- TRACK -->
-
-<section id="tracking" class="track">
-
-<h2>🔍 Theo dõi đồ của bạn</h2>
-
-<input id="code" placeholder="Nhập mã đơn">
-
-<button onclick="track()">Kiểm tra</button>
-
-<p id="result"></p>
-
-</section>
-
-<!-- RATING -->
-
-<section>
-
-<h2>⭐ Đánh giá dịch vụ</h2>
-
-<div class="rating">
-
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-<h2>📍 Khu vực hỗ trợ</h2>
-
-<p>☎ Hotline: <b>0933815136</b></p>
-
-<iframe src="https://maps.google.com/maps?q=ho%20chi%20minh&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-
-</section>
-
-<footer>
-
-© 2026 Home-Clean Hub
-
-</footer>
-
-<!-- CHAT -->
-
-<div class="chat">
-
-<i class="fa fa-comments"></i>
-
-</div>
-
-<script>
-
-function track(){
-
-var code=document.getElementById("code").value;
-
-if(code=="111"){
-
-document.getElementById("result").innerHTML="✔ Đồ đã được thu gom";
-
-}
-
-else if(code=="222"){
-
-document.getElementById("result").innerHTML="🚚 Đang vận chuyển";
-
-}
-
-else if(code=="333"){
-
-document.getElementById("result").innerHTML="🎁 Đã gửi tới tổ chức từ thiện";
-
-}
-
-else{
-
-document.getElementById("result").innerHTML="Không tìm thấy đơn";
-
-}
-
-}
-
-</script>
+    <div class="float-contact">
+        <a href="https://zalo.me/0933815136" target="_blank" class="float-btn" style="background:#0084FF"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="tel:0933815136" class="float-btn btn-phone"><i class="fas fa-phone"></i></a>
+    </div>
+
+    <nav>
+        <a href="#" class="logo-box">
+            <img src="banner.png.png" alt="Logo" class="logo-img">
+            <span style="font-weight:800; color:var(--dark-green); font-size:1.2rem;">HOME-CLEAN HUB</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#about">Về chúng tôi</a></li>
+            <li><a href="#pricing">Bảng giá</a></li>
+            <li><a href="#map">Khu vực</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdJ6yLyg3FRXHLUH_e3q5HJ0xFW-UZTVhH-qQB1SymguB50vA/viewform" target="_blank" class="btn-main" style="padding: 8px 20px; font-size: 0.85rem;">ĐẶT LỊCH</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Thu dọn không gian<br>Mở rộng giá trị</h1>
+        <p>Giải pháp xử lý đồ cũ thông minh, minh bạch và thân thiện với môi trường.</p><br>
+        <a href="#pricing" class="btn-main">Xem Bảng Giá</a>
+    </header>
+
+    <section id="about" class="about-section">
+        <div class="about-text">
+            <h2>Dịch vụ của chúng tôi</h2>
+            <p><b>Home-Clean Hub</b> là dự án khởi nghiệp với sứ mệnh giúp sinh viên và gia đình tối ưu hóa không gian sống bằng cách thu gom đồ cũ tận nơi.</p>
+            <p>Chúng tôi không chỉ dọn dẹp, mà còn phân loại đồ đạc của bạn để tái chế hoặc gửi tặng từ thiện, tạo ra những giá trị mới cho cộng đồng.</p>
+            <ul style="list-style: none; margin-top: 20px;">
+                <li><i class="fas fa-check-circle" style="color:var(--eco-green)"></i> Tiết kiệm thời gian & công sức</li>
+                <li><i class="fas fa-check-circle" style="color:var(--eco-green)"></i> Quy trình xử lý rác thải văn minh</li>
+                <li><i class="fas fa-check-circle" style="color:var(--eco-green)"></i> Hỗ trợ cộng đồng yếu thế</li>
+            </ul>
+        </div>
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80" alt="Dịch vụ thu gom">
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <h2 style="color:var(--dark-green)">Bảng Giá Dịch Vụ</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Gói Sinh Viên</h3>
+                <div class="price-val">Miễn phí*</div>
+                <p>Thu gom quần áo, sách cũ</p>
+                <p style="font-size:0.8rem; color:#888">*Dưới 10kg tại KTX</p>
+            </div>
+            <div class="price-card" style="border: 2px solid var(--eco-green)">
+                <h3>Gói Gia Đình</h3>
+                <div class="price-val">50.000đ</div>
+                <p>Thu gom đồ gia dụng & vải vóc</p>
+                <p style="font-size:0.8rem; color:#888">Không giới hạn cân nặng</p>
+            </div>
+            <div class="price-card">
+                <h3>Đồ Cồng Kềnh</h3>
+                <div class="price-val">Liên hệ</div>
+                <p>Tủ lạnh, máy giặt, nội thất</p>
+                <p style="font-size:0.8rem; color:#888">Định giá qua Zalo</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="map" style="padding: 60px 5%; text-align: center;">
+        <h2 style="color:var(--dark-green); margin-bottom: 30px;">Khu vực hoạt động</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.232359690023!2d106.8016194153342!3d10.870674260431835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527587e9d5c51%3A0xc137456d95950a46!2zS1RYIEtodSBCIMSQSBRHIFRQSENN!5e0!3m2!1svi!2s!4v1647416000000!5m2!1svi!2s" width="100%" height="400" style="border:0; border-radius:20px;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <footer>
+        <img src="banner.png.png" alt="Logo" style="height: 60px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+        <p><b>HOME-CLEAN HUB</b> - Startup vì một Việt Nam xanh</p>
+        <p>Hotline: 0933815136 | Địa chỉ: Khu đô thị ĐHQG TP.HCM</p>
+        <p style="margin-top: 20px; opacity: 0.5; font-size: 0.8rem;">© 2026 Home-Clean Hub. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
