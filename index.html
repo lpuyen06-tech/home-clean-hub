@@ -1,185 +1,211 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Home-Clean Hub A+</title>
-<script src="https://cdn.tailwindcss.com">
-// tracking fake
-let orders={"HC001":"Đang xử lý","HC002":"Đang thu gom","HC003":"Đã hoàn thành"}
-function trackOrder(){
-let code=document.getElementById('trackCode').value
-let result=orders[code]||'Không tìm thấy đơn'
-document.getElementById('trackResult').innerText=result
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home-Clean Hub - Professional</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-// feedback local
-function loadFB(){
-let data=JSON.parse(localStorage.getItem('fb')||'[]')
-let html=''
-data.forEach(f=>{
-html+=`<div class='border p-3 mt-3 bg-white'>⭐ ${f.name}: ${f.msg}</div>`
-})
-document.getElementById('fbList').innerHTML=html
-}
-function addFB(){
-let name=document.getElementById('fbName').value
-let msg=document.getElementById('fbMsg').value
-if(name.length<2||msg.length<5){alert('Nhập đủ thông tin');return}
-let data=JSON.parse(localStorage.getItem('fb')||'[]')
-data.unshift({name,msg})
-localStorage.setItem('fb',JSON.stringify(data))
-loadFB()
-}
-loadFB()
-
-</script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 <style>
-  body{font-family:Arial, sans-serif;scroll-behavior:smooth}
-  .card{transition:.3s}
-  .card:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(0,0,0,.15)}
-  .btn-call{position:fixed;bottom:24px;right:24px}
+body{font-family:Arial, sans-serif;scroll-behavior:smooth}
+.card{transition:.3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 15px 30px rgba(0,0,0,.15)}
 </style>
 </head>
 
 <body class="bg-white text-gray-800">
 
-<!-- NAV -->
-<nav class="bg-white shadow sticky top-0 z-50">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="font-bold text-xl text-green-700">Home-Clean Hub</h1>
-    <div class="hidden md:flex gap-6 text-sm font-semibold">
-      <a href="#about">Giới thiệu</a>
-      <a href="#process">Quy trình</a>
-      <a href="#impact">Tác động</a>
-      <a href="#booking">Đặt lịch</a>
-    </div>
-  </div>
-</nav>
-
 <!-- HERO -->
-<header class="relative h-[600px] flex items-center justify-center text-white text-center">
-  <img src="https://images.unsplash.com/photo-1604186838309-c6715f0d3d4c" class="absolute w-full h-full object-cover" />
-  <div class="absolute w-full h-full bg-black/50"></div>
-  <div class="relative z-10">
-    <h1 class="text-5xl font-bold">Giải pháp dọn nhà thông minh</h1>
-    <p class="mt-4">Thu gom - Phân loại - Tái sử dụng</p>
-  </div>
+<header class="relative h-[550px] flex items-center justify-center text-white text-center">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" class="absolute w-full h-full object-cover">
+<div class="absolute w-full h-full bg-black/50"></div>
+<div class="relative z-10">
+<h1 class="text-5xl font-bold">Home-Clean Hub</h1>
+<p class="mt-4">Thu gom - Phân loại - Tái chế - Minh bạch</p>
+</div>
 </header>
 
 <!-- ABOUT -->
-<section id="about" class="py-16 text-center max-w-4xl mx-auto">
-  <h2 class="text-3xl font-bold mb-4">Về dịch vụ</h2>
-  <p>Chúng tôi giúp bạn xử lý đồ cũ hiệu quả, giảm rác thải và đóng góp cho cộng đồng thông qua hệ thống phân loại minh bạch.</p>
+<section class="py-16 max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6">
+<img src="https://images.unsplash.com/photo-1581091215367-59ab6b8c3f41" class="rounded-xl">
+<div>
+<h2 class="text-3xl font-bold mb-4">Về dịch vụ</h2>
+<p class="mb-3">Home-Clean Hub cung cấp giải pháp thu gom đồ cũ tận nơi tại TP.HCM.</p>
+<p class="mb-3">Phân loại: tái chế - từ thiện - bán lại - tiêu hủy.</p>
+<p>Cam kết minh bạch hành trình đồ đến tay người nhận.</p>
+</div>
 </section>
 
-<!-- PROCESS -->
-<section id="process" class="py-16 bg-gray-100">
-  <div class="container mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-8">Quy trình hoạt động</h2>
-    <div class="grid md:grid-cols-4 gap-6">
-      <div class="card p-6 bg-white rounded-xl">1. Đặt lịch</div>
-      <div class="card p-6 bg-white rounded-xl">2. Thu gom</div>
-      <div class="card p-6 bg-white rounded-xl">3. Phân loại</div>
-      <div class="card p-6 bg-white rounded-xl">4. Tái sử dụng</div>
-    </div>
-  </div>
-</section>
+<!-- HOẠT ĐỘNG TỪ THIỆN & ĐỐI TÁC -->
+<section class="py-16 bg-green-50 text-center">
+<h2 class="text-3xl font-bold mb-6">Hoạt động từ thiện & Đối tác</h2>
+<p class="max-w-3xl mx-auto mb-10">Chúng tôi xây dựng mạng lưới đối tác đa dạng nhằm đảm bảo mỗi loại đồ được xử lý đúng mục đích và đến đúng người cần.</p>
 
-<!-- IMPACT -->
-<section id="impact" class="py-16 text-center">
-  <h2 class="text-3xl font-bold mb-8">Tác động môi trường</h2>
-  <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-    <div class="card p-6 border rounded">🌱 1.2 tấn rác tái chế</div>
-    <div class="card p-6 border rounded">👕 500+ đồ từ thiện</div>
-    <div class="card p-6 border rounded">🏠 300+ đơn đã xử lý</div>
-  </div>
-</section>
+<div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
 
-<!-- BOOKING -->
-<section id="booking" class="py-16 bg-gray-50">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="text-3xl font-bold mb-6 text-center">Đặt lịch thu gom</h2>
-    <input id="name" placeholder="Tên" class="w-full p-3 border mb-3" />
-    <input id="phone" placeholder="SĐT" class="w-full p-3 border mb-3" />
-    <input id="time" type="datetime-local" class="w-full p-3 border mb-3" />
-    <textarea id="desc" placeholder="Mô tả đồ" class="w-full p-3 border mb-3"></textarea>
+<!-- TỪ THIỆN -->
+<div class="bg-white p-6 rounded-xl shadow card">
+<h3 class="font-bold text-green-700 mb-4">👶 Tổ chức từ thiện</h3>
+<p class="text-sm mb-3">Tiếp nhận quần áo, đồ dùng cho trẻ em và người khó khăn</p>
+<ul class="text-sm space-y-2 text-left">
+<li>• Trại trẻ em Thủ Đức – hỗ trợ trẻ em mồ côi</li>
+<li>• Mái ấm Thiện Tâm – chăm sóc trẻ em cơ nhỡ</li>
+<li>• Trung tâm bảo trợ TP.HCM – hỗ trợ người yếu thế</li>
+</ul>
+</div>
 
-    <input type="file" accept="image/*" onchange="preview(event)" class="mb-3" />
-    <img id="img" class="w-full h-40 object-cover hidden rounded mb-3" />
+<!-- TÁI CHẾ -->
+<div class="bg-white p-6 rounded-xl shadow card">
+<h3 class="font-bold text-green-700 mb-4">♻️ Đối tác tái chế</h3>
+<p class="text-sm mb-3">Xử lý các vật liệu không còn sử dụng</p>
+<ul class="text-sm space-y-2 text-left">
+<li>• Cơ sở tái chế nhựa – xử lý nhựa & nilon</li>
+<li>• Xưởng tái chế giấy – tái sản xuất giấy</li>
+<li>• Trung tâm xử lý rác điện tử – thiết bị điện tử</li>
+</ul>
+</div>
 
-    <button onclick="submitBooking()" class="bg-green-600 text-white w-full py-3 rounded">Xác nhận</button>
-    <p id="msg" class="mt-4 text-center"></p>
-    <p id="ai" class="text-center font-bold mt-2"></p>
-  </div>
+<!-- CỘNG ĐỒNG -->
+<div class="bg-white p-6 rounded-xl shadow card">
+<h3 class="font-bold text-green-700 mb-4">🤝 Cộng đồng</h3>
+<p class="text-sm mb-3">Hỗ trợ phân phối & lan tỏa hoạt động</p>
+<ul class="text-sm space-y-2 text-left">
+<li>• Hội chữ thập đỏ địa phương</li>
+<li>• Nhóm tình nguyện sinh viên</li>
+<li>• CLB môi trường xanh</li>
+</ul>
+</div>
+
+</div>
 </section>
 
 <!-- PRICING -->
 <section class="py-16 text-center">
 <h2 class="text-3xl font-bold mb-8">Bảng giá</h2>
-<div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-<div class="card p-6 border rounded">Đồ cồng kềnh<br><b>15.000đ/kg</b></div>
-<div class="card p-6 border rounded">Đồ điện tử<br><b>8.000đ/kg</b></div>
-<div class="card p-6 border rounded">Giấy & Nhựa<br><b>3.000đ/kg</b></div>
-<div class="card p-6 border rounded">Quần áo<br><b>5.000đ/kg</b></div>
+<div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+<div class="card border rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1582582494700-f8ce0b9f7a3d" class="h-40 w-full object-cover"><div class="p-4"><b>Đồ lớn</b><br>15.000đ/kg</div></div>
+<div class="card border rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3" class="h-40 w-full object-cover"><div class="p-4"><b>Điện tử</b><br>8.000đ/kg</div></div>
+<div class="card border rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1581574201013-5c4d4f9c1d7d" class="h-40 w-full object-cover"><div class="p-4"><b>Giấy & Nhựa</b><br>3.000đ/kg</div></div>
+<div class="card border rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1520975922284-9b8f4f8e9f0c" class="h-40 w-full object-cover"><div class="p-4"><b>Quần áo</b><br>5.000đ/kg</div></div>
+</div>
+</section>
+
+<!-- GIỜ HOẠT ĐỘNG -->
+<section class="py-16 text-center bg-gray-100">
+<h2 class="text-3xl font-bold mb-4">Giờ hoạt động</h2>
+<p>Thứ 2 - Chủ nhật: 8:00 - 20:00</p>
+<p>Hotline: 0933 815 136</p>
+</section>
+
+<!-- BOOKING -->
+<section class="py-16 bg-gray-100">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-3xl font-bold mb-6 text-center">Đặt lịch</h2>
+<input id="name" placeholder="Tên" class="w-full p-3 border mb-3">
+<input id="phone" placeholder="SĐT" class="w-full p-3 border mb-3">
+<select id="area" class="w-full p-3 border mb-3">
+<option value="">Chọn khu vực</option>
+<option>Quận 1</option><option>Quận 7</option><option>Bình Thạnh</option><option>Thủ Đức</option>
+</select>
+<input id="time" type="datetime-local" class="w-full p-3 border mb-3">
+<textarea id="desc" placeholder="Mô tả" class="w-full p-3 border mb-3"></textarea>
+<button onclick="book()" class="bg-green-600 text-white w-full py-3 rounded">Đặt lịch</button>
+<p id="msg" class="mt-4 text-center"></p>
 </div>
 </section>
 
 <!-- TRACKING -->
-<section class="py-16 bg-green-700 text-white text-center">
-<h2 class="text-3xl mb-6">Theo dõi đơn</h2>
-<input id="trackCode" placeholder="Nhập mã đơn" class="p-3 text-black rounded">
-<button onclick="trackOrder()" class="bg-black px-6 py-3 ml-2 rounded">Kiểm tra</button>
-<p id="trackResult" class="mt-4"></p>
+<section class="py-16 text-center bg-green-600 text-white">
+<h2 class="text-3xl mb-6">Theo dõi & Minh bạch</h2>
+<input id="code" placeholder="Nhập mã đơn" class="p-3 text-black rounded">
+<button onclick="track()" class="bg-black px-6 py-3 ml-2 rounded">Kiểm tra</button>
+<div id="result" class="mt-6"></div>
 </section>
 
 <!-- FEEDBACK -->
-<section class="py-16 bg-gray-100 text-center">
-<h2 class="text-3xl font-bold mb-6">Đánh giá khách hàng</h2>
-<div id="fbList" class="max-w-xl mx-auto"></div>
-<input id="fbName" placeholder="Tên" class="border p-2 w-full max-w-xl mt-4">
-<textarea id="fbMsg" placeholder="Nhận xét" class="border p-2 w-full max-w-xl mt-2"></textarea>
-<button onclick="addFB()" class="bg-green-600 text-white px-6 py-2 mt-3 rounded">Gửi</button>
+<section class="py-16 max-w-3xl mx-auto">
+<h2 class="text-3xl font-bold text-center mb-6">Đánh giá khách hàng</h2>
+
+<div id="fbList" class="mb-6"></div>
+
+<select id="rating" class="w-full p-3 border mb-3">
+<option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ - Rất tốt</option>
+<option value="⭐⭐⭐⭐">⭐⭐⭐⭐ - Tốt</option>
+<option value="⭐⭐⭐">⭐⭐⭐ - Bình thường</option>
+<option value="⭐⭐">⭐⭐ - Chưa hài lòng</option>
+<option value="⭐">⭐ - Kém</option>
+</select>
+
+<input id="fbName" placeholder="Tên" class="w-full p-3 border mb-3">
+<textarea id="fbMsg" placeholder="Nhận xét" class="w-full p-3 border mb-3"></textarea>
+<button onclick="addFB()" class="bg-green-600 text-white px-6 py-3 rounded">Gửi đánh giá</button>
 </section>
 
 <!-- MAP -->
 <section class="py-16 text-center">
-<h2 class="text-3xl font-bold mb-6">Kho bãi & khu vực hoạt động</h2>
-<iframe src="https://maps.google.com/maps?q=binhduong&t=&z=13&ie=UTF8&iwloc=&output=embed" class="w-full max-w-4xl mx-auto h-[400px] rounded"></iframe>
+<h2 class="text-3xl font-bold mb-6">Kho bãi chính - Thủ Đức</h2>
+<iframe src="https://maps.google.com/maps?q=thu%20duc%20ho%20chi%20minh&t=&z=13&ie=UTF8&iwloc=&output=embed" class="w-full max-w-5xl mx-auto h-[400px]"></iframe>
 </section>
-
-<!-- HOURS -->
-<section class="text-center py-10">
-  <h3 class="font-bold">Giờ hoạt động</h3>
-  <p>08:00 - 20:00 (T2 - CN)</p>
-</section>
-
-<!-- CALL -->
-<a href="tel:0933815136" class="btn-call bg-green-600 text-white w-14 h-14 flex items-center justify-center rounded-full">
-  <i class="fas fa-phone"></i>
-</a>
 
 <script>
-function preview(e){
-  let file=e.target.files[0]
-  let img=document.getElementById('img')
-  img.src=URL.createObjectURL(file)
-  img.classList.remove('hidden')
+function getDB(){return JSON.parse(localStorage.getItem('orders')||'{}')}
+function saveDB(data){localStorage.setItem('orders',JSON.stringify(data))}
 
-  let types=['Tái chế','Từ thiện','Bán lại','Tiêu hủy']
-  document.getElementById('ai').innerText='Gợi ý phân loại: '+types[Math.floor(Math.random()*4)]
+function book(){
+let name=document.getElementById('name').value
+let phone=document.getElementById('phone').value
+let area=document.getElementById('area').value
+let time=document.getElementById('time').value
+if(!name||!phone||!area||!time){document.getElementById('msg').innerText='Nhập đủ thông tin';return}
+let code='HC'+Date.now()
+let db=getDB()
+db[code]={name,phone,area,time,status:'Đã tiếp nhận',location:'Trung tâm Quận 9',date:'20/03/2026',image:'https://images.unsplash.com/photo-1593113598332-cd288d649433'}
+saveDB(db)
+document.getElementById('msg').innerText='Mã đơn: '+code
 }
 
-function submitBooking(){
-  let name=document.getElementById('name').value
-  let phone=document.getElementById('phone').value
-  let time=document.getElementById('time').value
-  if(name.length<2||phone.length<9||time===''){
-    document.getElementById('msg').innerText='Vui lòng nhập đầy đủ thông tin'
-    return
-  }
-  document.getElementById('msg').innerText='Đặt lịch thành công! Nhân viên sẽ liên hệ.'
+function track(){
+let code=document.getElementById('code').value
+let db=getDB()
+let r=db[code]
+if(!r){document.getElementById('result').innerText='Không tìm thấy';return}
+let html=`
+<p>Trạng thái: ${r.status}</p>
+<p>📍 ${r.location}</p>
+<p>📅 ${r.date}</p>
+<img src='${r.image}' class='mx-auto h-40 mt-4'>
+<div class='bg-white text-black p-3 mt-3'>Giấy xác nhận đã trao</div>`
+document.getElementById('result').innerHTML=html
+}
+
+function loadFB(){
+let data=JSON.parse(localStorage.getItem('feedback')||'[]')
+let html=''
+data.forEach(f=>{
+html+=`<div class='p-4 border mb-3 rounded shadow'>${f.rating}<p>${f.msg}</p><b>${f.name}</b></div>`
+})
+document.getElementById('fbList').innerHTML=html
+}
+
+function addFB(){
+let name=document.getElementById('fbName').value
+let msg=document.getElementById('fbMsg').value
+let rating=document.getElementById('rating').value
+if(!name||!msg)return
+
+let data=JSON.parse(localStorage.getItem('feedback')||'[]')
+data.unshift({name,msg,rating})
+localStorage.setItem('feedback',JSON.stringify(data))
+
+loadFB()
+
+document.getElementById('fbName').value=''
+document.getElementById('fbMsg').value=''
+}
+
+window.onload=loadFB</p><b>${name}</b></div>`
+document.getElementById('fbList').insertAdjacentHTML('afterbegin',html)
 }
 </script>
 
