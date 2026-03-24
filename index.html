@@ -14,7 +14,8 @@
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         .nav-link.active { color: #059669; border-bottom: 3px solid #059669; background: #ecfdf5; }
-        .step-active { color: #059669; border-color: #059669; }
+        .star-rating i { cursor: pointer; transition: color 0.2s; }
+        .star-rating i.active { color: #fbbf24; }
     </style>
 </head>
 <body class="text-slate-900">
@@ -33,143 +34,101 @@
     <nav class="bg-white/95 backdrop-blur-md sticky top-[36px] z-50 border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
             <div class="flex items-center gap-3 cursor-pointer" onclick="showTab('home')">
-                <div class="bg-emerald-600 p-2.5 rounded-2xl text-white shadow-lg shadow-emerald-200"><i class="fas fa-recycle animate-spin-slow"></i></div>
+                <div class="bg-emerald-600 p-2.5 rounded-2xl text-white shadow-lg shadow-emerald-200"><i class="fas fa-recycle"></i></div>
                 <div class="leading-none">
                     <span class="text-2xl font-black text-emerald-900 block tracking-tighter">HOME-CLEAN <span class="text-emerald-500 font-extrabold">HUB</span></span>
                     <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Circular Economy Platform</span>
                 </div>
             </div>
             
-            <div class="hidden lg:flex gap-1 text-[11px] font-black uppercase tracking-tight">
-                <button onclick="showTab('about')" class="nav-link px-5 py-3 rounded-t-xl transition-all">Về chúng tôi</button>
-                <button onclick="showTab('home')" class="nav-link px-5 py-3 rounded-t-xl transition-all active">Đăng ký gom đồ</button>
-                <button onclick="showTab('pricing')" class="nav-link px-5 py-3 rounded-t-xl transition-all">Bảng giá chi tiết</button>
-                <button onclick="showTab('rewards')" class="nav-link px-5 py-3 rounded-t-xl transition-all">Đổi quà tặng</button>
-                <button onclick="showTab('warehouse')" class="nav-link px-5 py-3 rounded-t-xl transition-all">Mạng lưới Hub</button>
+            <div class="hidden lg:flex gap-1 text-[11px] font-black uppercase tracking-tight overflow-x-auto">
+                <button onclick="showTab('about')" class="nav-link px-4 py-3 rounded-t-xl transition-all">Về chúng tôi</button>
+                <button onclick="showTab('home')" class="nav-link px-4 py-3 rounded-t-xl transition-all active">Đăng ký gom đồ</button>
+                <button onclick="showTab('classify')" class="nav-link px-4 py-3 rounded-t-xl transition-all">Phân loại & Từ thiện</button>
+                <button onclick="showTab('pricing')" class="nav-link px-4 py-3 rounded-t-xl transition-all">Bảng giá</button>
+                <button onclick="showTab('rewards')" class="nav-link px-4 py-3 rounded-t-xl transition-all">Đổi quà</button>
+                <button onclick="showTab('warehouse')" class="nav-link px-4 py-3 rounded-t-xl transition-all">Mạng lưới Hub</button>
+                <button onclick="showTab('review-page')" class="nav-link px-4 py-3 rounded-t-xl transition-all">Đánh giá</button>
             </div>
         </div>
     </nav>
 
     <main id="about" class="tab-content py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
-                <div>
-                    <h4 class="text-emerald-600 font-black uppercase text-xs tracking-[0.3em] mb-4">Sứ mệnh & Tầm nhìn</h4>
-                    <h2 class="text-5xl font-black text-slate-900 leading-tight mb-6 italic uppercase tracking-tighter">Chúng tôi tái định nghĩa <span class="text-emerald-500">"Rác thải"</span></h2>
-                    <p class="text-slate-500 font-medium leading-relaxed mb-8 italic text-lg">
-                        Home-Clean Hub không chỉ là một đơn vị thu gom. Chúng tôi là cầu nối công nghệ giúp biến đồ dùng cũ thành tài nguyên quý giá, kiến tạo một tương lai bền vững nơi rác thải không còn tồn tại.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="border-l-4 border-emerald-500 pl-4">
-                            <h5 class="font-black text-sm uppercase">Tầm nhìn 2030</h5>
-                            <p class="text-xs text-slate-400 font-bold mt-1 uppercase italic">Phủ xanh 63 tỉnh thành Việt Nam.</p>
-                        </div>
-                        <div class="border-l-4 border-emerald-500 pl-4">
-                            <h5 class="font-black text-sm uppercase">Giá trị cốt lõi</h5>
-                            <p class="text-xs text-slate-400 font-bold mt-1 uppercase italic">Minh bạch - Tận tâm - Sáng tạo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb773b09?auto=format&fit=crop&q=80&w=800" class="rounded-[3rem] shadow-2xl rotate-2" alt="Green">
-                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl">
-                        <span class="block text-4xl font-black text-emerald-600">500+</span>
-                        <span class="text-[10px] font-black uppercase text-slate-400">Tấn rác được tái chế</span>
-                    </div>
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-5xl font-black mb-6 italic uppercase">Chúng tôi tái định nghĩa "Rác thải"</h2>
+            <p class="text-slate-500 text-lg italic mb-12">Biến đồ dùng cũ thành tài nguyên bền vững.</p>
+            <div class="grid md:grid-cols-2 gap-10">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb773b09?auto=format&fit=crop&q=80&w=800" class="rounded-3xl shadow-xl">
+                <div class="text-left space-y-4">
+                    <h3 class="text-2xl font-black text-emerald-600 uppercase">Tầm nhìn 2030</h3>
+                    <p class="font-bold">Phủ xanh 63 tỉnh thành Việt Nam, giảm thiểu 50% lượng rác thải sinh hoạt ra môi trường bằng giải pháp thu gom thông minh.</p>
                 </div>
             </div>
         </div>
     </main>
 
     <main id="home" class="tab-content active">
-        <div class="relative h-[450px] flex items-center justify-center text-center overflow-hidden">
+        <div class="relative h-[300px] flex items-center justify-center text-center overflow-hidden">
             <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover brightness-[0.3]" alt="BG">
-            <div class="relative z-10 px-6 max-w-3xl">
-                <h2 class="text-5xl md:text-7xl font-black text-white italic uppercase mb-4 tracking-tighter">Đặt lịch <span class="text-emerald-400 italic">thu gom</span> ngay</h2>
-                <p class="text-slate-300 font-bold uppercase text-xs tracking-[0.4em]">Tiện lợi - Nhanh chóng - Văn minh</p>
+            <h2 class="relative z-10 text-5xl font-black text-white italic uppercase tracking-tighter">Đặt lịch thu gom ngay</h2>
+        </div>
+        <div class="max-w-5xl mx-auto -mt-20 relative z-20 px-4 pb-20">
+            <div class="bg-white p-10 rounded-[3rem] shadow-2xl grid md:grid-cols-2 gap-10">
+                <div class="space-y-4">
+                    <input id="userName" type="text" placeholder="Họ và tên" class="w-full p-4 bg-slate-50 rounded-xl border-none outline-none focus:ring-2 ring-emerald-500 font-bold">
+                    <input id="userPhone" type="tel" placeholder="Số điện thoại" class="w-full p-4 bg-slate-50 rounded-xl border-none outline-none focus:ring-2 ring-emerald-500 font-bold">
+                    <div class="grid grid-cols-2 gap-4">
+                        <select id="userArea" class="p-4 bg-slate-50 rounded-xl font-bold outline-none"><option>Quận 1</option><option>Bình Thạnh</option><option>Thủ Đức</option></select>
+                        <select id="userTime" class="p-4 bg-amber-50 rounded-xl font-bold outline-none"><option>Sáng</option><option>Chiều</option><option>Tối</option></select>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <label class="border-4 border-dashed border-emerald-50 rounded-3xl h-48 flex flex-col items-center justify-center cursor-pointer hover:bg-emerald-50">
+                        <i class="fas fa-camera text-3xl text-emerald-300"></i>
+                        <span class="text-[10px] font-black uppercase mt-2">Chụp ảnh đồ cũ</span>
+                        <input type="file" class="hidden" onchange="previewImage(this)">
+                    </label>
+                    <button onclick="submitOrder()" class="w-full bg-emerald-600 text-white py-5 rounded-2xl font-black uppercase italic shadow-xl">Gửi yêu cầu</button>
+                </div>
             </div>
         </div>
+    </main>
 
-        <div class="max-w-6xl mx-auto -mt-24 relative z-20 px-4 pb-20">
-            <div class="bg-white p-8 md:p-14 rounded-[4rem] shadow-2xl border border-slate-100 grid md:grid-cols-2 gap-12">
-                <div class="space-y-6">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-black">1</span>
-                        <h3 class="text-xl font-black text-slate-800 italic uppercase">Thông tin lấy đồ</h3>
-                    </div>
-                    <input id="userName" type="text" placeholder="Họ và tên khách hàng" class="w-full p-5 bg-slate-50 rounded-2xl border-2 border-transparent focus:border-emerald-500 outline-none font-bold text-sm transition-all">
-                    <input id="userPhone" type="tel" placeholder="Số điện thoại liên hệ" class="w-full p-5 bg-slate-50 rounded-2xl border-2 border-transparent focus:border-emerald-500 outline-none font-bold text-sm transition-all">
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <select id="userArea" class="p-5 bg-slate-50 rounded-2xl font-bold outline-none border-2 border-transparent focus:border-emerald-500 text-xs">
-                            <option value="">Chọn Quận/Huyện TP.HCM</option>
-                            <option>Quận 1</option><option>Quận 3</option><option>Quận 4</option><option>Quận 5</option>
-                            <option>Quận 7</option><option>Bình Thạnh</option><option>TP. Thủ Đức</option><option>Hóc Môn</option>
-                        </select>
-                        <select id="userTime" class="p-5 bg-amber-50 rounded-2xl font-bold text-amber-800 outline-none border border-amber-200 text-xs">
-                            <option value="">Chọn Khung Giờ</option>
-                            <option>Sáng (08:30 - 11:30)</option>
-                            <option>Chiều (14:00 - 17:30)</option>
-                            <option>Tối (18:30 - 21:00) 🌙</option>
-                        </select>
-                    </div>
-                    <textarea placeholder="Ghi chú về đồ cũ (VD: Đồ điện tử bị hỏng, tủ gỗ cồng kềnh...)" class="w-full p-5 bg-slate-50 rounded-2xl border-2 border-transparent focus:border-emerald-500 outline-none font-bold text-sm h-32"></textarea>
+    <main id="classify" class="tab-content py-20 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl font-black uppercase italic mb-16">Quy trình <span class="text-emerald-500 underline">Xử lý tài nguyên</span> tại Hub</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-[3rem] shadow-xl border-t-8 border-blue-500">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl"><i class="fas fa-sync"></i></div>
+                    <h3 class="text-xl font-black uppercase mb-4">Tái chế (Recycle)</h3>
+                    <p class="text-sm text-slate-500 font-medium mb-6">Được đưa về xưởng để nghiền nén, tạo hạt nhựa hoặc bột giấy mới.</p>
+                    <ul class="text-left text-xs space-y-2 font-bold text-slate-600 italic">
+                        <li>✅ Nhựa PET, nhựa cứng HDPE</li>
+                        <li>✅ Kim loại, lon nhôm</li>
+                        <li>✅ Thùng carton, giấy vụn</li>
+                    </ul>
                 </div>
-
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-black">2</span>
-                            <h3 class="text-xl font-black text-slate-800 italic uppercase">Xác nhận hình ảnh</h3>
-                        </div>
-                        <label class="group flex flex-col items-center justify-center w-full h-64 border-4 border-emerald-50 border-dashed rounded-[3rem] cursor-pointer bg-emerald-50/20 hover:bg-emerald-50 transition-all overflow-hidden relative shadow-inner">
-                            <i class="fas fa-cloud-upload-alt text-4xl text-emerald-400 group-hover:-translate-y-2 transition-transform"></i>
-                            <span class="mt-4 text-[11px] font-black text-emerald-600 uppercase tracking-widest">Tải ảnh đồ dùng cũ</span>
-                            <img id="imagePreview" class="absolute inset-0 w-full h-full object-cover hidden">
-                            <input type="file" class="hidden" onchange="previewImage(this)">
-                        </label>
-                    </div>
-                    <button onclick="submitOrder()" class="mt-10 w-full bg-emerald-600 hover:bg-emerald-500 text-white py-6 rounded-[2rem] font-black uppercase shadow-2xl shadow-emerald-200 transition-all active:scale-95 text-lg italic tracking-tighter">
-                        Gửi yêu cầu thu gom
-                    </button>
+                <div class="bg-white p-8 rounded-[3rem] shadow-xl border-t-8 border-emerald-500">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl"><i class="fas fa-seedling"></i></div>
+                    <h3 class="text-xl font-black uppercase mb-4">Phân hủy (Compost)</h3>
+                    <p class="text-sm text-slate-500 font-medium mb-6">Xử lý thành phân bón hữu cơ phục vụ nông nghiệp xanh.</p>
+                    <ul class="text-left text-xs space-y-2 font-bold text-slate-600 italic">
+                        <li>✅ Đồ nội thất bằng gỗ mục</li>
+                        <li>✅ Sợi cotton tự nhiên 100%</li>
+                        <li>✅ Giấy báo cũ bị ẩm mốc</li>
+                    </ul>
                 </div>
-            </div>
-
-            <div class="mt-32">
-                <h3 class="text-center text-3xl font-black text-slate-900 uppercase italic mb-16 tracking-tighter">Cộng đồng đánh giá <span class="text-emerald-500 underline underline-offset-8">Hub</span></h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-10 rounded-[3rem] shadow-xl border-b-8 border-emerald-500 transform hover:-translate-y-2 transition-all">
-                        <div class="flex gap-1 text-amber-400 mb-6"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-sm font-bold text-slate-600 leading-relaxed italic">"Dịch vụ thu gom buổi tối siêu đỉnh. Mình đi làm về muộn vẫn có thể dọn nhà được. Anh shipper thân thiện lắm!"</p>
-                        <div class="mt-8 flex items-center gap-4">
-                            <div class="w-12 h-12 bg-slate-200 rounded-full"></div>
-                            <div>
-                                <h5 class="font-black text-xs uppercase">Nguyễn Hà My</h5>
-                                <span class="text-[10px] text-slate-400 font-black uppercase">Quận 7, TP.HCM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-10 rounded-[3rem] shadow-xl border-b-8 border-emerald-500 transform hover:-translate-y-2 transition-all">
-                        <div class="flex gap-1 text-amber-400 mb-6"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-sm font-bold text-slate-600 leading-relaxed italic">"Rất thích cách Hub phân loại giá theo kg. Vừa dọn sạch nhà, vừa có thêm ít tiền trà sữa lại giúp bảo vệ môi trường."</p>
-                        <div class="mt-8 flex items-center gap-4">
-                            <div class="w-12 h-12 bg-slate-200 rounded-full"></div>
-                            <div>
-                                <h5 class="font-black text-xs uppercase">Trần Văn Hoàng</h5>
-                                <span class="text-[10px] text-slate-400 font-black uppercase">Bình Thạnh, TP.HCM</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-10 rounded-[3rem] shadow-xl border-b-8 border-emerald-500 transform hover:-translate-y-2 transition-all">
-                        <div class="flex gap-1 text-amber-400 mb-6"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-sm font-bold text-slate-600 leading-relaxed italic">"Tính năng đổi điểm lấy sen đá rất thú vị. Hub làm việc cực kỳ chuyên nghiệp và hiện đại!"</p>
-                        <div class="mt-8 flex items-center gap-4">
-                            <div class="w-12 h-12 bg-slate-200 rounded-full"></div>
-                            <div>
-                                <h5 class="font-black text-xs uppercase">Lê Thùy Dương</h5>
-                                <span class="text-[10px] text-slate-400 font-black uppercase">Quận 1, TP.HCM</span>
-                            </div>
-                        </div>
+                <div class="bg-white p-8 rounded-[3rem] shadow-xl border-t-8 border-rose-500">
+                    <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl"><i class="fas fa-heart"></i></div>
+                    <h3 class="text-xl font-black uppercase mb-4">Từ thiện (Charity)</h3>
+                    <p class="text-sm text-slate-500 font-medium mb-6">Làm sạch, khử khuẩn và gửi tặng các mái ấm hoặc hội người nghèo.</p>
+                    <ul class="text-left text-xs space-y-2 font-bold text-slate-600 italic">
+                        <li>✅ Quần áo còn tốt (>80%)</li>
+                        <li>✅ Sách giáo khoa, đồ dùng học tập</li>
+                        <li>✅ Gấu bông, đồ chơi trẻ em</li>
+                    </ul>
+                    <div class="mt-6 p-3 bg-rose-50 rounded-xl border border-rose-100">
+                        <p class="text-[10px] text-rose-600 font-black uppercase italic">📸 Cam kết: Hub sẽ gửi ảnh xác nhận tại điểm trao tặng cho bạn qua Email/App!</p>
                     </div>
                 </div>
             </div>
@@ -177,72 +136,121 @@
     </main>
 
     <main id="pricing" class="tab-content py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-black uppercase italic text-center mb-10">Bảng giá thu mua tài nguyên</h2>
+            <div class="bg-white shadow-xl rounded-3xl p-8 space-y-4">
+                <div class="flex justify-between font-black border-b pb-4"><span>Nhựa PET</span><span class="text-emerald-600">8.000đ/kg</span></div>
+                <div class="flex justify-between font-black border-b pb-4"><span>Giấy Carton</span><span class="text-emerald-600">4.500đ/kg</span></div>
+                <div class="flex justify-between font-black"><span>Đồ điện tử</span><span class="text-emerald-600">15.000đ/kg</span></div>
+            </div>
+        </div>
+    </main>
+
+    <main id="rewards" class="tab-content py-20 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-black text-center text-slate-900 mb-4 uppercase italic">Bảng giá thu mua tài nguyên</h2>
-            <p class="text-center text-emerald-600 font-bold mb-16 tracking-widest text-[10px] uppercase italic">Cập nhật ngày: 24/03/2026</p>
+            <div class="bg-emerald-900 rounded-[3rem] p-12 text-white mb-16 relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-black italic uppercase">Cửa hàng đổi quà Hub</h2>
+                    <p class="mt-4 text-emerald-400 font-bold italic uppercase tracking-widest text-xs">Dùng số điểm bạn tích lũy được để đổi lấy mầm xanh</p>
+                </div>
+                <div class="absolute right-10 top-10 opacity-10 text-[150px]"><i class="fas fa-gift"></i></div>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-[2rem] shadow-lg border border-slate-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&q=80&w=400" class="rounded-2xl mb-4 h-40 w-full object-cover">
+                    <h4 class="font-black text-sm uppercase">Chậu Sen Đá Mini</h4>
+                    <p class="text-emerald-600 font-black mt-2">500 Điểm</p>
+                    <button class="mt-4 w-full bg-slate-100 py-3 rounded-xl font-bold text-xs uppercase hover:bg-emerald-600 hover:text-white transition-all">Đổi ngay</button>
+                </div>
+                <div class="bg-white p-6 rounded-[2rem] shadow-lg border border-slate-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1544650030-3c6984717f14?auto=format&fit=crop&q=80&w=400" class="rounded-2xl mb-4 h-40 w-full object-cover">
+                    <h4 class="font-black text-sm uppercase">Túi Vải Tote Hub</h4>
+                    <p class="text-emerald-600 font-black mt-2">1,200 Điểm</p>
+                    <button class="mt-4 w-full bg-slate-100 py-3 rounded-xl font-bold text-xs uppercase hover:bg-emerald-600 hover:text-white transition-all">Đổi ngay</button>
+                </div>
+                <div class="bg-white p-6 rounded-[2rem] shadow-lg border border-slate-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1518063311540-01395992c131?auto=format&fit=crop&q=80&w=400" class="rounded-2xl mb-4 h-40 w-full object-cover">
+                    <h4 class="font-black text-sm uppercase">Bình Nước Thủy Tinh</h4>
+                    <p class="text-emerald-600 font-black mt-2">2,500 Điểm</p>
+                    <button class="mt-4 w-full bg-slate-100 py-3 rounded-xl font-bold text-xs uppercase hover:bg-emerald-600 hover:text-white transition-all">Đổi ngay</button>
+                </div>
+                <div class="bg-white p-6 rounded-[2rem] shadow-lg border border-slate-100 text-center">
+                    <img src="https://images.unsplash.com/photo-1621459548444-935cc9988463?auto=format&fit=crop&q=80&w=400" class="rounded-2xl mb-4 h-40 w-full object-cover">
+                    <h4 class="font-black text-sm uppercase">Voucher Grab Xanh</h4>
+                    <p class="text-emerald-600 font-black mt-2">3,000 Điểm</p>
+                    <button class="mt-4 w-full bg-slate-100 py-3 rounded-xl font-bold text-xs uppercase hover:bg-emerald-600 hover:text-white transition-all">Đổi ngay</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="warehouse" class="tab-content py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-black uppercase italic text-center mb-16">Hệ thống kho bãi & <span class="text-emerald-500">Logistics</span></h2>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 flex flex-col">
-                    <div class="bg-emerald-600 p-8 text-white text-center">
-                        <i class="fas fa-bottle-water text-4xl mb-4"></i>
-                        <h3 class="text-xl font-black uppercase italic tracking-tighter">Nhựa & Kim Loại</h3>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl border-l-[12px] border-emerald-900">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-warehouse text-3xl text-emerald-900"></i>
+                        <h3 class="text-2xl font-black uppercase italic">Kho Tổng (Main Hub)</h3>
                     </div>
-                    <div class="p-8 space-y-6 flex-grow">
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-4">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Nhựa PET (Vỏ chai)</span>
-                            <span class="text-lg font-black text-emerald-600">8.000đ/kg</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-4">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Lon nhôm/Sắt</span>
-                            <span class="text-lg font-black text-emerald-600">15.000đ/kg</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-4">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Nhựa cứng (HDPE)</span>
-                            <span class="text-lg font-black text-emerald-600">6.500đ/kg</span>
-                        </div>
+                    <p class="text-sm font-bold text-slate-500 mb-2">📍 Địa chỉ: Cụm Công Nghiệp Bình Chiểu, TP. Thủ Đức, TP.HCM</p>
+                    <p class="text-xs text-slate-400 italic font-medium">Nơi lưu trữ số lượng lớn, ép kiện và xuất đi nhà máy tái chế.</p>
+                    <div class="mt-6 grid grid-cols-2 gap-4 text-center">
+                        <div class="bg-slate-50 p-4 rounded-2xl"><span class="block text-xl font-black">2,500m²</span><span class="text-[9px] font-black uppercase text-slate-400">Diện tích</span></div>
+                        <div class="bg-slate-50 p-4 rounded-2xl"><span class="block text-xl font-black">50 Tấn</span><span class="text-[9px] font-black uppercase text-slate-400">Sức chứa/ngày</span></div>
                     </div>
                 </div>
-
-                <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 flex flex-col">
-                    <div class="bg-amber-500 p-8 text-white text-center">
-                        <i class="fas fa-box text-4xl mb-4"></i>
-                        <h3 class="text-xl font-black uppercase italic tracking-tighter">Giấy & Carton</h3>
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl border-l-[12px] border-emerald-500">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-filter text-3xl text-emerald-500"></i>
+                        <h3 class="text-2xl font-black uppercase italic">Kho Phân Loại (Sorting Hub)</h3>
                     </div>
-                    <div class="p-8 space-y-6 flex-grow">
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-4">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Thùng Carton</span>
-                            <span class="text-lg font-black text-amber-600">4.000đ/kg</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-4">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Sách, Báo cũ</span>
-                            <span class="text-lg font-black text-amber-600">3.000đ/kg</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-4">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Giấy văn phòng</span>
-                            <span class="text-lg font-black text-amber-600">3.500đ/kg</span>
-                        </div>
+                    <p class="text-sm font-bold text-slate-500 mb-2">📍 Địa chỉ: 154 Đường số 7, Phường Tân Kiểng, Quận 7, TP.HCM</p>
+                    <p class="text-xs text-slate-400 italic font-medium">Điểm tiếp nhận trực tiếp từ shipper, phân loại rác thành 3 luồng: Tái chế - Phân hủy - Từ thiện.</p>
+                    <div class="mt-6 flex items-center gap-4">
+                        <span class="px-4 py-2 bg-emerald-100 text-emerald-600 rounded-full text-[10px] font-black">HỆ THỐNG KHỬ KHUẨN UV</span>
+                        <span class="px-4 py-2 bg-emerald-100 text-emerald-600 rounded-full text-[10px] font-black">MÁY NÉN THỦY LỰC</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </main>
 
-                <div class="bg-white rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 flex flex-col">
-                    <div class="bg-slate-900 p-8 text-white text-center">
-                        <i class="fas fa-plug text-4xl mb-4"></i>
-                        <h3 class="text-xl font-black uppercase italic tracking-tighter">Công nghệ & Khác</h3>
-                    </div>
-                    <div class="p-8 space-y-6 flex-grow">
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-4">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Linh kiện điện tử</span>
-                            <span class="text-lg font-black text-slate-900">12.000đ/kg</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-4">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Quần áo (Đã phân loại)</span>
-                            <span class="text-lg font-black text-slate-900">5.000đ/kg</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-slate-50 pb-4">
-                            <span class="text-xs font-bold text-slate-500 uppercase">Đồ nội thất gia dụng</span>
-                            <span class="text-xs font-black text-emerald-500 italic uppercase underline">Định giá tại chỗ</span>
+    <main id="review-page" class="tab-content py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white p-12 rounded-[4rem] shadow-2xl border border-slate-100">
+                <h2 class="text-3xl font-black uppercase italic mb-8 text-center tracking-tighter">Đánh giá <span class="text-emerald-600 underline">Trải nghiệm</span> của bạn</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <label class="block text-xs font-black uppercase mb-3 text-slate-400">1. Bạn hài lòng về điều gì nhất?</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <button class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-[10px] font-black uppercase hover:bg-emerald-600 hover:text-white transition-all">Đúng giờ</button>
+                            <button class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-[10px] font-black uppercase hover:bg-emerald-600 hover:text-white transition-all">Shipper nhiệt tình</button>
+                            <button class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-[10px] font-black uppercase hover:bg-emerald-600 hover:text-white transition-all">App dễ dùng</button>
+                            <button class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-[10px] font-black uppercase hover:bg-emerald-600 hover:text-white transition-all">Giá thu mua tốt</button>
                         </div>
                     </div>
+
+                    <div class="text-center">
+                        <label class="block text-xs font-black uppercase mb-4 text-slate-400">2. Số sao bình chọn</label>
+                        <div id="starRating" class="star-rating text-4xl flex justify-center gap-4 text-slate-200">
+                            <i class="fas fa-star" onclick="rateStar(1)"></i>
+                            <i class="fas fa-star" onclick="rateStar(2)"></i>
+                            <i class="fas fa-star" onclick="rateStar(3)"></i>
+                            <i class="fas fa-star" onclick="rateStar(4)"></i>
+                            <i class="fas fa-star" onclick="rateStar(5)"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-black uppercase mb-3 text-slate-400">3. Viết cảm nhận của bạn</label>
+                        <textarea id="reviewText" placeholder="Hãy chia sẻ ý kiến của bạn để Hub hoàn thiện hơn nhé..." class="w-full p-6 bg-slate-50 rounded-[2rem] h-32 outline-none border-2 border-transparent focus:border-emerald-500 font-bold italic"></textarea>
+                    </div>
+
+                    <button onclick="submitReview()" class="w-full bg-emerald-600 text-white py-6 rounded-[2rem] font-black uppercase shadow-2xl hover:bg-emerald-500 transition-all">Gửi đánh giá ngay</button>
                 </div>
             </div>
         </div>
@@ -255,29 +263,15 @@
                 <input id="trackID" type="text" placeholder="Nhập mã đơn HUB-XXXX" class="flex-grow p-5 bg-slate-100 rounded-3xl outline-none font-black uppercase text-sm tracking-widest border-2 border-transparent focus:border-emerald-500">
                 <button onclick="startTracking()" class="bg-emerald-600 text-white px-8 rounded-3xl font-black uppercase italic text-sm shadow-xl shadow-emerald-100 transition-all">Tra cứu</button>
             </div>
-
             <div id="trackingFlow" class="hidden space-y-12">
                 <div class="flex items-start gap-6 relative">
                     <div class="absolute left-6 top-10 bottom-0 w-1 bg-slate-100"></div>
                     <div class="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white z-10 shadow-lg"><i class="fas fa-check"></i></div>
-                    <div>
-                        <h4 class="font-black text-emerald-600 uppercase italic">Đã xác nhận yêu cầu</h4>
-                        <p class="text-[10px] font-bold text-slate-400 italic">Hệ thống đã điều phối Shipper</p>
-                    </div>
+                    <div><h4 class="font-black text-emerald-600 uppercase italic">Đã xác nhận yêu cầu</h4></div>
                 </div>
                 <div class="flex items-start gap-6 relative">
                     <div class="w-12 h-12 bg-emerald-100 border-4 border-emerald-600 rounded-full flex items-center justify-center text-emerald-600 z-10 animate-pulse"><i class="fas fa-truck-moving"></i></div>
-                    <div>
-                        <h4 class="font-black text-emerald-600 uppercase italic">Shipper đang di chuyển</h4>
-                        <p class="text-[10px] font-bold text-slate-400 italic">Dự kiến đến trong: 15 phút nữa</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-6">
-                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 z-10"><i class="fas fa-warehouse"></i></div>
-                    <div>
-                        <h4 class="font-black text-slate-300 uppercase italic">Đang vận chuyển về Hub</h4>
-                        <p class="text-[10px] font-bold text-slate-300 italic">Bước cuối: Phân loại & Tích điểm</p>
-                    </div>
+                    <div><h4 class="font-black text-emerald-600 uppercase italic">Shipper đang di chuyển</h4><p class="text-[10px] font-bold text-slate-400 italic">Dự kiến đến trong: 15 phút nữa</p></div>
                 </div>
             </div>
         </div>
@@ -285,71 +279,63 @@
 
     <main id="wallet" class="tab-content py-20 px-6">
         <div class="max-w-4xl mx-auto">
-            <div class="bg-emerald-950 rounded-[4rem] p-10 text-white shadow-2xl relative overflow-hidden mb-12">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-800 rounded-full -mr-20 -mt-20 opacity-20"></div>
-                <div class="relative z-10">
-                    <p class="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-400 mb-2 italic underline decoration-white">Tổng quan tài sản xanh</p>
-                    <div class="grid md:grid-cols-2 gap-10">
-                        <div>
-                            <span class="text-[10px] font-bold opacity-60 uppercase">Số dư ví HUB (VNĐ)</span>
-                            <h2 class="text-5xl font-black italic tracking-tighter mt-2">1,245,000đ</h2>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold opacity-60 uppercase">Tổng lượng rác đã gom</span>
-                            <h2 class="text-5xl font-black italic tracking-tighter mt-2 text-emerald-400">42.5 kg</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-12 flex gap-4 relative z-10">
-                    <button class="bg-white text-emerald-900 px-8 py-4 rounded-2xl font-black text-xs uppercase italic shadow-xl">Rút tiền về NH/Momo</button>
-                    <button class="bg-emerald-800 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase italic border border-emerald-700">Lịch sử giao dịch</button>
-                </div>
+            <div class="bg-emerald-950 rounded-[4rem] p-10 text-white shadow-2xl relative overflow-hidden">
+                <h2 class="text-5xl font-black italic tracking-tighter">1,245,000đ</h2>
+                <p class="text-[10px] font-black uppercase text-emerald-400 mt-4">Tổng số điểm tích lũy: 4,500 Điểm</p>
+                <button class="mt-8 bg-white text-emerald-900 px-8 py-4 rounded-2xl font-black text-xs uppercase shadow-xl">Rút tiền về Momo</button>
             </div>
         </div>
     </main>
 
     <script>
+        let currentRating = 0;
+
         function showTab(id) {
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            
-            // Highlight nav button
             const activeBtn = Array.from(document.querySelectorAll('.nav-link')).find(btn => btn.getAttribute('onclick').includes(id));
             if(activeBtn) activeBtn.classList.add('active');
             window.scrollTo(0,0);
         }
 
+        function rateStar(n) {
+            currentRating = n;
+            const stars = document.querySelectorAll('#starRating i');
+            stars.forEach((s, idx) => {
+                if(idx < n) s.classList.add('active');
+                else s.classList.remove('active');
+            });
+        }
+
+        function submitReview() {
+            const text = document.getElementById('reviewText').value;
+            if(!currentRating) return Swal.fire('Lưu ý', 'Bạn vui lòng chấm điểm sao nhé!', 'warning');
+            Swal.fire({
+                title: 'Cảm ơn bạn!',
+                text: 'Hub đã ghi nhận đánh giá của bạn để cải thiện dịch vụ.',
+                icon: 'success',
+                confirmButtonColor: '#059669'
+            });
+            document.getElementById('reviewText').value = '';
+            rateStar(0);
+        }
+
         function previewImage(input) {
             if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('imagePreview').src = e.target.result;
-                    document.getElementById('imagePreview').classList.remove('hidden');
-                }
-                reader.readAsDataURL(input.files[0]);
+                Swal.fire({ title: 'Đã tải ảnh!', text: 'Ảnh đồ cũ của bạn đã được đính kèm vào đơn.', icon: 'info' });
             }
         }
 
         function submitOrder() {
             const name = document.getElementById('userName').value;
-            if(!name) return Swal.fire('Lỗi', 'Vui lòng cung cấp ít nhất tên của bạn!', 'error');
-            const randomID = 'HUB' + Math.floor(100000 + Math.random() * 900000);
-            Swal.fire({
-                title: 'Gửi yêu cầu thành công!',
-                html: `<div class="p-4 text-left bg-slate-50 rounded-2xl">
-                        <p class="text-xs font-bold uppercase mb-2">Thông tin của bạn:</p>
-                        <p class="text-sm font-black italic text-emerald-600">Mã đơn: ${randomID}</p>
-                        <p class="text-[10px] text-slate-400 mt-2">Vui lòng chờ Shipper gọi xác nhận trong 15 phút.</p>
-                       </div>`,
-                icon: 'success',
-                confirmButtonColor: '#059669'
-            });
+            if(!name) return Swal.fire('Lỗi', 'Vui lòng nhập họ tên!', 'error');
+            Swal.fire('Thành công', 'Đơn thu gom đã được gửi! Shipper sẽ gọi bạn sớm.', 'success');
         }
 
         function startTracking() {
             const id = document.getElementById('trackID').value;
-            if(!id) return Swal.fire('Lưu ý', 'Bạn chưa nhập mã đơn hàng!', 'warning');
+            if(!id) return Swal.fire('Lưu ý', 'Nhập mã đơn HUB-XXXX!', 'warning');
             document.getElementById('trackingFlow').classList.remove('hidden');
         }
     </script>
