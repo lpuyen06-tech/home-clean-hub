@@ -23,10 +23,10 @@
 
     <div class="bg-emerald-950 text-emerald-400 py-2 px-6 text-[10px] font-bold uppercase tracking-widest flex justify-between items-center z-[70] relative">
         <div class="flex gap-4">
-            <span><i class="fas fa-phone-alt mr-1"></i> 0933 815 136</span>
-            <span><i class="fas fa-envelope mr-1"></i> contact@homecleanhub.vn</span>
+            <span><i class="fas fa-clock mr-1"></i> Hoạt động: 08:00 - 21:00 (T2-CN)</span>
+            <span class="hidden md:inline"><i class="fas fa-envelope mr-1"></i> contact@homecleanhub.vn</span>
         </div>
-        <span class="hidden md:inline italic">Kho bãi chính: 142 Võ Văn Kiệt, Quận 1, TP.HCM</span>
+        <span class="italic underline">Kho chính: 142 Võ Văn Kiệt, Q.1</span>
     </div>
 
     <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100 shadow-sm">
@@ -34,95 +34,109 @@
             <div class="flex items-center gap-3 cursor-pointer" onclick="showTab('home')">
                 <div class="bg-emerald-600 p-2 rounded-xl text-white shadow-lg"><i class="fas fa-leaf"></i></div>
                 <div class="leading-none">
-                    <span class="text-xl font-black text-emerald-900 block">Home-Clean Hub</span>
+                    <span class="text-xl font-black text-emerald-900 block uppercase">Home-Clean Hub</span>
                     <span class="text-[9px] font-bold text-emerald-600 tracking-[0.2em] uppercase">Circular Economy</span>
                 </div>
             </div>
             
-            <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase">
+            <div class="hidden lg:flex gap-6 text-[10px] font-black uppercase">
                 <button onclick="showTab('about')" class="nav-link py-2 hover:text-emerald-600">Về chúng tôi</button>
                 <button id="nav-home" onclick="showTab('home')" class="nav-link active py-2 hover:text-emerald-600">Đăng ký</button>
-                <button id="nav-tracking" onclick="showTab('tracking')" class="nav-link py-2 hover:text-emerald-600">Theo dõi đơn</button>
+                <button id="nav-tracking" onclick="showTab('tracking')" class="nav-link py-2 hover:text-emerald-600">Theo dõi</button>
                 <button onclick="showTab('charity')" class="nav-link py-2 text-blue-600">Minh bạch</button>
+                <button onclick="showTab('rewards')" class="nav-link py-2">Đổi quà</button>
                 <button onclick="showTab('reviews')" class="nav-link py-2">Đánh giá</button>
             </div>
 
             <button class="lg:hidden text-2xl text-emerald-900" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
         </div>
 
-        <div id="mobile-menu" class="fixed inset-0 bg-emerald-900 translate-x-full lg:hidden flex flex-col items-center justify-center gap-8 text-white font-bold uppercase z-[100] transition-transform duration-300">
+        <div id="mobile-menu" class="fixed inset-0 bg-emerald-900 translate-x-full lg:hidden flex flex-col items-center justify-center gap-6 text-white font-bold uppercase z-[100] transition-transform duration-300">
             <button class="absolute top-6 right-6 text-3xl" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
             <button onclick="handleMobileNav('about')">Về chúng tôi</button>
             <button onclick="handleMobileNav('home')">Đăng ký thu gom</button>
             <button onclick="handleMobileNav('tracking')">Theo dõi đơn</button>
             <button onclick="handleMobileNav('charity')">Minh bạch hành trình</button>
+            <button onclick="handleMobileNav('rewards')">Đổi quà tích điểm</button>
             <button onclick="handleMobileNav('reviews')">Đánh giá khách hàng</button>
         </div>
     </nav>
 
     <main id="about" class="tab-content py-16 px-6">
         <div class="max-w-5xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
-                <div class="space-y-6">
-                    <h2 class="text-4xl font-black text-slate-900 italic">Chúng tôi là ai?</h2>
-                    <p class="text-slate-600 font-medium leading-relaxed italic">Home-Clean Hub là nền tảng tiên phong tại Việt Nam ứng dụng mô hình **Kinh tế tuần hoàn** vào việc quản lý đồ dùng cũ. Chúng tôi không chỉ dọn nhà, chúng tôi tái định vị giá trị của rác thải.</p>
-                    <div class="bg-emerald-50 p-6 rounded-[2rem] border border-emerald-100">
-                        <h4 class="font-black text-emerald-800 mb-2 italic underline text-sm">Kho bãi & Vận hành:</h4>
-                        <p class="text-xs font-bold text-emerald-600 leading-6 italic">
-                            • Tổng kho: 142 Võ Văn Kiệt, Quận 1 (500m2)<br>
-                            • Trạm phân loại: TP. Thủ Đức & Quận 7<br>
-                            • Đội ngũ: 20 shipper xanh & 5 chuyên viên phân loại
-                        </p>
-                    </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h2 class="text-3xl font-black text-slate-900 mb-6 italic underline decoration-emerald-500 underline-offset-8">Sứ mệnh & Giá trị</h2>
+                    <p class="text-slate-600 font-medium leading-relaxed italic mb-4 text-sm">Home-Clean Hub sinh ra để giải quyết bài toán lãng phí đồ dùng tại đô thị, biến mỗi món đồ cũ thành một cơ hội mới cho người thiếu hụt và bảo vệ môi trường.</p>
+                    <ul class="space-y-3 text-xs font-bold text-slate-500 italic">
+                        <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i><b>Sứ mệnh:</b> Lan tỏa lối sống xanh và tinh thần sẻ chia.</li>
+                        <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i><b>Giá trị:</b> Minh bạch tuyệt đối trong mọi chuyến xe.</li>
+                        <li><i class="fas fa-check-circle text-emerald-500 mr-2"></i><b>Kho vận:</b> Hệ thống kho bãi 500m2 đạt chuẩn khử khuẩn.</li>
+                    </ul>
                 </div>
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600" class="rounded-[3rem] shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600" class="rounded-[3rem] shadow-2xl border-8 border-white">
             </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-10 rounded-[2.5rem] shadow-xl border-t-4 border-blue-500">
-                    <h3 class="text-xl font-black mb-4 italic text-blue-600"><i class="fas fa-hand-holding-heart mr-2"></i>Kênh Từ Thiện</h3>
-                    <p class="text-xs text-slate-500 font-bold leading-relaxed italic">Đồ dùng còn tốt (quần áo, sách vở, gia dụng) được khử khuẩn Ozone và trao tặng cho 25 mái ấm đối tác tại TP.HCM và các tỉnh vùng xa.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-emerald-900 text-white p-8 rounded-[2.5rem] italic">
+                    <h4 class="font-black mb-2 uppercase text-[10px] tracking-widest text-emerald-400">01. Phân loại</h4>
+                    <p class="text-[11px] leading-relaxed">Đồ dùng được đưa về kho chính tại Q.1 để đội ngũ chuyên viên tách luồng: Từ thiện hoặc Tái chế.</p>
                 </div>
-                <div class="bg-white p-10 rounded-[2.5rem] shadow-xl border-t-4 border-emerald-500">
-                    <h3 class="text-xl font-black mb-4 italic text-emerald-600"><i class="fas fa-recycle mr-2"></i>Kênh Tái Chế</h3>
-                    <p class="text-xs text-slate-500 font-bold leading-relaxed italic">Đồ hư hỏng, nhựa, kim loại được chuyển đến đối tác tái chế (như Duy Tân) để nghiền nát và sản xuất thành hạt nhựa sinh học hoặc vật liệu mới.</p>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-xl italic border border-slate-100">
+                    <h4 class="font-black mb-2 uppercase text-[10px] tracking-widest text-emerald-600">02. Xử lý sạch</h4>
+                    <p class="text-[11px] leading-relaxed text-slate-500 font-bold">Sử dụng công nghệ khử khuẩn Ozone và giặt sấy công nghiệp trước khi đóng gói trao tặng.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-xl italic border border-slate-100">
+                    <h4 class="font-black mb-2 uppercase text-[10px] tracking-widest text-blue-600">03. Kết nối</h4>
+                    <p class="text-[11px] leading-relaxed text-slate-500 font-bold">Chuyển trực tiếp đến các mái ấm, nhà mở hoặc xưởng tái chế nhựa Duy Tân.</p>
                 </div>
             </div>
         </div>
     </main>
 
     <main id="home" class="tab-content active py-10 px-6">
-        <div class="max-w-4xl mx-auto grid md:grid-cols-5 gap-8">
-            <div class="md:col-span-3 bg-white p-10 rounded-[3rem] shadow-2xl border border-slate-50">
-                <h2 class="text-2xl font-black text-emerald-700 mb-8 italic"><i class="fas fa-calendar-plus mr-2"></i>Đặt lịch thu gom</h2>
-                <div class="space-y-4 mb-8">
-                    <input id="userName" type="text" placeholder="Họ và tên" class="w-full p-4 bg-slate-50 rounded-2xl outline-none font-bold border-2 border-transparent focus:border-emerald-500">
-                    <input id="userPhone" type="tel" placeholder="Số điện thoại của bạn" class="w-full p-4 bg-slate-50 rounded-2xl outline-none font-bold border-2 border-transparent focus:border-emerald-500">
-                    <div class="grid grid-cols-2 gap-4">
-                        <select id="userArea" class="p-4 bg-slate-50 rounded-2xl font-bold outline-none border-2 border-transparent focus:border-emerald-500">
-                            <option value="">Khu vực</option>
-                            <option>Quận 1</option><option>TP. Thủ Đức</option><option>Quận 7</option>
-                        </select>
-                        <select id="userTime" class="p-4 bg-amber-50 rounded-2xl font-bold text-amber-800 outline-none border border-amber-200">
-                            <option value="">Khung giờ</option>
-                            <option>Sáng (08:30)</option><option>Chiều (14:00)</option>
-                        </select>
-                    </div>
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 bg-white p-10 rounded-[3rem] shadow-2xl border border-slate-50">
+                <h2 class="text-2xl font-black text-emerald-700 mb-8 italic"><i class="fas fa-truck-loading mr-2"></i>Đăng ký lịch lấy đồ</h2>
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <input id="userName" type="text" placeholder="Họ tên" class="p-4 bg-slate-50 rounded-2xl outline-none font-bold border-2 border-transparent focus:border-emerald-500">
+                    <input id="userPhone" type="tel" placeholder="Số điện thoại" class="p-4 bg-slate-50 rounded-2xl outline-none font-bold border-2 border-transparent focus:border-emerald-500">
                 </div>
-                <div class="bg-emerald-900 p-8 rounded-[2rem] text-white flex justify-between items-center shadow-lg">
-                    <div><p class="text-[9px] font-bold opacity-60 uppercase">Phí vận hành</p><div class="text-3xl font-black">15.000đ</div></div>
-                    <button onclick="submitOrder()" class="bg-emerald-500 text-white px-8 py-4 rounded-xl font-black uppercase text-[10px] hover:bg-emerald-400 transition-all">Xác nhận đơn</button>
+                <div class="grid md:grid-cols-2 gap-4 mb-8">
+                    <select id="userArea" class="p-4 bg-slate-50 rounded-2xl font-bold outline-none border-2 border-transparent focus:border-emerald-500">
+                        <option value="">Chọn Quận/Huyện</option>
+                        <option>Quận 1</option><option>Quận 3</option><option>Quận 4</option><option>Quận 5</option>
+                        <option>Quận 7</option><option>Quận 10</option><option>TP. Thủ Đức</option><option>Bình Thạnh</option>
+                        <option>Gò Vấp</option><option>Phú Nhuận</option><option>Tân Bình</option>
+                    </select>
+                    <select id="userTime" class="p-4 bg-amber-50 rounded-2xl font-bold text-amber-800 outline-none border border-amber-200">
+                        <option value="">Khung giờ lấy đồ</option>
+                        <option>Sáng (08:30 - 11:30)</option>
+                        <option>Chiều (14:00 - 17:30)</option>
+                        <option>Tối (18:00 - 21:00) - Hot</option>
+                    </select>
+                </div>
+                <div class="bg-emerald-950 p-8 rounded-[2rem] text-white flex justify-between items-center shadow-lg">
+                    <div>
+                        <p class="text-[9px] font-bold opacity-60 uppercase mb-1">Đồng giá vận chuyển</p>
+                        <div class="text-3xl font-black text-emerald-400">15.000đ</div>
+                    </div>
+                    <button onclick="submitOrder()" class="bg-emerald-500 hover:bg-emerald-400 text-white px-10 py-4 rounded-xl font-black uppercase text-[11px] shadow-xl transition-all">Gửi yêu cầu</button>
                 </div>
             </div>
 
-            <div class="md:col-span-2 space-y-6">
-                <div class="bg-blue-600 p-8 rounded-[2.5rem] text-white shadow-xl italic">
-                    <h4 class="font-black mb-4">Lưu ý phân loại:</h4>
-                    <p class="text-[10px] font-bold leading-relaxed opacity-90 underline underline-offset-4">Vui lòng để riêng đồ điện tử hỏng và quần áo cũ để Hub xử lý nhanh hơn!</p>
+            <div class="space-y-6">
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border-t-8 border-emerald-600 italic">
+                    <h4 class="font-black text-emerald-900 mb-4 italic uppercase text-xs">Bảng phí vận hành</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-[11px] font-bold border-b pb-2"><span>Thu gom tận nơi</span><span class="text-emerald-600">15.000đ</span></div>
+                        <div class="flex justify-between text-[11px] font-bold border-b pb-2"><span>Khử khuẩn Ozone</span><span class="text-emerald-600">Miễn phí</span></div>
+                        <div class="flex justify-between text-[11px] font-bold"><span>Điểm thưởng tích lũy</span><span class="text-blue-600">+10đ/đơn</span></div>
+                    </div>
                 </div>
-                <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 flex items-center gap-4">
-                    <i class="fas fa-shield-alt text-3xl text-emerald-600"></i>
-                    <div><b class="text-sm block italic">Bảo mật 100%</b><span class="text-[9px] text-slate-400 font-bold uppercase italic">Thông tin cá nhân</span></div>
+                <div class="bg-blue-600 p-8 rounded-[2.5rem] text-white shadow-xl italic">
+                    <h4 class="font-black mb-3 text-xs uppercase tracking-widest"><i class="fas fa-info-circle mr-2"></i>Ghi chú</h4>
+                    <p class="text-[10px] leading-loose font-medium opacity-90">Chúng tôi nhận mọi loại đồ dùng trừ rác thải y tế và thực phẩm tươi sống. Đồ buổi tối vui lòng đặt trước 16h.</p>
                 </div>
             </div>
         </div>
@@ -130,18 +144,54 @@
 
     <main id="tracking" class="tab-content py-16 px-6">
         <div class="max-w-3xl mx-auto">
-            <div class="bg-white p-8 rounded-[3rem] shadow-xl mb-12 border-2 border-emerald-50">
-                <h3 class="text-2xl font-black text-emerald-900 mb-6 italic text-center">Tra cứu hành trình món đồ</h3>
+            <div class="bg-white p-8 rounded-[3rem] shadow-xl mb-12 border-2 border-emerald-50 text-center">
+                <h3 class="text-2xl font-black text-emerald-900 mb-6 italic">Nhập SĐT tra cứu hành trình</h3>
                 <div class="flex gap-2">
-                    <input id="trackPhone" type="tel" placeholder="Nhập SĐT đã đăng ký..." class="flex-1 p-5 bg-slate-50 rounded-[1.5rem] outline-none font-black border-2 border-emerald-50 focus:border-emerald-500">
-                    <button onclick="checkTrack()" class="bg-emerald-600 text-white px-10 rounded-[1.5rem] font-black uppercase shadow-lg">Kiểm tra</button>
+                    <input id="trackPhone" type="tel" placeholder="09xx xxx xxx" class="flex-1 p-5 bg-slate-50 rounded-2xl outline-none font-black border-2 border-transparent focus:border-emerald-500">
+                    <button onclick="checkTrack()" class="bg-emerald-600 text-white px-10 rounded-2xl font-black uppercase">Tìm</button>
                 </div>
             </div>
+            <div id="trackResult" class="space-y-8"></div>
+        </div>
+    </main>
 
-            <div id="trackResult" class="space-y-8">
-                <div class="text-center py-20 bg-slate-50 rounded-[3rem] border-2 border-dashed border-slate-200">
-                    <i class="fas fa-search-location text-4xl text-slate-300 mb-4"></i>
-                    <p class="font-bold text-slate-400 italic italic">Nhập SĐT để xem "món đồ cũ" của bạn đang ở đâu</p>
+    <main id="rewards" class="tab-content py-16 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-emerald-900 italic">Kho quà tặng sống xanh</h2>
+                <p class="text-xs font-bold text-slate-400 mt-2 italic uppercase">Tích điểm từ mỗi lần cho đi</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-5 rounded-[2rem] shadow-lg text-center border border-slate-50 group">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300" class="w-full h-32 object-cover rounded-2xl mb-4 group-hover:scale-105 transition-transform">
+                    <h5 class="text-xs font-black italic">Túi Canvas Hub</h5>
+                    <p class="text-emerald-600 font-black text-[10px] mt-1">50 Điểm</p>
+                    <button class="mt-3 w-full py-2 bg-slate-100 rounded-xl text-[9px] font-black uppercase">Đổi ngay</button>
+                </div>
+                <div class="bg-white p-5 rounded-[2rem] shadow-lg text-center border border-slate-50 group">
+                    <img src="https://images.unsplash.com/photo-1591123720164-de1348028a82?w=300" class="w-full h-32 object-cover rounded-2xl mb-4 group-hover:scale-105 transition-transform">
+                    <h5 class="text-xs font-black italic">Bình nước tre</h5>
+                    <p class="text-emerald-600 font-black text-[10px] mt-1">80 Điểm</p>
+                    <button class="mt-3 w-full py-2 bg-slate-100 rounded-xl text-[9px] font-black uppercase">Đổi ngay</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="reviews" class="tab-content py-16 px-6">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-2xl italic border border-slate-50">
+                <h3 class="text-xl font-black text-slate-900 mb-6 underline decoration-blue-500">Gửi phản hồi cho Hub</h3>
+                <div class="space-y-4">
+                    <input id="revName" type="text" placeholder="Tên của bạn" class="w-full p-4 bg-slate-50 rounded-xl outline-none font-bold text-xs">
+                    <textarea id="revContent" placeholder="Cảm nhận của bạn về dịch vụ..." class="w-full p-4 bg-slate-50 rounded-xl outline-none font-bold text-xs h-32"></textarea>
+                    <button onclick="submitReview()" class="w-full py-4 bg-emerald-600 text-white rounded-xl font-black uppercase text-[10px] shadow-lg">Gửi đánh giá</button>
+                </div>
+            </div>
+            <div id="reviewList" class="space-y-6">
+                <div class="bg-white p-6 rounded-[2rem] shadow-md border-l-4 border-emerald-500 italic">
+                    <p class="text-xs font-bold text-slate-600 leading-relaxed">"Shipper lấy hàng buổi tối rất đúng giờ, cực kỳ tiện cho người đi làm như mình. 5 sao!"</p>
+                    <div class="mt-3 text-[9px] font-black text-emerald-600 uppercase">Chị Mai - Q.Bình Thạnh</div>
                 </div>
             </div>
         </div>
@@ -153,38 +203,11 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-50 group">
                     <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="p-8">
-                        <span class="text-[9px] bg-emerald-600 text-white px-4 py-1 rounded-full font-black uppercase italic">Kênh Từ Thiện</span>
-                        <h4 class="font-black text-lg mt-4 italic">Bàn giao tại Mái ấm Quận 1</h4>
-                        <p class="text-xs text-slate-500 mt-2 font-bold italic italic">Đã trao 20kg quần áo và 5 bộ đồ chơi sạch.</p>
+                    <div class="p-8 italic">
+                        <span class="text-[9px] bg-emerald-600 text-white px-4 py-1 rounded-full font-black uppercase">Kênh Từ Thiện</span>
+                        <h4 class="font-black text-lg mt-4">Bàn giao tại Mái ấm Quận 1</h4>
+                        <p class="text-xs text-slate-500 mt-2 font-bold">Đã trao tặng 20kg quần áo và sách giáo khoa.</p>
                     </div>
-                </div>
-                <div class="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-50 group">
-                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=500" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="p-8">
-                        <span class="text-[9px] bg-amber-500 text-white px-4 py-1 rounded-full font-black uppercase italic">Kênh Tái Chế</span>
-                        <h4 class="font-black text-lg mt-4 italic">Xử lý tại trạm Thủ Đức</h4>
-                        <p class="text-xs text-slate-500 mt-2 font-bold italic italic">Phân loại nhựa và gỗ hỏng để đưa đi nghiền vật liệu.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <main id="reviews" class="tab-content py-16 px-6">
-        <div class="max-w-3xl mx-auto space-y-6">
-            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border-l-8 border-emerald-500 italic">
-                <p class="font-bold text-slate-700">"Dịch vụ rất nhanh, shipper thân thiện. Thích nhất là được xem ảnh đồ của mình được đem đi từ thiện thật sự!"</p>
-                <div class="mt-4 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center font-black">NA</div>
-                    <span class="text-[10px] font-black uppercase text-slate-400 italic">Anh Nam - Quận 7</span>
-                </div>
-            </div>
-            <div class="bg-white p-8 rounded-[2.5rem] shadow-lg border-l-8 border-blue-500 italic">
-                <p class="font-bold text-slate-700">"Phí 15k quá rẻ so với việc mình phải tự chở đồ đi cho. Rất ủng hộ dự án Startup của các bạn!"</p>
-                <div class="mt-4 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center font-black">ML</div>
-                    <span class="text-[10px] font-black uppercase text-slate-400 italic">Chị Lan - Thủ Đức</span>
                 </div>
             </div>
         </div>
@@ -209,76 +232,64 @@
             const time = document.getElementById('userTime').value;
             const area = document.getElementById('userArea').value;
 
-            if(!name || !phone || !time || !area) return Swal.fire('Opps!', 'Bạn điền thiếu thông tin rồi!', 'warning');
+            if(!name || !phone || !time || !area) return Swal.fire('Opps!', 'Bạn điền thiếu thông tin dồi!', 'warning');
 
-            const db = JSON.parse(localStorage.getItem('hch_v_pro') || '[]');
+            const db = JSON.parse(localStorage.getItem('hch_v_final') || '[]');
             const orderId = 'HCH' + Math.floor(1000 + Math.random() * 9000);
             
-            const newOrder = { id: orderId, phone, name, time, area, progress: 40 }; // Khởi tạo tiến độ 40% (Đã lấy hàng)
-            db.push(newOrder);
-            localStorage.setItem('hch_v_pro', JSON.stringify(db));
+            db.push({ id: orderId, phone, name, time, area, progress: 35 });
+            localStorage.setItem('hch_v_final', JSON.stringify(db));
 
-            Swal.fire({
-                title: 'Đặt đơn thành công!',
-                text: `Mã đơn của bạn là: ${orderId}`,
-                icon: 'success',
-                confirmButtonText: 'Theo dõi hành trình ngay'
-            }).then(() => {
+            Swal.fire('Thành công!', `Mã đơn của bạn: ${orderId}. Hub sẽ gọi bạn sớm!`, 'success').then(() => {
                 document.getElementById('trackPhone').value = phone;
                 showTab('tracking');
                 checkTrack();
             });
         }
 
-        // --- TRA CỨU HÀNH TRÌNH ---
+        // --- TRA CỨU ---
         function checkTrack() {
             const phone = document.getElementById('trackPhone').value.trim();
             const res = document.getElementById('trackResult');
-            const db = JSON.parse(localStorage.getItem('hch_v_pro') || '[]');
+            const db = JSON.parse(localStorage.getItem('hch_v_final') || '[]');
             const myOrders = db.filter(o => o.phone === phone);
 
             if(myOrders.length === 0) {
-                res.innerHTML = '<div class="text-center py-20 bg-white rounded-[3rem] font-bold text-slate-300 italic">Không tìm thấy đơn hàng nào!</div>';
+                res.innerHTML = '<div class="text-center py-20 font-bold text-slate-300 italic">Không tìm thấy đơn hàng!</div>';
                 return;
             }
 
             res.innerHTML = myOrders.map(o => `
-                <div class="bg-white p-10 rounded-[3rem] shadow-2xl border border-emerald-50">
-                    <div class="flex justify-between items-start mb-10">
-                        <div>
-                            <span class="text-[10px] font-black text-emerald-600 uppercase bg-emerald-50 px-3 py-1 rounded-full">Trạng thái: Đang xử lý</span>
-                            <h4 class="text-2xl font-black italic text-emerald-950 mt-3">Mã đơn: ${o.id}</h4>
-                        </div>
-                        <div class="text-right">
-                            <b class="text-emerald-900 block italic">${o.name}</b>
-                            <span class="text-[9px] text-slate-400 font-bold uppercase tracking-widest italic">Khu vực: ${o.area}</span>
-                        </div>
+                <div class="bg-white p-10 rounded-[3rem] shadow-2xl border-l-8 border-emerald-500 italic">
+                    <div class="flex justify-between items-start mb-8">
+                        <div><h4 class="text-xl font-black text-emerald-950">Mã đơn: ${o.id}</h4><span class="text-[9px] font-bold text-slate-400 uppercase italic">Khu vực: ${o.area}</span></div>
+                        <span class="bg-emerald-50 text-emerald-600 px-4 py-1 rounded-full text-[9px] font-black uppercase animate-pulse italic">Đang điều phối</span>
                     </div>
-
-                    <div class="relative flex justify-between items-center mb-10 px-4">
-                        <div class="step-line"></div>
-                        <div class="step-fill" style="width: ${o.progress}%"></div>
-                        
-                        <div class="z-10 text-center">
-                            <div class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg"><i class="fas fa-truck text-xs"></i></div>
-                            <p class="text-[9px] font-black text-emerald-600 uppercase italic">Đã lấy hàng</p>
-                        </div>
-                        <div class="z-10 text-center">
-                            <div class="w-10 h-10 ${o.progress >= 50 ? 'bg-emerald-600' : 'bg-slate-200'} text-white rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg animate-bounce"><i class="fas fa-box-open text-xs"></i></div>
-                            <p class="text-[9px] font-black ${o.progress >= 50 ? 'text-emerald-600' : 'text-slate-400'} uppercase italic">Đang phân loại</p>
-                        </div>
-                        <div class="z-10 text-center opacity-40">
-                            <div class="w-10 h-10 bg-slate-200 text-slate-400 rounded-full flex items-center justify-center mx-auto mb-2"><i class="fas fa-heart text-xs"></i></div>
-                            <p class="text-[9px] font-black text-slate-400 uppercase italic">Trao tặng/Tái chế</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-emerald-950 p-6 rounded-[2rem] text-white flex justify-between items-center italic">
-                        <p class="text-[10px] font-bold opacity-80"><i class="fas fa-info-circle mr-2 text-emerald-400"></i> Đồ của bạn đã về kho và đang được khử khuẩn Ozone trước khi phân loại.</p>
-                        <button class="text-[9px] bg-emerald-600 px-4 py-2 rounded-xl font-black uppercase">Xem ảnh kho</button>
+                    <div class="relative flex justify-between items-center px-4">
+                        <div class="step-line"></div><div class="step-fill" style="width: ${o.progress}%"></div>
+                        <div class="z-10 text-center"><div class="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-1"><i class="fas fa-truck text-[10px]"></i></div><p class="text-[8px] font-black uppercase">Đã lấy</p></div>
+                        <div class="z-10 text-center"><div class="w-8 h-8 bg-slate-200 text-white rounded-full flex items-center justify-center mx-auto mb-1"><i class="fas fa-box text-[10px]"></i></div><p class="text-[8px] font-black uppercase">Phân loại</p></div>
+                        <div class="z-10 text-center opacity-30"><div class="w-8 h-8 bg-slate-100 text-slate-300 rounded-full flex items-center justify-center mx-auto mb-1"><i class="fas fa-heart text-[10px]"></i></div><p class="text-[8px] font-black uppercase">Hoàn tất</p></div>
                     </div>
                 </div>
             `).reverse().join('');
+        }
+
+        // --- ĐÁNH GIÁ ---
+        function submitReview() {
+            const name = document.getElementById('revName').value;
+            const content = document.getElementById('revContent').value;
+            if(!name || !content) return Swal.fire('Opps', 'Vui lòng nhập đủ tên và nội dung nhé!', 'info');
+            
+            const list = document.getElementById('reviewList');
+            const newRev = document.createElement('div');
+            newRev.className = "bg-white p-6 rounded-[2rem] shadow-md border-l-4 border-blue-500 italic animate-bounce";
+            newRev.innerHTML = `<p class="text-xs font-bold text-slate-600 leading-relaxed">"${content}"</p><div class="mt-3 text-[9px] font-black text-blue-600 uppercase">${name} - Vừa xong</div>`;
+            list.prepend(newRev);
+            
+            Swal.fire('Cảm ơn!', 'Đánh giá của bạn đã được ghi nhận.', 'success');
+            document.getElementById('revName').value = '';
+            document.getElementById('revContent').value = '';
         }
     </script>
 </body>
