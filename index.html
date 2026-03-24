@@ -18,7 +18,7 @@ body{font-family:Arial, sans-serif;scroll-behavior:smooth}
 
 <!-- HERO -->
 <header class="relative h-[550px] flex items-center justify-center text-white text-center">
-<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" class="absolute w-full h-full object-cover">
+<img src="https://source.unsplash.com/1600x900/?environment,recycle" class="absolute w-full h-full object-cover">
 <div class="absolute w-full h-full bg-black/50"></div>
 <div class="relative z-10">
 <h1 class="text-5xl font-bold">Home-Clean Hub</h1>
@@ -28,7 +28,7 @@ body{font-family:Arial, sans-serif;scroll-behavior:smooth}
 
 <!-- ABOUT -->
 <section class="py-16 max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6">
-<img src="https://images.unsplash.com/photo-1581091215367-59ab6b8c3f41" class="rounded-xl">
+<img src="https://source.unsplash.com/600x400/?cleaning,home" class="rounded-xl">
 <div>
 <h2 class="text-3xl font-bold mb-4">Về dịch vụ</h2>
 <p class="mb-3">Home-Clean Hub cung cấp giải pháp thu gom đồ cũ tận nơi tại TP.HCM.</p>
@@ -84,10 +84,10 @@ body{font-family:Arial, sans-serif;scroll-behavior:smooth}
 <section class="py-16 text-center">
 <h2 class="text-3xl font-bold mb-8">Bảng giá</h2>
 <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-<div class="card border rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1582582494700-f8ce0b9f7a3d" class="h-40 w-full object-cover"><div class="p-4"><b>Đồ lớn</b><br>15.000đ/kg</div></div>
-<div class="card border rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3" class="h-40 w-full object-cover"><div class="p-4"><b>Điện tử</b><br>8.000đ/kg</div></div>
-<div class="card border rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1581574201013-5c4d4f9c1d7d" class="h-40 w-full object-cover"><div class="p-4"><b>Giấy & Nhựa</b><br>3.000đ/kg</div></div>
-<div class="card border rounded-xl overflow-hidden"><img src="https://images.unsplash.com/photo-1520975922284-9b8f4f8e9f0c" class="h-40 w-full object-cover"><div class="p-4"><b>Quần áo</b><br>5.000đ/kg</div></div>
+<div class="card border rounded-xl overflow-hidden"><img src="https://source.unsplash.com/600x400/?furniture,sofa" class="h-40 w-full object-cover"><div class="p-4"><b>Đồ lớn</b><br>15.000đ/kg</div></div>
+<div class="card border rounded-xl overflow-hidden"><img src="https://source.unsplash.com/600x400/?electronics" class="h-40 w-full object-cover"><div class="p-4"><b>Điện tử</b><br>8.000đ/kg</div></div>
+<div class="card border rounded-xl overflow-hidden"><img src="https://source.unsplash.com/600x400/?recycle,plastic" class="h-40 w-full object-cover"><div class="p-4"><b>Giấy & Nhựa</b><br>3.000đ/kg</div></div>
+<div class="card border rounded-xl overflow-hidden"><img src="https://source.unsplash.com/600x400/?clothes" class="h-40 w-full object-cover"><div class="p-4"><b>Quần áo</b><br>5.000đ/kg</div></div>
 </div>
 </section>
 
@@ -160,7 +160,7 @@ let time=document.getElementById('time').value
 if(!name||!phone||!area||!time){document.getElementById('msg').innerText='Nhập đủ thông tin';return}
 let code='HC'+Date.now()
 let db=getDB()
-db[code]={name,phone,area,time,status:'Đã tiếp nhận',location:'Trung tâm Quận 9',date:'20/03/2026',image:'https://images.unsplash.com/photo-1593113598332-cd288d649433'}
+db[code]={name,phone,area,time,status:'Đã tiếp nhận',location:'Trung tâm Quận 9',date:'20/03/2026',image:'https://source.unsplash.com/600x400/?charity,donation'}
 saveDB(db)
 document.getElementById('msg').innerText='Mã đơn: '+code
 }
