@@ -13,26 +13,42 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .nav-link { position: relative; transition: all 0.3s; }
-        .nav-link.nav-active { color: #059669 !important; }
-        .nav-link.nav-active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 3px; background: #059669; border-radius: 10px; }
-        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: #10b981; }
+        .nav-link.nav-active { color: #059669 !important; border-bottom: 3px solid #059669; }
+        /* Fix lỗi banner che chữ */
+        header { height: 80px; }
+        main { min-height: calc(100vh - 80px); }
     </style>
 </head>
 <body class="text-slate-800">
 
-    <header class="bg-white/90 backdrop-blur-md border-b sticky top-0 z-50">
+    <header class="bg-white/95 backdrop-blur-md border-b sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
             <div class="flex items-center gap-3 cursor-pointer" onclick="showTab('home')">
-                <div class="w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-lg text-white">
-                    <i class="fas fa-recycle text-xl"></i>
-                </div>
-                <div>
-                    <h1 class="font-extrabold text-xl uppercase tracking-tighter leading-none">Home-Clean <span class="text-emerald-600">Hub</span></h1>
-                    <p class="text-[8px] font-black text-slate-400 mt-1 uppercase tracking-widest">Digital Circular Economy</p>
-                </div>
+                <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white shadow-lg"><i class="fas fa-recycle"></i></div>
+                <h1 class="font-extrabold text-lg uppercase tracking-tighter leading-none">Home-Clean <span class="text-emerald-600">Hub</span></h1>
             </div>
+            
+            <nav class="hidden xl:flex gap-6 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <button onclick="showTab('home')" class="nav-btn nav-active py-7">Trang chủ</button>
+                <button onclick="showTab('pricing')" class="nav-btn py-7">Bảng giá</button>
+                <button onclick="showTab('hubs')" class="nav-btn py-7">Hệ thống kho</button>
+                <button onclick="showTab('reviews')" class="nav-btn py-7">Đánh giá</button>
+                <button onclick="showTab('contact')" class="nav-btn py-7 text-emerald-600">Liên hệ tư vấn</button>
+            </nav>
+
+            <a href="tel:0933815136" class="bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[10px] uppercase flex items-center gap-2 shadow-xl shadow-slate-200">
+                <i class="fas fa-phone animate-pulse text-emerald-400"></i> 0933.815.136
+            </a>
+        </div>
+    </header>
+
+    <main id="home" class="tab-content active pt-10">
+        <section class="bg-emerald-600 text-white py-20 px-4 text-center rounded-b-[4rem] shadow-2xl">
+            <h2 class="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none">Dọn sạch nhà <br> <span class="text-emerald-300">Gom điều tử tế</span></h2>
+            <p class="mt-6 text-emerald-100 font-medium">Hệ thống thu gom 4.0 đầu tiên tại TP.HCM</p>
+            <button onclick="showTab('contact')" class="mt-10 bg-white text-emerald-700 px-8 py-4 rounded-2xl font-black uppercase text-xs shadow-xl hover:scale-105 transition-transform">Đặt lịch tư vấn ngay</button>
+        </section>
+    </main>
             
             <nav class="hidden xl:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
                 <button onclick="showTab('home')" class="nav-link nav-active">Trang chủ</button>
@@ -41,6 +57,8 @@
                 <button onclick="showTab('charity')" class="nav-link">Dự án từ thiện</button>
                 <button onclick="showTab('rewards')" class="nav-link">Ví điểm & Quà</button>
                 <button onclick="showTab('tracking')" class="nav-link">Tra cứu đơn</button>
+                <button onclick="showTab('reviews')" class="nav-btn py-7">Đánh giá</button>
+                <button onclick="showTab('contact')" class="nav-btn py-7 text-emerald-600">Liên hệ tư vấn</button>
             </nav>
 
             <div class="flex items-center gap-4">
@@ -350,6 +368,70 @@
             <i class="fas fa-gift"></i><span class="text-[8px] font-black uppercase mt-1">Ví điểm</span>
         </button>
     </nav>
+    </main>
+
+    <main id="reviews" class="tab-content pt-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-black italic uppercase tracking-tighter leading-none italic text-slate-900">Cộng đồng <span class="text-emerald-600">Nói gì?</span></h3>
+                <p class="text-slate-400 font-bold text-xs uppercase mt-2 tracking-widest italic">Hơn 5,000 khách hàng đã tin tưởng</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-50 relative">
+                    <div class="flex text-emerald-400 mb-6 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-slate-600 font-medium italic mb-8">"Dịch vụ cực nhanh. Nhân viên Hub Thủ Đức rất dễ thương, cân rác chuẩn và cộng điểm ngay trên ví điện tử."</p>
+                    <p class="font-black text-[10px] uppercase text-emerald-600 italic">— Chị Lan Anh, Quận 7</p>
+                </div>
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-50 relative">
+                    <div class="flex text-emerald-400 mb-6 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-slate-600 font-medium italic mb-8">"Rất tiện cho sinh viên, vừa dọn phòng sạch vừa có điểm đổi Voucher ăn uống. 10/10 cho mô hình này!"</p>
+                    <p class="font-black text-[10px] uppercase text-emerald-600 italic">— Minh Quân, ĐHQG TP.HCM</p>
+                </div>
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-50 relative">
+                    <div class="flex text-emerald-400 mb-6 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-slate-600 font-medium italic mb-8">"Mình đã gọi Hotline tư vấn 0933815136 để hỏi về đồ điện tử cũ và được hỗ trợ xe tải qua lấy tận nơi rất nhanh."</p>
+                    <p class="font-black text-[10px] uppercase text-emerald-600 italic">— Anh Hùng, Bình Thạnh</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="contact" class="tab-content pt-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-slate-900 rounded-[4rem] p-12 text-white shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h4 class="text-5xl font-black italic uppercase tracking-tighter leading-none mb-8">Liên hệ <br> <span class="text-emerald-500">Tư vấn 24/7</span></h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-10 mt-12">
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-xl shadow-lg shadow-emerald-500/20"><i class="fas fa-phone-alt"></i></div>
+                                <div>
+                                    <p class="text-[9px] font-black text-emerald-500 uppercase italic">Gọi trực tiếp</p>
+                                    <a href="tel:0933815136" class="text-2xl font-black tracking-tighter italic">0933.815.136</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-blue-500 rounded-2xl flex items-center justify-center text-xl shadow-lg shadow-blue-500/20"><i class="fab fa-facebook-messenger"></i></div>
+                                <div>
+                                    <p class="text-[9px] font-black text-blue-500 uppercase italic">Zalo hỗ trợ</p>
+                                    <p class="text-2xl font-black tracking-tighter italic">0933.815.136</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/5 backdrop-blur-md p-8 rounded-[2.5rem] border border-white/10">
+                            <h5 class="font-black uppercase italic text-xs mb-4">Để lại thông tin tư vấn</h5>
+                            <input type="text" placeholder="Tên của bạn" class="w-full bg-white/10 border-none p-4 rounded-xl mb-3 text-sm focus:ring-2 ring-emerald-500 outline-none">
+                            <button onclick="Swal.fire('Đã gửi!', 'Yêu cầu của bạn đã được tiếp nhận.', 'success')" class="w-full bg-emerald-600 py-4 rounded-xl font-black uppercase text-[10px] tracking-widest shadow-lg">Gửi yêu cầu</button>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-recycle absolute -bottom-20 -right-20 text-[300px] text-white/5 -rotate-12"></i>
+            </div>
+        </div>
+    </main>
 
     <script>
         // TRẠNG THÁI HỆ THỐNG
@@ -488,6 +570,26 @@
         // INIT
         updateUI();
         showTab('home');
+        <script>
+        function showTab(id) {
+            // Ẩn tất cả nội dung
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            // Bỏ active ở Menu
+            document.querySelectorAll('.nav-btn').forEach(n => n.classList.remove('nav-active'));
+            
+            // Hiện tab được chọn
+            const target = document.getElementById(id);
+            if(target) target.classList.add('active');
+            
+            // Highlight nút menu tương ứng
+            const allBtns = document.querySelectorAll('.nav-btn');
+            allBtns.forEach(btn => {
+                if(btn.innerText.toLowerCase().includes(id.substring(0,3))) btn.classList.add('nav-active');
+            });
+
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
     </script>
 </body>
 </html>
