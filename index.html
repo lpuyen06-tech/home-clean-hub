@@ -317,22 +317,24 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-10 rounded-[3rem] border shadow-lg card-hover flex justify-between items-center group">
-                    <div>
-                        <h4 class="font-black text-lg uppercase italic text-slate-800">Voucher Highlands 50k</h4>
-                        <p class="text-emerald-600 font-black text-3xl mt-2 italic">800 <span class="text-[10px]">Pts</span></p>
-                    </div>
-                    <button onclick="redeemGift(800, 'Voucher Highlands')" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] group-hover:bg-emerald-600 transition-all">Đổi ngay</button>
-                </div>
-                <div class="bg-white p-10 rounded-[3rem] border shadow-lg card-hover flex justify-between items-center group">
-                    <div>
-                        <h4 class="font-black text-lg uppercase italic text-slate-800">Tặng 1 Cây Sen Đá</h4>
-                        <p class="text-blue-600 font-black text-3xl mt-2 italic">1200 <span class="text-[10px]">Pts</span></p>
-                    </div>
-                    <button onclick="redeemGift(1200, 'Cây Sen Đá')" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-black uppercase text-[10px] group-hover:bg-blue-600 transition-all">Đổi ngay</button>
-                </div>
-            </div>
+          <div class="fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t flex justify-around py-4 z-50 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+    <button onclick="showTab('home')" class="flex flex-col items-center gap-1 group">
+        <i class="fas fa-home text-lg text-emerald-600"></i>
+        <span class="text-[9px] font-black uppercase tracking-tighter">Trang chủ</span>
+    </button>
+    <button onclick="showTab('tracking')" class="flex flex-col items-center gap-1 text-slate-400">
+        <i class="fas fa-truck text-lg"></i>
+        <span class="text-[9px] font-black uppercase tracking-tighter">Đơn hàng</span>
+    </button>
+    <button onclick="showTab('rewards')" class="flex flex-col items-center gap-1 text-slate-400">
+        <i class="fas fa-wallet text-lg"></i>
+        <span class="text-[9px] font-black uppercase tracking-tighter">Ví điểm</span>
+    </button>
+    <button onclick="showMoreMenu()" class="flex flex-col items-center gap-1 text-slate-400">
+        <i class="fas fa-th-large text-lg"></i>
+        <span class="text-[9px] font-black uppercase tracking-tighter">Thêm</span>
+    </button>
+</div>
         </div>
     </main>
 
@@ -583,6 +585,41 @@ function submitReview() {
 
 // Gọi mặc định để hiển thị 5 sao khi mới vào
 setRating(5);
+        function showMoreMenu() {
+    Swal.fire({
+        title: '<div class="text-xs font-black uppercase italic tracking-widest text-slate-400 mb-2">Danh mục mở rộng</div>',
+        html: `
+            <div class="grid grid-cols-2 gap-3 p-1">
+                <button onclick="showTab('pricing'); Swal.close()" class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
+                    <i class="fas fa-tags text-2xl text-emerald-600 mb-2"></i>
+                    <span class="text-[10px] font-black uppercase italic">Bảng giá</span>
+                </button>
+                <button onclick="showTab('hubs'); Swal.close()" class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
+                    <i class="fas fa-map-marked-alt text-2xl text-emerald-600 mb-2"></i>
+                    <span class="text-[10px] font-black uppercase italic">Hệ thống kho</span>
+                </button>
+                <button onclick="showTab('reviews'); Swal.close()" class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
+                    <i class="fas fa-comment-dots text-2xl text-emerald-600 mb-2"></i>
+                    <span class="text-[10px] font-black uppercase italic">Đánh giá</span>
+                </button>
+                <button onclick="showTab('contact'); Swal.close()" class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
+                    <i class="fas fa-phone-volume text-2xl text-emerald-600 mb-2"></i>
+                    <span class="text-[10px] font-black uppercase italic">Liên hệ</span>
+                </button>
+            </div>
+        `,
+        showConfirmButton: false,
+        position: 'bottom',
+        showCloseButton: true,
+        background: '#ffffff',
+        customClass: {
+            popup: 'rounded-t-[3rem] shadow-2xl border-t border-slate-100',
+            container: 'swal-mobile-bottom'
+        },
+        showClass: { popup: 'animate__animated animate__slideInUp animate__faster' },
+        hideClass: { popup: 'animate__animated animate__slideOutDown animate__faster' }
+    });
+}
     </script>
 </body>
 </html>
