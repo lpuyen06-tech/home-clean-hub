@@ -41,6 +41,8 @@
                 <button onclick="showTab('charity')" class="nav-link">Dự án từ thiện</button>
                 <button onclick="showTab('rewards')" class="nav-link">Ví điểm & Quà</button>
 <button onclick="showTab('tracking')" class="nav-link">Tra cứu đơn</button>
+                <button onclick="showTab('reviews')" class="nav-btn py-6">Đánh giá</button>
+                <button onclick="showTab('contact')" class="nav-btn py-6 text-emerald-600">Liên hệ</button>
             </nav>
 
             <div class="flex items-center gap-4">
@@ -338,153 +340,6 @@
             <div id="trackingResult"></div>
         </div>
     </main>
-
-    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t flex justify-around py-4 md:hidden z-50 rounded-t-[2.5rem] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
-        <button onclick="showTab('home')" class="nav-item flex flex-col items-center px-4 py-1 text-slate-400" id="btn-home">
-            <i class="fas fa-home"></i><span class="text-[8px] font-black uppercase mt-1">Trang chủ</span>
-        </button>
-        <button onclick="showTab('tracking')" class="nav-item flex flex-col items-center px-4 py-1 text-slate-400" id="btn-tracking">
-            <i class="fas fa-truck"></i><span class="text-[8px] font-black uppercase mt-1">Đơn hàng</span>
-        </button>
-        <button onclick="showTab('rewards')" class="nav-item flex flex-col items-center px-4 py-1 text-slate-400" id="btn-rewards">
-            <i class="fas fa-gift"></i><span class="text-[8px] font-black uppercase mt-1">Ví điểm</span>
-        </button>
-    </nav>
-
-    <script>
-        // TRẠNG THÁI HỆ THỐNG
-        let state = {
-            points: parseInt(localStorage.getItem('hub_points')) || 1250,
-            orders: JSON.parse(localStorage.getItem('hub_orders')) || []
-        };
-
-        function updateUI() {
-            document.getElementById('headerPoints').innerText = state.points.toLocaleString() + ' Pts';
-            if(document.getElementById('userPointsDisplay')) {
-                document.getElementById('userPointsDisplay').innerText = state.points.toLocaleString();
-            }
-            localStorage.setItem('hub_points', state.points);
-            localStorage.setItem('hub_orders', JSON.stringify(state.orders));
-        }
-
-        function setTime(val) {
-            document.getElementById('selectedTime').value = val;
-            document.querySelectorAll('.time-slot').forEach(btn => {
-                btn.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600');
-                if(btn.innerText === val) btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
-            });
-        }
-
-        function showTab(id) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('nav-active'));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('text-emerald-600'));
-            
-            document.getElementById(id).classList.add('active');
-// Highlight Desktop Nav
-            const allLinks = document.querySelectorAll('.nav-link');
-            allLinks.forEach(l => {
-                if(l.innerText.toLowerCase().includes(id.substring(0,3))) l.classList.add('nav-active');
-            });
-
-            // Highlight Mobile Nav
-            const mobileBtn = document.getElementById('btn-' + id);
-            if(mobileBtn) mobileBtn.classList.add('text-emerald-600');
-            
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        function processOrder() {
-            const name = document.getElementById('userName').value;
-            const phone = document.getElementById('userPhone').value;
-            const time = document.getElementById('selectedTime').value;
-            const date = document.getElementById('pickDate').value;
-
-            if(!name || !phone || !time || !date) {
-                Swal.fire({ icon: 'warning', title: 'Thông tin chưa đủ', text: 'Hãy chọn ngày và khung giờ để Hub sắp xếp xe nhé!', confirmButtonColor: '#0f172a' });
-                return;
-            }
-
-            const code = "HUB-" + Math.floor(100000 + Math.random() * 900000);
-            const newOrder = {
-                code, name, status: 'Đang xử lý',
-                schedule: `${date} | ${time}`,
-                note: document.getElementById('orderNote').value
-            };
-
-            state.orders.push(newOrder);
-            updateUI();
-
-            Swal.fire({
-                icon: 'success',
-                title: 'Đặt lịch thành công!',
-                html: `<div class="p-6 bg-slate-50 rounded-2xl mt-4">
-                        <p class="text-[10px] font-black text-slate-400 uppercase">Mã vận đơn</p>
-                        <h4 class="text-3xl font-black text-emerald-600 tracking-tighter">${code}</h4>
-                       </div>`,
-                confirmButtonText: 'Theo dõi đơn hàng',
-                confirmButtonColor: '#059669'
-            }).then(() => {
-                showTab('tracking');
-                document.getElementById('trackCodeInput').value = code;
-                trackOrder();
-            });
-        }
-
-        function trackOrder() {
-            const input = document.getElementById('trackCodeInput').value.trim().toUpperCase();
-            const order = state.orders.find(o => o.code === input);
-            const container = document.getElementById('trackingResult');
-
-            if(!order) {
-                container.innerHTML = `<div class="bg-white p-12 rounded-[3rem] border-2 border-dashed text-center text-slate-300 font-black italic">KHÔNG TÌM THẤY MÃ ĐƠN</div>`;
-                return;
-            }
-
-            container.innerHTML = `
-                <div class="bg-white p-10 rounded-[3rem] shadow-2xl border border-emerald-50">
-                    <div class="flex justify-between items-start mb-10">
-                        <div>
-<span class="bg-emerald-100 text-emerald-600 px-4 py-1 rounded-full text-[10px] font-black uppercase italic">${order.status}</span>
-                            <h4 class="text-4xl font-black italic mt-3">${order.code}</h4>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-[9px] font-black text-slate-300 uppercase italic">Khách hàng</p>
-                            <p class="font-black text-slate-800 uppercase italic">${order.name}</p>
-                        </div>
-                    </div>
-                    <div class="space-y-6 relative before:content-[''] before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-1 before:bg-slate-100">
-                        <div class="flex gap-6 relative z-10"><div class="w-10 h-10 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs shadow-lg"><i class="fas fa-check"></i></div>
-                            <div><p class="font-black text-sm uppercase italic text-emerald-600">Lịch hẹn đã xác nhận</p><p class="text-[10px] text-slate-400 font-bold uppercase mt-1">${order.schedule}</p></div>
-                        </div>
-                        <div class="flex gap-6 relative z-10 opacity-30"><div class="w-10 h-10 bg-white border-4 border-slate-100 rounded-full flex items-center justify-center text-xs text-slate-300"><i class="fas fa-truck-moving"></i></div>
-                            <div><p class="font-black text-sm uppercase italic">Tài xế đang lấy hàng</p><p class="text-[10px] text-slate-400 font-bold uppercase mt-1">Đang chờ di chuyển...</p></div>
-                        </div>
-                    </div>
-                </div>`;
-        }
-
-        function redeemGift(cost, name) {
-            if(state.points < cost) {
-                Swal.fire({ icon: 'error', title: 'Không đủ điểm', text: `Bạn cần thêm ${cost - state.points} Pts để đổi món quà này!`, confirmButtonColor: '#0f172a' });
-                return;
-            }
-            Swal.fire({
-                title: 'Xác nhận đổi quà?',
-                text: `Dùng ${cost} Pts đổi lấy ${name}?`,
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#059669'
-            }).then(r => {
-                if(r.isConfirmed) {
-                    state.points -= cost;
-                    updateUI();
-                    Swal.fire('Thành công!', 'Quà sẽ được nhân viên Hub giao tới khi thực hiện đơn thu gom tiếp theo.', 'success');
-                }
-            });
-        }
-
-    </main>
     <main id="reviews" class="tab-content py-24 px-4 bg-white">
     <div class="max-w-6xl mx-auto">
         <h3 class="text-4xl font-black italic uppercase text-center mb-16 tracking-tighter italic">Cộng đồng <span class="text-emerald-600">Đánh giá</span></h3>
@@ -535,6 +390,24 @@
     </div>
 </main>
 
+    <div class="fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t flex justify-around py-4 z-50 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+    <button onclick="showTab('home')" class="flex flex-col items-center gap-1 group">
+        <i class="fas fa-home text-lg text-emerald-600"></i>
+        <span class="text-[9px] font-black uppercase tracking-tighter">Trang chủ</span>
+    </button>
+    <button onclick="showTab('tracking')" class="flex flex-col items-center gap-1 text-slate-400">
+        <i class="fas fa-truck text-lg"></i>
+        <span class="text-[9px] font-black uppercase tracking-tighter">Đơn hàng</span>
+    </button>
+    <button onclick="showTab('rewards')" class="flex flex-col items-center gap-1 text-slate-400">
+        <i class="fas fa-wallet text-lg"></i>
+        <span class="text-[9px] font-black uppercase tracking-tighter">Ví điểm</span>
+    </button>
+    <button onclick="showMoreMenu()" class="flex flex-col items-center gap-1 text-slate-400">
+        <i class="fas fa-th-large text-lg"></i>
+        <span class="text-[9px] font-black uppercase tracking-tighter">Thêm</span>
+    </button>
+</div>
 
     <script>
         // TRẠNG THÁI HỆ THỐNG
@@ -668,11 +541,7 @@
                 }
             });
         }
-
-        // INIT
-        updateUI();
-        showTab('home');
-        // Thêm vào cuối phần script cũ
+// Thêm vào cuối phần script cũ
 let currentRating = 5;
 
 function setRating(n) {
@@ -711,24 +580,6 @@ function submitReview() {
 
 // Gọi mặc định để hiển thị 5 sao khi mới vào
 setRating(5);
-        <div class="fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t flex justify-around py-4 z-50 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
-    <button onclick="showTab('home')" class="flex flex-col items-center gap-1 group">
-        <i class="fas fa-home text-lg text-emerald-600"></i>
-        <span class="text-[9px] font-black uppercase tracking-tighter">Trang chủ</span>
-    </button>
-    <button onclick="showTab('tracking')" class="flex flex-col items-center gap-1 text-slate-400">
-        <i class="fas fa-truck text-lg"></i>
-        <span class="text-[9px] font-black uppercase tracking-tighter">Đơn hàng</span>
-    </button>
-    <button onclick="showTab('rewards')" class="flex flex-col items-center gap-1 text-slate-400">
-        <i class="fas fa-wallet text-lg"></i>
-        <span class="text-[9px] font-black uppercase tracking-tighter">Ví điểm</span>
-    </button>
-    <button onclick="showMoreMenu()" class="flex flex-col items-center gap-1 text-slate-400">
-        <i class="fas fa-th-large text-lg"></i>
-        <span class="text-[9px] font-black uppercase tracking-tighter">Thêm</span>
-    </button>
-</div>
         function showMoreMenu() {
     Swal.fire({
         title: '<div class="text-xs font-black uppercase italic tracking-widest text-slate-400 mb-2">Danh mục mở rộng</div>',
@@ -764,6 +615,10 @@ setRating(5);
         hideClass: { popup: 'animate__animated animate__slideOutDown animate__faster' }
     });
 }
+        // INIT
+        updateUI();
+        showTab('home');
+        
     </script>
 </body>
 </html>
