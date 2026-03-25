@@ -13,281 +13,377 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .nav-item.active { color: #059669; }
+        .nav-item.active { color: #059669; border-bottom: 2px solid #059669; }
         .rating-star { color: #cbd5e1; cursor: pointer; transition: 0.2s; }
         .rating-star.active { color: #fbbf24; }
-        /* Tối ưu menu mobile ẩn hiện */
-        .mobile-nav { overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-        .mobile-nav::-webkit-scrollbar { display: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .step-active { color: #059669; }
+        .step-active div { background-color: #059669; color: white; }
     </style>
 </head>
-<body class="pb-24 md:pb-0">
+<body class="pb-20 md:pb-0">
 
     <header class="bg-white border-b sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
             <div class="flex items-center gap-2 cursor-pointer" onclick="showTab('home')">
-                <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-200">
                     <i class="fas fa-recycle text-white text-xl"></i>
                 </div>
-                <span class="font-extrabold text-xl tracking-tighter text-slate-800 uppercase italic">Home-Clean <span class="text-emerald-600">Hub</span></span>
+                <span class="font-extrabold text-xl tracking-tighter text-slate-800 uppercase">Home-Clean <span class="text-emerald-600">Hub</span></span>
             </div>
-            <nav class="hidden md:flex gap-6 text-[11px] font-black uppercase tracking-widest text-slate-500">
-                <button onclick="showTab('home')" class="hover:text-emerald-600">Trang chủ</button>
-                <button onclick="showTab('pricing')" class="hover:text-emerald-600">Bảng giá</button>
-                <button onclick="showTab('tracking')" class="hover:text-emerald-600">Theo dõi đơn</button>
-                <button onclick="showTab('charity')" class="hover:text-emerald-600">Từ thiện</button>
-                <button onclick="showTab('rewards')" class="hover:text-emerald-600">Đổi quà</button>
-                <button onclick="showTab('review-page')" class="hover:text-emerald-600">Đánh giá</button>
+            
+            <nav class="hidden md:flex gap-8 text-[11px] font-black uppercase tracking-widest text-slate-500">
+                <button onclick="showTab('home')" class="hover:text-emerald-600 transition-colors">Trang chủ</button>
+                <button onclick="showTab('pricing')" class="hover:text-emerald-600 transition-colors">Bảng giá</button>
+                <button onclick="showTab('tracking')" class="hover:text-emerald-600 transition-colors">Theo dõi đơn</button>
+                <button onclick="showTab('rewards')" class="hover:text-emerald-600 transition-colors">Đổi quà</button>
+                <button onclick="showTab('review-page')" class="hover:text-emerald-600 transition-colors">Đánh giá</button>
             </nav>
+
+            <div class="hidden md:block text-right">
+                <p class="text-[10px] font-bold text-slate-400 uppercase">Hotline 24/7</p>
+                <p class="text-sm font-black text-emerald-600 italic">0933.815.136</p>
+            </div>
         </div>
     </header>
 
     <main id="home" class="tab-content active">
-        <div class="bg-slate-900 text-white py-12 px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-black italic uppercase italic leading-tight">Rác là <span class="text-emerald-500">Tài sản</span></h1>
-            <p class="mt-4 text-slate-400 italic">Hệ sinh thái thu gom & tái chế thông minh</p>
+        <div class="bg-slate-900 text-white py-20 px-4 text-center relative overflow-hidden">
+            <div class="max-w-3xl mx-auto relative z-10">
+                <span class="bg-emerald-500/20 text-emerald-400 py-1 px-4 rounded-full text-[10px] font-black uppercase tracking-widest border border-emerald-500/30">Hệ sinh thái tuần hoàn 2026</span>
+                <h1 class="text-5xl md:text-7xl font-black mt-6 leading-tight italic uppercase">Rác là <span class="text-emerald-500">Tài sản</span></h1>
+                <p class="mt-6 text-slate-400 text-lg leading-relaxed">Chúng tôi số hóa quy trình thu gom phế liệu và đồ cũ, giúp bạn tích lũy giá trị xanh chỉ với một lần chạm.</p>
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+                    <button onclick="window.scrollTo({top: 1500, behavior:'smooth'})" class="bg-emerald-600 hover:bg-emerald-700 px-8 py-4 rounded-2xl font-black uppercase text-sm transition-all shadow-xl">Đặt lịch ngay</button>
+                    <button onclick="showTab('pricing')" class="bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-2xl font-black uppercase text-sm border border-slate-700 transition-all">Xem bảng giá</button>
+                </div>
+            </div>
+            <i class="fas fa-leaf absolute -bottom-10 -left-10 text-[200px] text-white/5 rotate-12"></i>
         </div>
 
-        <section class="max-w-4xl mx-auto px-4 py-10 -mt-10">
-            <div class="bg-white rounded-[2.5rem] shadow-2xl p-8 border border-emerald-50">
-                <h3 class="font-black text-xl uppercase italic text-slate-800 mb-6">Đặt lịch <span class="text-emerald-600">Thu gom tận nơi</span></h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <input id="userName" type="text" placeholder="Tên của bạn" class="p-4 bg-slate-50 rounded-2xl outline-none font-bold text-sm">
-                    <input id="userPhone" type="tel" placeholder="Số điện thoại liên hệ" class="p-4 bg-slate-50 rounded-2xl outline-none font-bold text-sm border-l-4 border-emerald-500">
-                    <select id="userArea" class="p-4 bg-slate-50 rounded-2xl font-bold text-sm">
-                        <option value="">Chọn khu vực</option>
-                        <option>Quận 1</option><option>Quận 7</option><option>Thủ Đức</option>
-                    </select>
-                    <div onclick="document.getElementById('fileInput').click()" class="border-2 border-dashed rounded-2xl h-[56px] flex items-center justify-center cursor-pointer text-[10px] font-black uppercase text-slate-400">
-                        <i class="fas fa-camera mr-2"></i> Chụp ảnh đồ cũ
-                        <input type="file" id="fileInput" class="hidden">
+        <section class="max-w-6xl mx-auto px-4 py-16">
+            <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100">
+                <div>
+                    <h3 class="font-black text-2xl uppercase italic text-slate-800">Hệ thống <span class="text-blue-600">Hub Phân Loại</span></h3>
+                    <p class="text-sm text-slate-500 mt-4 leading-relaxed italic font-medium">Để đảm bảo rác được tái chế đúng cách, chúng tôi vận hành hệ thống kho bãi chuyên nghiệp tại TP.HCM:</p>
+                    <div class="mt-6 space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-blue-50 rounded-2xl border-l-4 border-blue-500">
+                            <i class="fas fa-warehouse text-blue-600 text-xl"></i>
+                            <div><p class="font-black text-xs uppercase">Kho Tổng Điều Phối</p><p class="text-[11px] text-slate-600 font-bold">Quận 12, TP.HCM (Xử lý công nghiệp)</p></div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-emerald-50 rounded-2xl border-l-4 border-emerald-500">
+                            <i class="fas fa-boxes-stacked text-emerald-600 text-xl"></i>
+                            <div><p class="font-black text-xs uppercase">Hub Phân Loại Khu Vực</p><p class="text-[11px] text-slate-600 font-bold">Quận 7 | Thủ Đức | Bình Thạnh | Tân Bình</p></div>
+                        </div>
                     </div>
                 </div>
-                <button onclick="createOrder()" class="w-full mt-6 bg-emerald-600 text-white py-4 rounded-2xl font-black uppercase italic shadow-lg active:scale-95 transition-all">Gửi yêu cầu & Nhận mã đơn</button>
+                <div class="rounded-[2rem] overflow-hidden shadow-2xl h-64 md:h-full bg-slate-200">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
             </div>
         </section>
 
-        <section class="max-w-4xl mx-auto px-4 mb-10">
-            <div class="bg-emerald-600 rounded-[2rem] p-6 text-white flex flex-wrap justify-around items-center gap-4 shadow-xl">
-                <div class="text-center">
-                    <p class="text-[10px] font-black uppercase opacity-80">Hotline hỗ trợ</p>
-                    <a href="tel:0933815136" class="text-xl font-black italic">0933.815.136</a>
+        <section class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
+                    <i class="fas fa-truck-fast text-4xl text-emerald-500 mb-6"></i>
+                    <h3 class="font-black text-lg uppercase mb-3 leading-none">Thu gom tận nhà</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed italic">Shipper Hub có mặt trong 30 phút, cân đo minh bạch và thanh toán ngay.</p>
                 </div>
-                <div class="flex gap-4">
-                    <a href="#" class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl hover:bg-white/40"><i class="fab fa-facebook-messenger"></i></a>
-                    <a href="#" class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl hover:bg-white/40"><i class="fab fa-zalo">Z</i></a>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
+                    <i class="fas fa-shield-heart text-4xl text-blue-500 mb-6"></i>
+                    <h3 class="font-black text-lg uppercase mb-3 leading-none">Tác động bền vững</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed italic">Cam kết tái chế 100%, giảm thiểu ô nhiễm môi trường tại TP.HCM.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
+                    <i class="fas fa-chart-line text-4xl text-purple-500 mb-6"></i>
+                    <h3 class="font-black text-lg uppercase mb-3 leading-none">Tích lũy thông minh</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed italic">Đổi quà độc quyền: Voucher, túi Canvas và sản phẩm Eco-friendly.</p>
                 </div>
             </div>
         </section>
-    </main>
 
-    <main id="charity" class="tab-content py-10 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="font-black text-2xl uppercase italic text-center mb-8 italic">Hoạt động <span class="text-pink-600">Cộng đồng</span></h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100">
-                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=400" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2"><span class="text-[10px] font-black text-pink-600 uppercase italic">Tháng 03/2026</span> <i class="fas fa-file-invoice-dollar text-slate-300 hover:text-emerald-500 cursor-pointer"></i></div>
-                        <h4 class="font-black text-sm uppercase mb-2">Trao tặng 200 suất quà tại Mái ấm Tre Xanh</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed italic">Nguồn lực được trích từ 15% doanh thu thu mua phế liệu nhựa và giấy trong quý 1.</p>
+        <section class="max-w-6xl mx-auto px-4 py-16 bg-emerald-50/50 rounded-[3rem] my-10">
+            <div class="text-center mb-12">
+                <h3 class="font-black text-2xl uppercase italic text-slate-800">Hành trình <span class="text-emerald-600">Tái sinh</span></h3>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Minh bạch - Nhân văn - Bền vững</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-white rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform"><i class="fas fa-industry text-3xl text-blue-500"></i></div>
+                    <h4 class="font-black text-sm uppercase mb-3">Tái chế công nghiệp</h4>
+                    <p class="text-[11px] text-slate-500 italic">Nhựa, giấy, kim loại được chuyển về nhà máy **Green-Tech** Quận 12.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-white rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-6 group-hover:-rotate-12 transition-transform"><i class="fas fa-hand-holding-heart text-3xl text-pink-500"></i></div>
+                    <h4 class="font-black text-sm uppercase mb-3">Quỹ từ thiện Hub</h4>
+                    <p class="text-[11px] text-slate-500 italic">Quần áo, sách vở được giặt sạch và trao tặng cho **Mái ấm Tre Xanh**.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-white rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-dumpster-fire text-3xl text-orange-500"></i></div>
+                    <h4 class="font-black text-sm uppercase mb-3">Phân hủy an toàn</h4>
+                    <p class="text-[11px] text-slate-500 italic">Chất liệu không thể tái chế sẽ được xử lý phát điện, hạn chế chôn lấp.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="max-w-6xl mx-auto px-4 py-8 mb-16">
+            <p class="text-center text-[10px] font-black text-slate-300 uppercase tracking-[0.4em] mb-8">Tin dùng bởi các đối tác hàng đầu</p>
+            <div class="flex flex-wrap justify-center gap-10 opacity-40 grayscale hover:grayscale-0 transition-all">
+                <div class="flex items-center gap-2 font-black text-slate-600"><i class="fas fa-leaf"></i> ECO-VN</div>
+                <div class="flex items-center gap-2 font-black text-slate-600"><i class="fas fa-heart text-pink-500"></i> MAI AM TRE XANH</div>
+                <div class="flex items-center gap-2 font-black text-slate-600"><i class="fas fa-recycle"></i> SAIGON RECYCLE</div>
+            </div>
+        </div>
+
+        <section class="max-w-4xl mx-auto px-4 pb-20">
+            <div class="bg-white rounded-[3rem] shadow-2xl p-10 border border-emerald-100 relative overflow-hidden">
+                <h3 class="font-black text-2xl uppercase italic text-slate-800 mb-8">Thiết lập <span class="text-emerald-600">Lịch thu gom</span></h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <label class="block text-[10px] font-black uppercase text-slate-400 ml-2">Thông tin liên hệ</label>
+                        <input id="userName" type="text" placeholder="Họ và tên" class="w-full p-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 ring-emerald-500 font-bold">
+                        <input id="userPhone" type="tel" value="0933815136" class="w-full p-4 bg-slate-50 rounded-2xl border-none font-bold text-emerald-600">
+                        <select id="userArea" class="w-full p-4 bg-slate-50 rounded-2xl font-bold outline-none text-slate-700">
+                            <option value="">-- Chọn Quận/Huyện TP.HCM --</option>
+                            <option>Quận 1</option><option>Quận 3</option><option>Quận 4</option><option>Quận 5</option>
+                            <option>Quận 6</option><option>Quận 7</option><option>Quận 8</option><option>Quận 10</option>
+                            <option>Quận 11</option><option>Quận 12</option><option>Bình Thạnh</option><option>Phú Nhuận</option>
+                            <option>Gò Vấp</option><option>Tân Bình</option><option>Tân Phú</option><option>Bình Tân</option>
+                            <option>TP. Thủ Đức</option><option>Huyện Nhà Bè</option><option>Huyện Hóc Môn</option>
+                        </select>
+                    </div>
+                    <div class="space-y-4">
+                        <label class="block text-[10px] font-black uppercase text-slate-400 ml-2">Hình ảnh & Thời gian</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input id="pickDate" type="date" class="w-full p-4 bg-slate-50 rounded-2xl border-none font-bold text-sm">
+                            <select id="pickTime" class="w-full p-4 bg-slate-50 rounded-2xl font-bold text-sm outline-none">
+                                <option>08:00 - 10:00</option><option>10:00 - 12:00</option>
+                                <option>14:00 - 16:00</option><option>16:00 - 18:00</option>
+                            </select>
+                        </div>
+                        <div onclick="document.getElementById('fileInput').click()" class="border-2 border-dashed border-slate-200 rounded-2xl h-[105px] flex flex-col items-center justify-center cursor-pointer hover:bg-emerald-50 transition-all overflow-hidden relative">
+                            <img id="preview" class="absolute inset-0 w-full h-full object-cover hidden">
+                            <i class="fas fa-camera text-2xl text-slate-300"></i>
+                            <span class="text-[9px] font-black text-slate-400 mt-2 uppercase">Đính kèm ảnh đồ cũ</span>
+                            <input type="file" id="fileInput" class="hidden" onchange="handlePreview(this)">
+                        </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100">
-                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&q=80&w=400" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2"><span class="text-[10px] font-black text-blue-600 uppercase italic">Tháng 02/2026</span> <i class="fas fa-file-invoice-dollar text-slate-300 hover:text-emerald-500 cursor-pointer"></i></div>
-                        <h4 class="font-black text-sm uppercase mb-2">Số hóa 1 tấn giấy vụn thành học bổng Xanh</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed italic">Hợp tác cùng nhà máy giấy tái chế quyên góp 20.000.000đ cho quỹ trẻ em nghèo.</p>
+                <button onclick="createOrder()" class="w-full mt-8 bg-emerald-600 text-white py-5 rounded-2xl font-black uppercase italic shadow-xl shadow-emerald-200 active:scale-95 transition-all">Xác nhận lịch hẹn</button>
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto px-4 py-16">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h3 class="font-black text-2xl uppercase italic text-slate-800">Nhật ký <span class="text-pink-600">Trao gửi</span></h3>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase mt-2 italic">Hệ thống cập nhật ảnh thực tế từ thiện</p>
+                </div>
+                <button class="text-emerald-600 font-black text-[10px] uppercase border-b-2 border-emerald-600 pb-1">Xem tất cả</button>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="group relative overflow-hidden rounded-[2rem] bg-slate-100 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=400" class="h-60 w-full object-cover group-hover:scale-110 transition-transform">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-5 flex flex-col justify-end">
+                        <span class="text-[8px] font-black bg-emerald-500 text-white w-fit px-2 py-1 rounded mb-2 uppercase">Đã trao</span>
+                        <p class="text-white text-[10px] font-bold italic">Tặng quần áo cũ tại Mái ấm Quận 4</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-[2rem] bg-slate-100 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1459183885447-56397fe8bfb7?auto=format&fit=crop&q=80&w=400" class="h-60 w-full object-cover group-hover:scale-110 transition-transform">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-5 flex flex-col justify-end">
+                        <span class="text-[8px] font-black bg-pink-500 text-white w-fit px-2 py-1 rounded mb-2 uppercase">Đã trao</span>
+                        <p class="text-white text-[10px] font-bold italic">Tặng gấu bông cho trẻ em nghèo</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-[2rem] bg-slate-100 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&q=80&w=400" class="h-60 w-full object-cover group-hover:scale-110 transition-transform">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-5 flex flex-col justify-end">
+                        <span class="text-[8px] font-black bg-blue-500 text-white w-fit px-2 py-1 rounded mb-2 uppercase">Tái chế</span>
+                        <p class="text-white text-[10px] font-bold italic">500kg giấy về Nhà máy Quận 12</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-[2rem] bg-slate-100 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=400" class="h-60 w-full object-cover group-hover:scale-110 transition-transform">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-5 flex flex-col justify-end">
+                        <span class="text-[8px] font-black bg-orange-500 text-white w-fit px-2 py-1 rounded mb-2 uppercase">Vận chuyển</span>
+                        <p class="text-white text-[10px] font-bold italic">Xử lý rác nhựa tại Hub Quận 7</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <footer class="bg-slate-900 text-white py-12 px-4">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                <div><h4 class="font-black text-xl uppercase mb-2 italic">Kết nối xanh</h4><p class="text-slate-400 text-sm">Văn phòng điều hành Home-Clean Hub TP.HCM</p></div>
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex items-center gap-4"><div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-emerald-400"><i class="fas fa-phone"></i></div><div><p class="text-[10px] text-slate-500 uppercase font-bold">Điện thoại</p><p class="font-bold">0933.815.136</p></div></div>
+                    <div class="flex items-center gap-4"><div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-blue-400"><i class="fas fa-envelope"></i></div><div><p class="text-[10px] text-slate-500 uppercase font-bold">Email</p><p class="font-bold">homecleanhub2@gmail.com</p></div></div>
+                </div>
+            </div>
+        </footer>
     </main>
 
     <main id="pricing" class="tab-content py-10 px-4">
-        <div class="max-w-xl mx-auto">
-            <h2 class="font-black text-2xl uppercase italic text-center mb-8 italic italic">Bảng giá <span class="text-emerald-600 italic">Niêm yết</span></h2>
-            <div class="space-y-3">
-                <div class="bg-white p-5 rounded-2xl flex justify-between items-center shadow-sm border border-slate-100">
-                    <div class="flex items-center gap-3"><i class="fas fa-prescription-bottle-alt text-emerald-500"></i><p class="font-black text-xs uppercase italic">Nhựa PET / Kim loại</p></div>
-                    <span class="font-black text-emerald-600 italic text-sm">9.000đ/kg</span>
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-black text-2xl uppercase italic text-slate-800 mb-8 tracking-tighter text-center">Bảng giá <span class="text-emerald-600">Công khai 2026</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-4"><i class="fas fa-prescription-bottle-alt text-emerald-500 text-xl"></i><div><p class="font-black text-xs uppercase">Nhựa PET / Chai lọ</p><p class="text-[9px] text-slate-400 uppercase font-bold italic italic">Thanh toán tiền mặt</p></div></div>
+                    <span class="font-black text-emerald-600 italic">9.000đ/kg</span>
                 </div>
-                <div class="bg-white p-5 rounded-2xl flex justify-between items-center shadow-sm border-l-4 border-emerald-500">
-                    <div class="flex items-center gap-3"><i class="fas fa-couch text-emerald-600"></i>
-                        <div>
-                            <p class="font-black text-xs uppercase italic italic">Nội thất / Gia dụng cũ</p>
-                            <p class="text-[9px] text-slate-400 font-bold uppercase">Nhân viên tới định giá tận nhà</p>
-                        </div>
-                    </div>
-                    <span class="text-[9px] font-black uppercase text-slate-400">Thỏa thuận</span>
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 flex items-center justify-between shadow-sm">
+                    <div class="flex items-center gap-4"><i class="fas fa-box-open text-amber-600 text-xl"></i><div><p class="font-black text-xs uppercase">Giấy Carton / Báo</p><p class="text-[9px] text-slate-400 uppercase font-bold italic italic">Thanh toán tiền mặt</p></div></div>
+                    <span class="font-black text-emerald-600 italic">5.500đ/kg</span>
+                </div>
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 flex items-center justify-between shadow-sm border-l-4 border-pink-500">
+                    <div class="flex items-center gap-4"><i class="fas fa-shirt text-pink-500 text-xl"></i><div><p class="font-black text-xs uppercase">Quần áo cũ</p><p class="text-[9px] text-slate-400 uppercase font-bold italic italic">Quyên góp mái ấm</p></div></div>
+                    <span class="bg-pink-100 text-pink-600 text-[9px] font-black px-3 py-1 rounded-full uppercase italic">Tích điểm</span>
+                </div>
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 flex items-center justify-between shadow-sm border-l-4 border-blue-500">
+                    <div class="flex items-center gap-4"><i class="fas fa-book text-blue-500 text-xl"></i><div><p class="font-black text-xs uppercase">Sách vở / Truyện</p><p class="text-[9px] text-slate-400 uppercase font-bold italic italic">Quyên góp giáo dục</p></div></div>
+                    <span class="bg-blue-100 text-blue-600 text-[9px] font-black px-3 py-1 rounded-full uppercase italic">Tích điểm</span>
+                </div>
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 flex items-center justify-between shadow-sm border-l-4 border-orange-500">
+                    <div class="flex items-center gap-4"><i class="fas fa-🧸 text-orange-500 text-xl"></i><div><p class="font-black text-xs uppercase">Gấu bông / Đồ chơi</p><p class="text-[9px] text-slate-400 uppercase font-bold italic italic">Quyên góp trẻ em</p></div></div>
+                    <span class="bg-orange-100 text-orange-600 text-[9px] font-black px-3 py-1 rounded-full uppercase italic">Tích điểm</span>
+                </div>
+                <div class="bg-slate-900 p-5 rounded-3xl flex items-center justify-between shadow-xl md:col-span-2">
+                    <div class="flex items-center gap-4"><i class="fas fa-couch text-white text-xl"></i><div><p class="font-black text-xs uppercase text-white leading-none">Nội thất / Gia dụng</p><p class="text-[9px] text-slate-500 uppercase font-bold italic italic mt-1">Tủ, bàn ghế, đồ điện tử cũ...</p></div></div>
+                    <span class="text-emerald-400 font-black italic uppercase text-[10px]">Định giá qua ảnh</span>
                 </div>
             </div>
+            <p class="text-center mt-10 text-[9px] font-black text-slate-300 uppercase tracking-widest leading-loose">Hệ thống cân đo điện tử độ chính xác 100% <br> Hình ảnh được lưu trữ minh bạch trên hệ thống Hub.</p>
+        </div>
+    </main>
+
+    <main id="tracking" class="tab-content py-10 px-4">
+        <div class="max-w-xl mx-auto">
+            <h2 class="font-black text-2xl uppercase italic text-slate-800 mb-8 text-center tracking-tighter">Hành trình <span class="text-blue-600">Vận đơn</span></h2>
+            <div class="bg-white rounded-[2.5rem] p-8 shadow-xl border border-slate-50 relative">
+                <div class="flex justify-between items-center mb-8 border-b border-slate-50 pb-6">
+                    <div><p class="text-[9px] font-black text-slate-400 uppercase italic">Mã đơn hàng</p><p class="text-sm font-black text-slate-800 uppercase italic leading-none">HUB-220326-TPHCM</p></div>
+                    <span class="bg-blue-100 text-blue-600 text-[8px] font-black px-3 py-1 rounded-full uppercase italic italic">Đang phân loại</span>
+                </div>
+                <div class="space-y-10 relative before:content-[''] before:absolute before:left-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-100">
+                    <div class="flex gap-6 relative z-10 step-active"><div class="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black italic shadow-lg shadow-emerald-200"><i class="fas fa-check"></i></div><div><p class="font-black text-xs uppercase leading-none italic italic">Đã lấy hàng thành công</p><p class="text-[9px] text-slate-400 mt-2 font-bold uppercase">10:30 | 25/03/2026</p></div></div>
+                    <div class="flex gap-6 relative z-10 text-blue-600"><div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-[10px] font-black italic shadow-lg shadow-blue-200"><i class="fas fa-truck-fast"></i></div><div><p class="font-black text-xs uppercase leading-none italic italic">Đang di chuyển về Hub</p><p class="text-[9px] text-slate-400 mt-2 font-bold uppercase">Điểm đến: Hub Quận 7 - Phân Loại</p></div></div>
+                    <div class="flex gap-6 relative z-10 opacity-30"><div class="w-8 h-8 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center text-[10px] font-black italic">3</div><div><p class="font-black text-xs uppercase leading-none italic italic">Về Kho Chính Quận 12</p><p class="text-[9px] text-slate-400 mt-2 font-bold uppercase">Dự kiến xử lý công nghiệp</p></div></div>
+                </div>
+            </div>
+            <p class="text-center mt-8 text-[9px] font-black text-slate-400 uppercase italic italic">Lộ trình được tối ưu để giảm phát thải carbon.</p>
         </div>
     </main>
 
     <main id="rewards" class="tab-content py-10 px-4">
         <div class="max-w-xl mx-auto">
-            <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white mb-6 shadow-2xl relative">
-                <p class="text-[10px] font-black uppercase text-emerald-400 tracking-widest italic">Điểm xanh khả dụng</p>
-                <div class="flex items-baseline gap-2 mt-2">
-                    <span id="userPoints" class="text-6xl font-black italic">1250</span>
-                    <span class="text-emerald-400 font-black uppercase text-[10px]">Pts</span>
-                </div>
-            </div>
-            
-            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-8">
-                <h4 class="font-black text-xs uppercase italic text-emerald-700 mb-2"><i class="fas fa-info-circle mr-2"></i>Làm sao để nhận quà?</h4>
-                <p class="text-[10px] text-emerald-800 font-bold leading-relaxed uppercase">1kg Nhựa = 10 Pts | 1kg Giấy = 5 Pts | Hoàn thành đánh giá = 20 Pts. <br>Chọn quà bên dưới để đổi trực tiếp.</p>
+            <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white mb-10 shadow-2xl relative overflow-hidden">
+                <p class="text-[10px] font-black uppercase text-emerald-400 tracking-[0.2em] italic italic">Ví Điểm Xanh</p>
+                <div class="flex items-baseline gap-2 mt-2"><span class="text-6xl font-black italic italic">1.250</span><span class="text-emerald-400 font-black uppercase text-[10px] italic">Points</span></div>
+                <div class="w-full h-1.5 bg-white/10 rounded-full mt-6 overflow-hidden"><div class="w-2/3 h-full bg-emerald-500"></div></div>
+                <p class="text-[9px] mt-4 text-white/40 italic font-black uppercase">Hạng Bạc - Thêm 250 điểm để nhận quà tặng Vàng</p>
+                <i class="fas fa-gift absolute top-10 right-10 text-6xl text-white/5 rotate-12"></i>
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
-                <div class="bg-white p-5 rounded-[2rem] text-center border shadow-sm">
-                    <i class="fas fa-ticket-alt text-3xl text-emerald-500 mb-2"></i>
-                    <p class="text-[10px] font-black uppercase mb-1 italic">Voucher 20.000đ</p>
-                    <p class="text-xs font-black text-slate-400 mb-4 italic italic">500 Pts</p>
-                    <button onclick="redeemReward(500, 'Voucher 20k')" class="w-full py-3 bg-emerald-600 text-white rounded-xl font-black text-[9px] uppercase italic">Đổi ngay</button>
+            <h3 class="font-black text-[10px] uppercase text-slate-400 mb-6 border-l-4 border-emerald-500 pl-3">Đổi quà hot</h3>
+            <div class="grid grid-cols-2 gap-4 pb-20">
+                <div class="bg-white p-6 rounded-[2.5rem] text-center shadow-sm border border-slate-100 group">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-2xl mb-4 flex items-center justify-center text-3xl mx-auto"><i class="fas fa-ticket-alt"></i></div>
+                    <h4 class="text-[10px] font-black uppercase text-slate-600 italic">Voucher 20k</h4>
+                    <p class="text-emerald-600 font-black mt-2 text-xs italic italic">500 <span class="text-[8px]">Pts</span></p>
+                    <button onclick="redeemGift()" class="w-full mt-4 py-3 bg-slate-900 text-white rounded-2xl font-black text-[9px] uppercase italic">Đổi ngay</button>
                 </div>
-                <div class="bg-white p-5 rounded-[2rem] text-center border shadow-sm">
-                    <i class="fas fa-shopping-bag text-3xl text-blue-500 mb-2"></i>
-                    <p class="text-[10px] font-black uppercase mb-1 italic">Túi Canvas Hub</p>
-                    <p class="text-xs font-black text-slate-400 mb-4 italic italic">1000 Pts</p>
-                    <button onclick="redeemReward(1000, 'Túi Canvas')" class="w-full py-3 bg-emerald-600 text-white rounded-xl font-black text-[9px] uppercase italic">Đổi ngay</button>
+                <div class="bg-white p-6 rounded-[2.5rem] text-center shadow-sm border border-slate-100 group">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl mb-4 flex items-center justify-center text-3xl mx-auto"><i class="fas fa-shopping-bag"></i></div>
+                    <h4 class="text-[10px] font-black uppercase text-slate-600 italic">Túi Canvas Hub</h4>
+                    <p class="text-emerald-600 font-black mt-2 text-xs italic italic">1.200 <span class="text-[8px]">Pts</span></p>
+                    <button onclick="redeemGift()" class="w-full mt-4 py-3 bg-slate-900 text-white rounded-2xl font-black text-[9px] uppercase italic">Đổi ngay</button>
                 </div>
-            </div>
-        </div>
-    </main>
-
-    <main id="tracking" class="tab-content py-10 px-4">
-        <div class="max-w-xl mx-auto text-center">
-            <h2 class="font-black text-2xl uppercase mb-8 italic italic">Theo dõi <span class="text-blue-600 italic">Vận đơn</span></h2>
-            <div class="flex gap-2 mb-8">
-                <input id="searchInput" type="text" placeholder="HCH-123456" class="flex-1 p-4 bg-white rounded-2xl shadow-sm outline-none font-bold text-sm italic">
-                <button onclick="searchOrder()" class="bg-slate-900 text-white px-6 rounded-2xl font-black uppercase text-[10px] italic">Tra cứu</button>
-            </div>
-            <div id="orderStatusResult" class="hidden bg-white rounded-[2.5rem] p-10 shadow-xl border text-left">
-                <div id="trackingContent"></div>
             </div>
         </div>
     </main>
 
     <main id="review-page" class="tab-content py-10 px-4">
-        <div class="max-w-xl mx-auto bg-white p-8 rounded-[2.5rem] shadow-xl">
-            <h2 class="text-center font-black text-2xl uppercase mb-8 italic italic">Cộng đồng <span class="text-emerald-600 italic">Feedback</span></h2>
-            <div class="flex justify-center gap-3 mb-6">
-                <i class="fas fa-star text-2xl rating-star" onclick="setRate(1)"></i>
-                <i class="fas fa-star text-2xl rating-star" onclick="setRate(2)"></i>
-                <i class="fas fa-star text-2xl rating-star" onclick="setRate(3)"></i>
-                <i class="fas fa-star text-2xl rating-star" onclick="setRate(4)"></i>
-                <i class="fas fa-star text-2xl rating-star" onclick="setRate(5)"></i>
+        <div class="max-w-xl mx-auto">
+            <div class="bg-white rounded-[2.5rem] p-10 shadow-xl border border-slate-50">
+                <h2 class="text-center font-black text-2xl uppercase italic text-slate-800 mb-8 tracking-tighter">Cộng đồng <span class="text-emerald-600">Feedback</span></h2>
+                <div class="flex flex-col items-center mb-8 bg-slate-50 p-6 rounded-3xl">
+                    <p class="text-xs font-black text-slate-400 uppercase mb-4 tracking-widest italic italic">Trải nghiệm của bạn?</p>
+                    <div class="flex gap-4" id="stars">
+                        <i class="fas fa-star text-3xl rating-star" onclick="setRate(1)"></i><i class="fas fa-star text-3xl rating-star" onclick="setRate(2)"></i><i class="fas fa-star text-3xl rating-star" onclick="setRate(3)"></i><i class="fas fa-star text-3xl rating-star" onclick="setRate(4)"></i><i class="fas fa-star text-3xl rating-star" onclick="setRate(5)"></i>
+                    </div>
+                </div>
+                <textarea id="reviewText" placeholder="Hãy để lại lời nhắn về Shipper hoặc giá cả nhé..." class="w-full h-32 p-6 bg-slate-50 rounded-3xl outline-none font-bold text-sm italic mb-6 focus:ring-2 ring-emerald-500"></textarea>
+                <button onclick="sendReview()" class="w-full bg-slate-900 text-white py-5 rounded-2xl font-black uppercase italic shadow-xl">Đăng nhận xét</button>
+                <div id="reviewContainer" class="mt-12 space-y-4">
+                    <div class="bg-slate-50 p-5 rounded-2xl border-l-4 border-emerald-500 shadow-sm">
+                        <div class="flex justify-between items-center mb-2"><span class="font-black text-xs uppercase italic italic">Admin Hub</span><div class="text-amber-400 text-[10px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                        <p class="text-xs text-slate-500 italic">"Chào mừng bạn đến với Home-Clean Hub! Hãy chia sẻ trải nghiệm của bạn tại đây."</p>
+                    </div>
+                </div>
             </div>
-            <textarea id="reviewText" placeholder="Phản hồi về dịch vụ..." class="w-full p-4 bg-slate-50 rounded-2xl italic text-xs font-bold outline-none mb-4 h-24"></textarea>
-            <button onclick="sendReview()" class="w-full bg-slate-900 text-white py-4 rounded-xl font-black uppercase text-xs italic">Đăng đánh giá</button>
-            <div id="reviewContainer" class="mt-8 space-y-4"></div>
         </div>
     </main>
 
-    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t z-50 shadow-2xl md:hidden">
-        <div class="mobile-nav flex justify-between items-center px-4 py-3 gap-6">
-            <button onclick="showTab('home')" class="nav-item text-slate-400 active flex flex-col items-center min-w-[50px]" id="btn-home"><i class="fas fa-home text-lg"></i><span class="text-[8px] font-black uppercase mt-1 italic">Home</span></button>
-            <button onclick="showTab('pricing')" class="nav-item text-slate-400 flex flex-col items-center min-w-[50px]" id="btn-pricing"><i class="fas fa-tags text-lg"></i><span class="text-[8px] font-black uppercase mt-1 italic">Giá</span></button>
-            <button onclick="showTab('tracking')" class="nav-item text-slate-400 flex flex-col items-center min-w-[50px]" id="btn-tracking"><i class="fas fa-truck-fast text-lg"></i><span class="text-[8px] font-black uppercase mt-1 italic">Đơn</span></button>
-            <button onclick="showTab('charity')" class="nav-item text-slate-400 flex flex-col items-center min-w-[50px]" id="btn-charity"><i class="fas fa-hand-holding-heart text-lg"></i><span class="text-[8px] font-black uppercase mt-1 italic">Từ thiện</span></button>
-            <button onclick="showTab('rewards')" class="nav-item text-slate-400 flex flex-col items-center min-w-[50px]" id="btn-rewards"><i class="fas fa-gift text-lg"></i><span class="text-[8px] font-black uppercase mt-1 italic">Quà</span></button>
-            <button onclick="showTab('review-page')" class="nav-item text-slate-400 flex flex-col items-center min-w-[50px]" id="btn-review-page"><i class="fas fa-comment text-lg"></i><span class="text-[8px] font-black uppercase mt-1 italic">Góp ý</span></button>
-        </div>
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t flex justify-around py-4 md:hidden z-50 shadow-2xl">
+        <button onclick="showTab('home')" class="flex flex-col items-center text-slate-400 nav-item active" id="btn-home"><i class="fas fa-home"></i><span class="text-[8px] font-black uppercase mt-1 italic italic">Home</span></button>
+        <button onclick="showTab('pricing')" class="flex flex-col items-center text-slate-400 nav-item" id="btn-pricing"><i class="fas fa-tags"></i><span class="text-[8px] font-black uppercase mt-1 italic italic">Giá</span></button>
+        <button onclick="showTab('tracking')" class="flex flex-col items-center text-slate-400 nav-item" id="btn-tracking"><i class="fas fa-truck"></i><span class="text-[8px] font-black uppercase mt-1 italic italic">Đơn</span></button>
+        <button onclick="showTab('rewards')" class="flex flex-col items-center text-slate-400 nav-item" id="btn-rewards"><i class="fas fa-gift"></i><span class="text-[8px] font-black uppercase mt-1 italic italic">Quà</span></button>
+        <button onclick="showTab('review-page')" class="flex flex-col items-center text-slate-400 nav-item" id="btn-review-page"><i class="fas fa-comment"></i><span class="text-[8px] font-black uppercase mt-1 italic italic">Feedback</span></button>
     </nav>
 
     <script>
-        let userPoints = 1250;
         let userRating = 0;
-        let currentOrder = null;
-        let reviews = [{ name: "An Bình", rate: 5, text: "Xử lý rác điện tử rất chuyên nghiệp!" }];
-
         function showTab(id) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            const btn = document.getElementById('btn-'+id);
-            if(btn) {
-                btn.classList.add('active');
-                btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-            }
-            window.scrollTo({top: 0, behavior:'smooth'});
+            if(document.getElementById('btn-'+id)) document.getElementById('btn-'+id).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        function createOrder() {
-            const name = document.getElementById('userName').value;
-            const phone = document.getElementById('userPhone').value;
-            const area = document.getElementById('userArea').value;
-            if(!name || !phone || !area) {
-                Swal.fire('Lỗi', 'Vui lòng nhập đầy đủ Tên, SĐT và Quận!', 'error');
-                return;
-            }
-            const orderID = "HCH-" + Math.floor(100000 + Math.random() * 900000);
-            currentOrder = { id: orderID, name: name, phone: phone, area: area, time: new Date().toLocaleString('vi-VN') };
-            Swal.fire({
-                title: 'Đã nhận lịch!',
-                html: `Chào <b>${name}</b>, mã đơn của bạn là: <br><b class="text-2xl text-emerald-600">${orderID}</b><br>Shipper sẽ gọi đến số <b>${phone}</b> để xác nhận.`,
-                icon: 'success'
-            });
-        }
-
-        function redeemReward(points, giftName) {
-            if(userPoints < points) {
-                Swal.fire('Opps!', 'Bạn không đủ điểm rồi, tích cực gom rác thêm nhé!', 'warning');
-                return;
-            }
-            userPoints -= points;
-            document.getElementById('userPoints').innerText = userPoints;
-            Swal.fire('Thành công!', `Bạn đã đổi thành công ${giftName}. Mã quà tặng đã gửi vào SĐT của bạn.`, 'success');
-        }
-
-        function searchOrder() {
-            const input = document.getElementById('searchInput').value;
-            const res = document.getElementById('orderStatusResult');
-            const content = document.getElementById('trackingContent');
-            if(currentOrder && input === currentOrder.id) {
-                res.classList.remove('hidden');
-                content.innerHTML = `
-                    <div class="mb-4 pb-4 border-b">
-                        <p class="text-[10px] font-black text-slate-400 uppercase italic italic">Hành trình đơn: ${currentOrder.id}</p>
-                        <p class="text-sm font-black text-emerald-600 uppercase italic italic">Shipper đang lấy hàng</p>
-                    </div>
-                    <div class="space-y-4 text-xs font-bold">
-                        <p class="text-emerald-600 italic">● Đã xác nhận: ${currentOrder.time}</p>
-                        <p class="text-blue-500 italic">● Tài xế đang đến: Khu vực ${currentOrder.area}</p>
-                    </div>`;
-            } else {
-                Swal.fire('Lỗi', 'Không tìm thấy mã đơn!', 'error');
+        function handlePreview(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = document.getElementById('preview');
+                    img.src = e.target.result; img.classList.remove('hidden');
+                }
+                reader.readAsDataURL(input.files[0]);
             }
         }
 
         function setRate(n) {
             userRating = n;
-            document.querySelectorAll('.rating-star').forEach((s, i) => s.classList.toggle('active', i < n));
+            const stars = document.querySelectorAll('#stars i');
+            stars.forEach((s, idx) => s.classList.toggle('active', idx < n));
         }
 
-        function renderReviews() {
-            const container = document.getElementById('reviewContainer');
-            container.innerHTML = reviews.map(r => `
-                <div class="bg-slate-50 p-4 rounded-2xl border-l-4 border-emerald-500 shadow-sm">
-                    <div class="flex justify-between items-center mb-1"><span class="font-black text-[9px] uppercase italic italic">${r.name}</span>
-                    <div class="text-amber-400 text-[8px] italic">${'★'.repeat(r.rate)}</div></div>
-                    <p class="text-[11px] text-slate-500 italic">"${r.text}"</p>
-                </div>`).join('');
+        function createOrder() {
+            const name = document.getElementById('userName').value;
+            const date = document.getElementById('pickDate').value;
+            if(!name || !date) return Swal.fire('Thiếu thông tin', 'Vui lòng nhập tên và ngày!', 'error');
+            Swal.fire('Thành công!', `Shipper sẽ liên hệ bạn vào ngày ${date}. Đơn hàng đã được đồng bộ lên Hub.`, 'success');
         }
 
         function sendReview() {
             const text = document.getElementById('reviewText').value;
-            if(!text || userRating === 0) return Swal.fire('Thiếu thông tin', 'Cho mình xin số sao và lời nhắn nhé!', 'warning');
-            reviews.unshift({ name: "Khách hàng mới", rate: userRating, text: text });
-            renderReviews();
-            document.getElementById('reviewText').value = "";
-            Swal.fire('Tuyệt vời!', 'Cảm ơn bạn đã góp ý.', 'success');
+            const name = document.getElementById('userName').value || "Khách hàng ẩn danh";
+            if(userRating === 0 || !text) return Swal.fire('Lưu ý', 'Vui lòng chọn sao và viết nhận xét!', 'warning');
+            const container = document.getElementById('reviewContainer');
+            const newReview = document.createElement('div');
+            newReview.className = "bg-white p-5 rounded-2xl border border-slate-100 shadow-sm animate-fadeIn";
+            newReview.innerHTML = `<div class="flex justify-between items-center mb-2"><span class="font-black text-xs uppercase text-emerald-600 italic italic">${name}</span></div><p class="text-xs text-slate-500 italic">"${text}"</p>`;
+            container.prepend(newReview);
+            document.getElementById('reviewText').value = ""; setRate(0);
+            Swal.fire('Cảm ơn!', 'Đánh giá của bạn đã được đăng công khai.', 'success');
         }
 
-        renderReviews();
+        function redeemGift() {
+            Swal.fire('Thông báo', 'Bạn đã đổi quà thành công! Voucher sẽ được gửi vào mục Quà tặng.', 'success');
+        }
     </script>
 </body>
 </html>
