@@ -89,7 +89,7 @@
                             <label class="text-[10px] font-black text-slate-400 uppercase ml-2">Khu vực TP.HCM</label>
                             <select id="userArea" class="w-full p-4 bg-slate-50 rounded-2xl border-2 border-transparent focus:border-emerald-500 outline-none font-bold">
                                 <option value="">Chọn Quận/Huyện</option>
-                                <option>Quận 1</option><option>Quận 3</option><option>Quận 7</option><option>Bình Thạnh</option><option>Thủ Đức</option>
+                                <option>Quận 1</option><option>Quận 3</option><option>Quận 7</option><option>Bình Thạnh</option><option>Quận 4</option><option>Thủ Đức</option>
                             </select>
                         </div>
                         <div class="space-y-2">
@@ -265,7 +265,7 @@
 
             <div class="grid md:grid-cols-2 gap-10">
                 <div class="bg-white rounded-[3rem] overflow-hidden border card-hover">
-                    <div class="h-64 bg-[url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=800&q=80')] bg-cover"></div>
+                    <div class="h-64 bg-[url('"D:\Duan_HomeCleanHub\thiện nguyện.jpg")] bg-cover"></div>
                     <div class="p-10">
                         <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-[10px] font-black uppercase italic">Chiến dịch trọng điểm</span>
                         <h4 class="text-2xl font-black mt-4 italic uppercase">Tủ sách cho em vùng cao</h4>
@@ -278,7 +278,7 @@
                 </div>
 
                 <div class="bg-white rounded-[3rem] overflow-hidden border card-hover">
-                    <div class="h-64 bg-[url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80')] bg-cover"></div>
+                    <div class="h-64 bg-[url('"D:\Duan_HomeCleanHub\tặng cơm.png"')] bg-cover"></div>
                     <div class="p-10">
                         <span class="bg-emerald-100 text-emerald-600 px-4 py-1 rounded-full text-[10px] font-black uppercase italic">Hành động cộng đồng</span>
                         <h4 class="text-2xl font-black mt-4 italic uppercase">Đổi rác nhựa lấy bữa cơm sạch</h4>
@@ -580,26 +580,34 @@ function submitReview() {
 
 // Gọi mặc định để hiển thị 5 sao khi mới vào
 setRating(5);
-        function showMoreMenu() {
+       function showMoreMenu() {
     Swal.fire({
-        title: '<div class="text-xs font-black uppercase italic tracking-widest text-slate-400 mb-2">Danh mục mở rộng</div>',
+        title: '<div class="text-[10px] font-black uppercase italic tracking-[0.2em] text-slate-400 mb-2">Danh mục hệ thống</div>',
         html: `
             <div class="grid grid-cols-2 gap-3 p-1">
-                <button onclick="showTab('pricing'); Swal.close()" class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
-                    <i class="fas fa-tags text-2xl text-emerald-600 mb-2"></i>
-                    <span class="text-[10px] font-black uppercase italic">Bảng giá</span>
+                <button onclick="showTab('pricing'); Swal.close()" class="flex flex-col items-center justify-center p-5 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
+                    <i class="fas fa-tags text-xl text-emerald-600 mb-2"></i>
+                    <span class="text-[9px] font-black uppercase italic">Bảng giá</span>
                 </button>
-                <button onclick="showTab('hubs'); Swal.close()" class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
-                    <i class="fas fa-map-marked-alt text-2xl text-emerald-600 mb-2"></i>
-                    <span class="text-[10px] font-black uppercase italic">Hệ thống kho</span>
+                
+                <button onclick="showTab('hubs'); Swal.close()" class="flex flex-col items-center justify-center p-5 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
+                    <i class="fas fa-map-marked-alt text-xl text-emerald-600 mb-2"></i>
+                    <span class="text-[9px] font-black uppercase italic">Hệ thống kho</span>
                 </button>
-                <button onclick="showTab('reviews'); Swal.close()" class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
-                    <i class="fas fa-comment-dots text-2xl text-emerald-600 mb-2"></i>
-                    <span class="text-[10px] font-black uppercase italic">Đánh giá</span>
+
+                <button onclick="showTab('charity'); Swal.close()" class="flex flex-col items-center justify-center p-5 bg-emerald-50 rounded-[2rem] border-2 border-emerald-100 active:border-emerald-500 transition-all">
+                    <i class="fas fa-hand-holding-heart text-xl text-emerald-600 mb-2"></i>
+                    <span class="text-[9px] font-black uppercase italic">Từ thiện</span>
                 </button>
-                <button onclick="showTab('contact'); Swal.close()" class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
-                    <i class="fas fa-phone-volume text-2xl text-emerald-600 mb-2"></i>
-                    <span class="text-[10px] font-black uppercase italic">Liên hệ</span>
+
+                <button onclick="showTab('reviews'); Swal.close()" class="flex flex-col items-center justify-center p-5 bg-slate-50 rounded-[2rem] border-2 border-transparent active:border-emerald-500 transition-all">
+                    <i class="fas fa-comment-dots text-xl text-emerald-600 mb-2"></i>
+                    <span class="text-[9px] font-black uppercase italic">Đánh giá</span>
+                </button>
+
+                <button onclick="showTab('contact'); Swal.close()" class="col-span-2 flex items-center justify-center gap-4 p-5 bg-slate-900 text-white rounded-[2rem] active:scale-95 transition-all shadow-lg shadow-slate-200">
+                    <i class="fas fa-phone-volume text-lg text-emerald-400"></i>
+                    <span class="text-[10px] font-black uppercase italic">Liên hệ tư vấn 24/7</span>
                 </button>
             </div>
         `,
@@ -609,13 +617,12 @@ setRating(5);
         background: '#ffffff',
         customClass: {
             popup: 'rounded-t-[3rem] shadow-2xl border-t border-slate-100',
-            container: 'swal-mobile-bottom'
         },
         showClass: { popup: 'animate__animated animate__slideInUp animate__faster' },
         hideClass: { popup: 'animate__animated animate__slideOutDown animate__faster' }
     });
 }
-        // INIT
+         // INIT
         updateUI();
         showTab('home');
         
